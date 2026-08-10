@@ -69,7 +69,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .footer-logo{width:72px;height:72px;object-fit:contain;display:block;margin-bottom:8px}
 
 .hero-team-photo{
-  background-image:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.68) 38%,rgba(0,0,0,.30) 100%),url('../images/squadra-home.jpeg');
+  background-image:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.68) 38%,rgba(0,0,0,.30) 100%),url('squadra-home.jpeg');
   background-size:cover;
   background-position:center;
 }
