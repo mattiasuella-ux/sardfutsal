@@ -287,4 +287,172 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     height: 300px;
   }
 }
+/* =========================
+   LA SOCIETÀ
+========================= */
 
+.society-section {
+  background: #0b0b0b;
+}
+
+.society-intro {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 70px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.society-year {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.society-text h3 {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: .95;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.society-text h3 span {
+  color: var(--orange);
+}
+
+.society-text > p:not(.society-year) {
+  max-width: 650px;
+  color: #999;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.society-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 330px;
+}
+
+.society-badge {
+  width: 280px;
+  height: 280px;
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.society-badge::before {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(255, 90, 0, .35);
+  border-radius: 50%;
+}
+
+.society-badge span {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  z-index: 2;
+}
+
+.society-badge strong {
+  font-size: 38px;
+  line-height: .9;
+  margin-top: 12px;
+  z-index: 2;
+}
+
+.society-block {
+  margin-top: 80px;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.staff-card {
+  min-height: 150px;
+  padding: 25px;
+  background: linear-gradient(145deg, #181818, #0e0e0e);
+  border: 1px solid #292929;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: .25s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+}
+
+.staff-role {
+  color: var(--orange);
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.staff-card h3 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.staff-coach {
+  border-left: 3px solid var(--orange);
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+
+  .society-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .society-visual {
+    min-height: 250px;
+  }
+
+  .staff-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* Smartphone */
+
+@media (max-width: 550px) {
+
+  .staff-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .society-badge {
+    width: 230px;
+    height: 230px;
+  }
+
+  .society-badge::before {
+    width: 190px;
+    height: 190px;
+  }
+
+}
