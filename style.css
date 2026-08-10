@@ -80,6 +80,10 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
    ROSA SARD FUTSAL
 ========================= */
 
+/* =========================
+   ROSA SARD FUTSAL
+========================= */
+
 .roster-group {
   margin-top: 40px;
 }
@@ -105,27 +109,35 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   letter-spacing: .5px;
 }
 
+/* =========================
+   GRIGLIA
+========================= */
+
 .player-grid-real {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 
-.real-player {
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 24px;
-  background:
-    linear-gradient(145deg, #1b1b1b, #0b0b0b);
-  border: 1px solid #292929;
+/* =========================
+   CARD GIOCATORE
+========================= */
+
+.player-card.real-player {
   position: relative;
   overflow: hidden;
-  transition: .25s ease;
+  padding: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #1b1b1b, #0b0b0b);
+  border: 1px solid #292929;
+  transition: transform .25s ease, border-color .25s ease;
 }
 
-.real-player::after {
+/* Decorazione arancione */
+
+.player-card.real-player::after {
   content: "";
   position: absolute;
   width: 150px;
@@ -134,138 +146,83 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   border-radius: 50%;
   right: -70px;
   top: -70px;
+  pointer-events: none;
 }
 
-.real-player:hover {
-  transform: translateY(-5px);
-  border-color: var(--orange);
-}
-
-.real-player .player-number {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 58px;
-  line-height: 1;
-  color: var(--orange);
-  font-weight: 800;
-}
-
-.real-player h3 {
-  margin-top: 25px;
-  font-size: 28px;
-  line-height: 1;
-  position: relative;
-  z-index: 2;
-}
-
-.real-player p {
-  margin-top: 6px;
-  font-size: 11px;
-  color: #777 !important;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  z-index: 2;
-}
-
-.movement-group {
-  margin-top: 60px;
-}
-
-/* Tablet */
-@media (max-width: 850px) {
-  .player-grid-real {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Smartphone */
-@media (max-width: 520px) {
-  .player-grid-real {
-    grid-template-columns: 1fr;
-  }
-
-  .real-player {
-    min-height: 160px;
-  }
-}
-.player-card.real-player img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  background: #111;
-}
 /* =========================
-   SCHEDE ROSA SARD FUTSAL
+   FOTO
 ========================= */
 
-.player-card.real-player {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-}
-
-/* Tutte le foto stessa misura */
 .player-card.real-player img {
   width: 100%;
-  height: 230px;
+  height: 360px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
+  background: #111;
+  transition: transform .35s ease;
 }
 
-/* Area con numero, nome e ruolo */
-.player-card.real-player > .player-number,
-.player-card.real-player > div:not(.player-number) {
-  position: relative;
-  z-index: 2;
-}
+/* =========================
+   NUMERO
+========================= */
 
 .player-card.real-player .player-number {
+  position: relative;
+  z-index: 2;
   margin: 18px 20px 0;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 46px;
   line-height: 1;
   font-weight: 900;
   color: var(--orange);
 }
 
+/* =========================
+   NOME E RUOLO
+========================= */
+
 .player-card.real-player > div:last-child {
+  position: relative;
+  z-index: 2;
   padding: 0 20px 20px;
 }
 
 .player-card.real-player h3 {
   margin: 7px 0 4px;
   font-size: 25px;
+  line-height: 1;
 }
 
 .player-card.real-player p {
   margin: 0;
-  color: #999;
+  color: #999 !important;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
-/* Effetto al passaggio del mouse */
-.player-card.real-player {
-  transition: transform .25s ease, border-color .25s ease;
-}
+/* =========================
+   HOVER
+========================= */
 
 .player-card.real-player:hover {
   transform: translateY(-5px);
   border-color: var(--orange);
 }
 
-.player-card.real-player img {
-  transition: transform .35s ease;
-}
-
 .player-card.real-player:hover img {
   transform: scale(1.03);
 }
 
-/* Titolo Giocatori di movimento */
+/* =========================
+   GIOCATORI DI MOVIMENTO
+========================= */
+
+.movement-group {
+  margin-top: 60px;
+}
+
 .roster-subtitle {
   grid-column: 1 / -1;
   margin: 35px 0 5px;
@@ -274,17 +231,33 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   text-transform: uppercase;
 }
 
-/* Tablet */
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 900px) {
+
+  .player-grid-real {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .player-card.real-player img {
-    height: 220px;
+    height: 320px;
   }
 }
 
-/* Smartphone */
-@media (max-width: 600px) {
+/* =========================
+   SMARTPHONE
+========================= */
+
+@media (max-width: 520px) {
+
+  .player-grid-real {
+    grid-template-columns: 1fr;
+  }
+
   .player-card.real-player img {
-    height: 300px;
+    height: 360px;
   }
 }
 /* =========================
