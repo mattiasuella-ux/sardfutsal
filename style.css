@@ -427,3 +427,79 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================
+   PRESIDENTE - DIRIGENZA
+========================= */
+
+.president-card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 40px;
+  background: linear-gradient(145deg, #1c1c1c, #0b0b0b);
+  border: 1px solid var(--orange);
+}
+
+.president-card::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 35px solid rgba(255, 90, 0, .08);
+  border-radius: 50%;
+  right: -90px;
+  top: -90px;
+}
+
+.president-card .staff-role {
+  position: relative;
+  z-index: 2;
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.president-card h3 {
+  position: relative;
+  z-index: 2;
+  margin-top: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.president-card p {
+  position: relative;
+  z-index: 2;
+  margin-top: 12px;
+  color: #999;
+  font-size: 15px;
+}
+
+/* Dirigenza */
+
+.staff-card {
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+
+  .president-card {
+    padding: 30px;
+  }
+
+  .president-card h3 {
+    font-size: 38px;
+  }
+
+}
