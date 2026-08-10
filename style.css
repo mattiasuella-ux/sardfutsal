@@ -503,3 +503,127 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================
+   VALORI SARD FUTSAL
+========================= */
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 60px;
+}
+
+.value-card {
+  position: relative;
+  padding: 30px 26px;
+  background: linear-gradient(145deg, #191919, #0b0b0b);
+  border: 1px solid #292929;
+  overflow: hidden;
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.value-card::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border: 25px solid rgba(255, 90, 0, .08);
+  border-radius: 50%;
+  right: -65px;
+  top: -65px;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--orange);
+}
+
+.value-card span {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  color: var(--orange);
+  margin-bottom: 35px;
+}
+
+.value-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 12px;
+  font-size: 27px;
+  color: #fff;
+}
+
+.value-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: #999;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Frase finale */
+
+.identity-quote {
+  margin-top: 70px;
+  padding: 45px 30px;
+  border-top: 1px solid #292929;
+  border-bottom: 1px solid #292929;
+  text-align: center;
+}
+
+.identity-quote span {
+  display: block;
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 5px;
+  margin-bottom: 8px;
+}
+
+.identity-quote strong {
+  display: block;
+  color: var(--orange);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+}
+
+/* Smartphone */
+
+@media (max-width: 700px) {
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 45px;
+  }
+
+  .value-card {
+    padding: 26px 24px;
+  }
+
+  .value-card span {
+    margin-bottom: 22px;
+  }
+
+  .value-card h3 {
+    font-size: 25px;
+  }
+
+  .value-card p {
+    font-size: 16px;
+  }
+
+  .identity-quote {
+    margin-top: 50px;
+    padding: 35px 20px;
+  }
+
+  .identity-quote strong {
+    font-size: 34px;
+  }
+
+}
+
