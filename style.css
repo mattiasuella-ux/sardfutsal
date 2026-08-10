@@ -76,3 +76,116 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .hero-team-photo .hero-overlay{
   background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(0,0,0,.05));
 }
+/* =========================
+   ROSA SARD FUTSAL
+========================= */
+
+.roster-group {
+  margin-top: 40px;
+}
+
+.roster-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.roster-title > span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  padding: 4px 9px;
+}
+
+.roster-title h3 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.player-grid-real {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.real-player {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background:
+    linear-gradient(145deg, #1b1b1b, #0b0b0b);
+  border: 1px solid #292929;
+  position: relative;
+  overflow: hidden;
+  transition: .25s ease;
+}
+
+.real-player::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 30px solid rgba(255, 90, 0, .08);
+  border-radius: 50%;
+  right: -70px;
+  top: -70px;
+}
+
+.real-player:hover {
+  transform: translateY(-5px);
+  border-color: var(--orange);
+}
+
+.real-player .player-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 58px;
+  line-height: 1;
+  color: var(--orange);
+  font-weight: 800;
+}
+
+.real-player h3 {
+  margin-top: 25px;
+  font-size: 28px;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.real-player p {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #777 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.movement-group {
+  margin-top: 60px;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .player-grid-real {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Smartphone */
+@media (max-width: 520px) {
+  .player-grid-real {
+    grid-template-columns: 1fr;
+  }
+
+  .real-player {
+    min-height: 160px;
+  }
+}
+
