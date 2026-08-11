@@ -1700,9 +1700,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
-
-
-/* =========================================
+  /* =========================================
    DIVENTA PARTNER - TABLET
 ========================================= */
 
@@ -1731,7 +1729,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 
 /* =========================================
-   DIVENTA PARTNER - IPHONE
+   DIVENTA PARTNER - SMARTPHONE
 ========================================= */
 
 @media (max-width: 600px) {
@@ -1775,45 +1773,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     padding: 14px 20px !important;
   }
 
-  .sponsor-benefits {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    margin-top: 45px !important;
-  }
 
-  .sponsor-benefit {
-    width: 100% !important;
-    min-height: 155px !important;
-    padding: 22px !important;
-  }
-
-  .sponsor-benefit h3 {
-    font-size: 27px !important;
-  }
-
-  .sponsor-benefit p {
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-  }
-
-  .sponsor-bottom {
-    display: block !important;
-    margin-top: 35px !important;
-  }
-
-  .sponsor-bottom span {
-    display: block !important;
-    font-size: 8px !important;
-    letter-spacing: 2px !important;
-  }
-
-  .sponsor-bottom strong {
-    display: block !important;
-    margin-top: 10px !important;
-    font-size: 18px !important;
-  }
-@media only screen and (max-width: 600px) {
+  /* CARD */
 
   .sponsor-benefits {
     display: flex !important;
@@ -1860,5 +1821,26 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     line-height: 1.5 !important;
   }
 
+
+  /* FINALE */
+
+  .sponsor-bottom {
+    display: block !important;
+    margin-top: 35px !important;
+  }
+
+  .sponsor-bottom span {
+    display: block !important;
+    font-size: 8px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .sponsor-bottom strong {
+    display: block !important;
+    margin-top: 10px !important;
+    font-size: 18px !important;
+  }
+
 }
-}
+
+
