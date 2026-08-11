@@ -1717,6 +1717,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .sponsor-bottom strong {
     font-size: 19px;
   }
+  }
+  
 /* =========================================
    FOOTER
 ========================================= */
@@ -1836,7 +1838,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     margin-top: 10px;
   }
 
-}
 
 
 }
