@@ -1011,7 +1011,133 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     line-height: 1;
     margin: 0;
   }
+/* =========================================
+   RISULTATI & CALENDARIO
+========================================= */
 
+.results-section {
+  background: var(--black);
+}
+
+.season-status {
+  margin-top: 35px;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: linear-gradient(145deg, #191919, #0b0b0b);
+  border: 1px solid #292929;
+  position: relative;
+  overflow: hidden;
+}
+
+.season-status::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 35px solid rgba(255, 90, 0, .07);
+  border-radius: 50%;
+  right: -100px;
+  top: -100px;
+}
+
+.season-status-icon {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+}
+
+.season-status-content {
+  position: relative;
+  z-index: 2;
+}
+
+.status-label {
+  color: var(--orange) !important;
+  font-size: 10px !important;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.season-status-content h3 {
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.season-status-content p:last-child {
+  color: #999;
+  max-width: 650px;
+  font-size: 14px;
+}
+
+/* Tabella */
+
+.results-table {
+  margin-top: 30px;
+}
+
+.table-row {
+  min-height: 65px;
+  align-items: center;
+}
+
+.table-row:not(.table-head):hover {
+  background: #111;
+}
+
+@media (max-width: 850px) {
+
+  .season-status {
+    padding: 25px;
+    gap: 20px;
+  }
+
+  .season-status-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+
+  .season-status-content h3 {
+    font-size: 28px;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .season-status {
+    padding: 22px;
+    align-items: flex-start;
+  }
+
+  .season-status-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .season-status-content h3 {
+    font-size: 24px;
+  }
+
+  .season-status-content p:last-child {
+    font-size: 13px;
+  }
+
+}
 }
 
 
