@@ -861,3 +861,48 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     padding-bottom: 45px;
   }
 }
+/* =========================================
+   CORREZIONE SOCIETÀ - SOLO DESKTOP
+========================================= */
+
+@media (min-width: 901px) {
+
+  /* Mantiene tutta la sezione allineata al container */
+  .society-section .container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  /* Spaziatura corretta tra Dirigenza e Staff */
+  .society-section .society-block {
+    margin-top: 55px;
+  }
+
+  /* STAFF TECNICO */
+  .society-section .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .society-section .staff-card {
+    width: 100%;
+    min-height: 150px;
+    box-sizing: border-box;
+    padding: 25px;
+  }
+
+  /* Evita che le card vengano spinte fuori dal container */
+  .society-section .staff-card:first-child,
+  .society-section .staff-card:nth-child(2) {
+    margin: 0;
+  }
+
+  /* Spazio più equilibrato prima della sezione risultati */
+  #risultati {
+    padding-top: 70px;
+  }
+
+}
