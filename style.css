@@ -870,13 +870,13 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     width: 100%;
     margin-top: 25px;
   }
-
-  .society-section .staff-card {
-    width: 100%;
-    min-height: 150px;
-    box-sizing: border-box;
-    padding: 25px;
-  }
+.society-section .staff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  width: 80%;
+  margin: 25px auto 0;
+}
 
   /* Evita che le card vengano spinte fuori dal container */
   .society-section .staff-card:first-child,
