@@ -1366,7 +1366,11 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     height: auto;
     object-fit: contain;
   }
+@media (max-width: 520px) {
 
-}
+  .society-badge {
+    width: 210px;
+    height: 210px;
+  }
 }
 
