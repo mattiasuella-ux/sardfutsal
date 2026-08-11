@@ -1765,5 +1765,19 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     margin-top: 10px !important;
     font-size: 18px !important;
   }
+.footer-social {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
 
+.footer-social i {
+  width: 20px;
+  font-size: 19px;
+  color: var(--orange);
+}
+
+.footer-social:hover i {
+  color: #fff;
+}
 }
