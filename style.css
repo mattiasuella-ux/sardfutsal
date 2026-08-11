@@ -82,8 +82,8 @@ h2{font-size:clamp(48px,6vw,76px);line-height:.92;margin-bottom:25px}
 }
 
 .news-card {
-  background: linear-gradient(145deg, #181818, #0c0c0c);
-  border: 1px solid #292929;
+  background: #0b0b0b;
+  border: 1px solid #252525;
   overflow: hidden;
   transition: transform .25s ease, border-color .25s ease;
 }
@@ -97,8 +97,8 @@ h2{font-size:clamp(48px,6vw,76px);line-height:.92;margin-bottom:25px}
   height: 190px;
   display: grid;
   place-items: center;
-  background:
-    linear-gradient(135deg, #222, var(--orange));
+  background: #050505;
+  color: #fff;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 38px;
   font-weight: 800;
