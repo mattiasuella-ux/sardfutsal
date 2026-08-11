@@ -1372,5 +1372,182 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     width: 210px;
     height: 210px;
   }
+  /* =========================================
+   DIVENTA PARTNER
+========================================= */
+
+.sponsor-section {
+  background: linear-gradient(110deg, var(--orange), #a83200);
+  color: #fff;
+}
+
+.sponsor-intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 60px;
+}
+
+.sponsor-intro h2 {
+  margin-bottom: 25px;
+}
+
+.sponsor-intro h2 span {
+  color: #111;
+}
+
+.sponsor-description {
+  max-width: 650px;
+  color: rgba(255,255,255,.9) !important;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.sponsor-cta {
+  padding-bottom: 5px;
+}
+
+.sponsor-cta .btn {
+  background: #111;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sponsor-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 60px;
+}
+
+.sponsor-benefit {
+  position: relative;
+  padding: 30px 26px;
+  min-height: 190px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.22);
+  transition: transform .25s ease, background .25s ease;
+}
+
+.sponsor-benefit:hover {
+  transform: translateY(-5px);
+  background: rgba(0,0,0,.28);
+}
+
+.sponsor-benefit > span {
+  display: block;
+  color: #111;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.sponsor-benefit h3 {
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.sponsor-benefit p {
+  color: rgba(255,255,255,.85) !important;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sponsor-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+.sponsor-bottom span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.sponsor-bottom strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #111;
+}
+
+/* =========================================
+   SPONSOR MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+
+  .sponsor-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .sponsor-cta {
+    padding-bottom: 0;
+  }
+
+  .sponsor-benefits {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+
+  .sponsor-benefit {
+    min-height: auto;
+  }
+
+  .sponsor-bottom {
+    display: block;
+  }
+
+  .sponsor-bottom strong {
+    display: block;
+    margin-top: 12px;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .sponsor-section {
+    padding: 75px 0;
+  }
+
+  .sponsor-intro h2 {
+    font-size: 48px;
+  }
+
+  .sponsor-description {
+    font-size: 14px;
+  }
+
+  .sponsor-benefits {
+    gap: 12px;
+  }
+
+  .sponsor-benefit {
+    padding: 24px 20px;
+  }
+
+  .sponsor-benefit h3 {
+    font-size: 27px;
+  }
+
+  .sponsor-bottom span {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .sponsor-bottom strong {
+    font-size: 19px;
+  }
+
 }
 
