@@ -1840,14 +1840,14 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
    DIVENTA PARTNER - NUOVO LAYOUT
 ========================================= */
 
+/* =========================================
+   DIVENTA PARTNER
+========================================= */
+
 .sponsor-section {
-  background: linear-gradient(
-    110deg,
-    #ff5a00 0%,
-    #e74700 55%,
-    #c93600 100%
-  );
+  background: linear-gradient(110deg, #ff5a00, #a83200);
   color: #fff;
+  padding: 90px 0;
 }
 
 .sponsor-section .container {
@@ -1861,7 +1861,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .sponsor-header {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
+  gap: 70px;
   align-items: end;
 }
 
@@ -1873,59 +1873,59 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 .sponsor-header h2 span {
-  color: #111 !important;
+  color: #111;
 }
 
 .sponsor-header-text {
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .sponsor-header-text p {
   margin: 0 0 25px;
-  color: rgba(255,255,255,.9) !important;
+  color: #fff !important;
   font-size: 15px;
   line-height: 1.7;
 }
 
 .sponsor-header-text .btn {
-  background: #111 !important;
-  color: #fff !important;
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 15px 24px;
 }
 
 
 /* TRE CARD */
 
 .sponsor-benefits {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 18px !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
   width: 100%;
   margin-top: 65px;
 }
 
 .sponsor-benefit {
-  min-height: 230px;
-  padding: 28px !important;
+  min-height: 220px;
+  padding: 30px;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.30);
 
-  transition:
-    transform .25s ease,
-    background .25s ease;
+  transition: transform .25s ease;
 }
 
 .sponsor-benefit:hover {
-  transform: translateY(-6px);
-  background: rgba(0,0,0,.28);
+  transform: translateY(-5px);
 }
 
 .benefit-number {
   color: #111;
-  font-family: 'Barlow Condensed', sans-serif;
   font-size: 18px;
   font-weight: 800;
 }
@@ -1933,8 +1933,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .sponsor-benefit h3 {
   margin: 0 0 12px;
   color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 34px;
+  font-size: 32px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -1947,17 +1946,17 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 
-/* BOTTOM */
+/* PARTE FINALE */
 
 .sponsor-bottom {
-  display: flex !important;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
   margin-top: 45px;
   padding-top: 22px;
 
-  border-top: 1px solid rgba(255,255,255,.25);
+  border-top: 1px solid rgba(255,255,255,.30);
 }
 
 .sponsor-bottom span {
@@ -1968,8 +1967,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 .sponsor-bottom strong {
-  color: #111 !important;
-  font-family: 'Barlow Condensed', sans-serif;
+  color: #111;
   font-size: 22px;
 }
 
@@ -1990,7 +1988,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
   .sponsor-benefits {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   .sponsor-benefit {
@@ -1998,7 +1996,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
   .sponsor-bottom {
-    display: block !important;
+    display: block;
   }
 
   .sponsor-bottom strong {
@@ -2034,12 +2032,12 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
   .sponsor-benefits {
     margin-top: 40px;
-    gap: 12px !important;
+    gap: 12px;
   }
 
   .sponsor-benefit {
     min-height: 170px;
-    padding: 24px !important;
+    padding: 24px;
   }
 
   .sponsor-benefit h3 {
@@ -2058,6 +2056,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .sponsor-bottom strong {
     font-size: 19px;
   }
+
+}
 
 }
 
