@@ -72,6 +72,18 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 .brand-logo{width:46px;height:46px;object-fit:contain;display:block}
 .hero-logo{width:min(180px,35vw);height:auto;object-fit:contain;margin-bottom:18px}
+.hero-logo{
+  width:min(180px,35vw);
+  height:auto;
+  object-fit:contain;
+  margin-bottom:18px;
+}
+
+@media (max-width: 520px) {
+  .hero-logo {
+    display: none !important;
+  }
+}
 .footer-logo{width:72px;height:72px;object-fit:contain;display:block;margin-bottom:8px}
 
 .hero-team-photo{
