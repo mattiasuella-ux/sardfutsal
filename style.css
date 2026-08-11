@@ -1356,12 +1356,12 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 @media (max-width: 520px) {
 
   .society-visual {
-    min-height: 230px;
-    padding: 20px 0;
+    min-height: 160px;
+    padding: 10px 0;
   }
 
   .society-visual img {
-    width: 210px;
+    width: 120px;
     max-width: 70%;
     height: auto;
     object-fit: contain;
