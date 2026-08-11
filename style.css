@@ -176,6 +176,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     width: 120px;
     background: transparent !important;
     mix-blend-mode: screen;
+  }
 }
 
 @media (max-width: 520px) {
@@ -416,6 +417,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   line-height: 1.8;
   margin-bottom: 15px;
 }
+
+
 .society-block {
   margin-top: 50px;
 }
@@ -998,6 +1001,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 24px;
     line-height: 1;
     margin: 0;
+}
   }
 /* =========================================
    RISULTATI & CALENDARIO
@@ -1126,8 +1130,10 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+}
 /* LOGO SOCIETÀ - SMARTPHONE */
 @media (max-width: 550px) {
+
   .society-visual img {
     width: 190px !important;
     max-width: 190px !important;
@@ -1344,7 +1350,9 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .partners-section {
     display: none !important;
   }
-  /* LOGO SOCIETÀ - SMARTPHONE */
+}
+
+/* LOGO SOCIETÀ - SMARTPHONE */
 
 @media (max-width: 520px) {
   .society-visual {
@@ -1358,15 +1366,15 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     height: auto;
     object-fit: contain;
   }
-@media (max-width: 520px) {
+}
 
+@media (max-width: 520px) {
   .society-badge {
     width: 210px;
     height: 210px;
   }
-   } 
 }
- } 
+
 /* =========================================
    DIVENTA PARTNER
 ========================================= */
@@ -1495,81 +1503,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   font-size: 22px;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 850px) {
-
-  .sponsor-header {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .sponsor-benefits {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .sponsor-bottom {
-    display: block;
-  }
-
-  .sponsor-bottom strong {
-    display: block;
-    margin-top: 10px;
-  }
-
-}
-
-
-/* =========================================
-   SMARTPHONE
-========================================= */
-
-@media (max-width: 520px) {
-
-  .sponsor-section {
-    padding: 70px 0;
-  }
-
-  .sponsor-section .container {
-    width: 90%;
-  }
-
-  .sponsor-header h2 {
-    font-size: 52px;
-    letter-spacing: -1px;
-  }
-
-  .sponsor-header-text p {
-    font-size: 14px;
-  }
-
-  .sponsor-benefits {
-    margin-top: 45px;
-  }
-
-  .sponsor-benefit {
-    min-height: 170px;
-    padding: 24px;
-  }
-
-  .sponsor-benefit h3 {
-    font-size: 28px;
-  }
-
-  .sponsor-bottom span {
-    font-size: 9px;
-    letter-spacing: 2px;
-  }
-
-  .sponsor-bottom strong {
-    font-size: 19px;
-  }
-
-}
 
 /* =========================================
    FOOTER
@@ -1834,5 +1767,3 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
-
-
