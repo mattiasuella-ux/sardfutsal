@@ -1157,5 +1157,129 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================
+   NEWS SARD FUTSAL
+========================================= */
 
+.news-status {
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  padding: 5px 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.news-image {
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  background: #111;
+}
+
+.news-image::before {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 35px solid rgba(255, 90, 0, .12);
+  border-radius: 50%;
+  right: -100px;
+  top: -100px;
+}
+
+.news-image span {
+  position: relative;
+  z-index: 2;
+  color: var(--orange);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.news-image strong {
+  position: relative;
+  z-index: 2;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 42px;
+  line-height: .85;
+  letter-spacing: 1px;
+}
+
+.news-image-1 {
+  background:
+    linear-gradient(135deg, #191919, #080808);
+}
+
+.news-image-2 {
+  background:
+    linear-gradient(135deg, #111, #241207);
+}
+
+.news-image-3 {
+  background:
+    linear-gradient(135deg, #191919, #0b0b0b);
+}
+
+.news-body {
+  padding: 24px;
+}
+
+.news-body small {
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.news-body h3 {
+  font-size: 28px;
+  line-height: .95;
+  margin: 10px 0 12px;
+}
+
+.news-body p {
+  color: #999;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.news-card:hover .news-image strong {
+  transform: translateX(5px);
+}
+
+.news-image strong {
+  transition: transform .25s ease;
+}
+
+@media (max-width: 850px) {
+  .news-status {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .news-image {
+    height: 180px;
+  }
+
+  .news-image strong {
+    font-size: 36px;
+  }
+}
 }
