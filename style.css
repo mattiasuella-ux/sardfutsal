@@ -1548,6 +1548,177 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .sponsor-bottom strong {
     font-size: 19px;
   }
+  /* =========================================
+   SPONSOR - LAYOUT FINALE
+========================================= */
+
+.sponsor-section .container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.sponsor-intro {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  align-items: end;
+  gap: 50px;
+}
+
+.sponsor-intro h2 {
+  font-size: clamp(55px, 6vw, 82px);
+  line-height: .88;
+  margin-bottom: 25px;
+}
+
+.sponsor-intro h2 span {
+  color: #111 !important;
+}
+
+.sponsor-description {
+  max-width: 680px !important;
+  color: #fff !important;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.sponsor-cta {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5px;
+}
+
+.sponsor-cta .btn {
+  background: #111 !important;
+  color: #fff !important;
+  padding: 15px 24px;
+  white-space: nowrap;
+}
+
+/* TRE VANTAGGI */
+
+.sponsor-benefits {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  width: 100%;
+  margin-top: 55px;
+}
+
+.sponsor-benefit {
+  min-height: 210px;
+  padding: 28px !important;
+  background: rgba(0,0,0,.20);
+  border: 1px solid rgba(255,255,255,.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.sponsor-benefit > span {
+  margin-bottom: auto;
+  color: #111 !important;
+}
+
+.sponsor-benefit h3 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.sponsor-benefit p {
+  color: rgba(255,255,255,.85) !important;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.sponsor-bottom {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+.sponsor-bottom span {
+  color: rgba(255,255,255,.8);
+}
+
+.sponsor-bottom strong {
+  color: #111 !important;
+}
+
+
+/* =========================================
+   SPONSOR - TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .sponsor-intro {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  .sponsor-benefits {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sponsor-cta {
+    justify-content: flex-start;
+  }
+
+  .sponsor-bottom {
+    display: block !important;
+  }
+
+  .sponsor-bottom strong {
+    display: block;
+    margin-top: 10px;
+  }
+
+}
+
+
+/* =========================================
+   SPONSOR - SMARTPHONE
+========================================= */
+
+@media (max-width: 520px) {
+
+  .sponsor-section {
+    padding: 70px 0;
+  }
+
+  .sponsor-intro h2 {
+    font-size: 50px;
+  }
+
+  .sponsor-description {
+    font-size: 14px;
+  }
+
+  .sponsor-benefit {
+    min-height: 170px;
+    padding: 24px !important;
+  }
+
+  .sponsor-benefit h3 {
+    font-size: 28px;
+  }
+
+  .sponsor-bottom span {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .sponsor-bottom strong {
+    font-size: 19px;
+  }
+
+
 
 }
 
