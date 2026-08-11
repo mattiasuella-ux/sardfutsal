@@ -922,3 +922,33 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================
+   SOCIETÀ - DESKTOP
+========================================= */
+
+@media (min-width: 901px) {
+
+  .society-section .container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+  }
+
+  .society-section .society-block {
+    margin-top: 55px;
+  }
+
+  .society-section .staff-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .society-section .staff-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  #risultati {
+    padding-top: 70px;
+  }
+
+}
