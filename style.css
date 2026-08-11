@@ -1375,303 +1375,168 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   /* =========================================
    DIVENTA PARTNER
 ========================================= */
+/* =========================================
+   DIVENTA PARTNER
+========================================= */
 
 .sponsor-section {
   background: linear-gradient(110deg, var(--orange), #a83200);
   color: #fff;
+  padding: 90px 0;
 }
-
-.sponsor-intro {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 60px;
-}
-
-.sponsor-intro h2 {
-  margin-bottom: 25px;
-}
-
-.sponsor-intro h2 span {
-  color: #111;
-}
-
-.sponsor-description {
-  max-width: 650px;
-  color: rgba(255,255,255,.9) !important;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.sponsor-cta {
-  padding-bottom: 5px;
-}
-
-.sponsor-cta .btn {
-  background: #111;
-  color: #fff;
-  white-space: nowrap;
-}
-
-.sponsor-benefits {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 60px;
-}
-
-.sponsor-benefit {
-  position: relative;
-  padding: 30px 26px;
-  min-height: 190px;
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.22);
-  transition: transform .25s ease, background .25s ease;
-}
-
-.sponsor-benefit:hover {
-  transform: translateY(-5px);
-  background: rgba(0,0,0,.28);
-}
-
-.sponsor-benefit > span {
-  display: block;
-  color: #111;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  margin-bottom: 30px;
-}
-
-.sponsor-benefit h3 {
-  font-size: 30px;
-  line-height: 1;
-  margin-bottom: 12px;
-}
-
-.sponsor-benefit p {
-  color: rgba(255,255,255,.85) !important;
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.sponsor-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  margin-top: 45px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,.25);
-}
-
-.sponsor-bottom span {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-.sponsor-bottom strong {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
-  letter-spacing: 1px;
-  color: #111;
-}
-
-/* =========================================
-   SPONSOR MOBILE
-========================================= */
-
-@media (max-width: 850px) {
-
-  .sponsor-intro {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .sponsor-cta {
-    padding-bottom: 0;
-  }
-
-  .sponsor-benefits {
-    grid-template-columns: 1fr;
-    margin-top: 40px;
-  }
-
-  .sponsor-benefit {
-    min-height: auto;
-  }
-
-  .sponsor-bottom {
-    display: block;
-  }
-
-  .sponsor-bottom strong {
-    display: block;
-    margin-top: 12px;
-  }
-
-}
-
-@media (max-width: 520px) {
-
-  .sponsor-section {
-    padding: 75px 0;
-  }
-
-  .sponsor-intro h2 {
-    font-size: 48px;
-  }
-
-  .sponsor-description {
-    font-size: 14px;
-  }
-
-  .sponsor-benefits {
-    gap: 12px;
-  }
-
-  .sponsor-benefit {
-    padding: 24px 20px;
-  }
-
-  .sponsor-benefit h3 {
-    font-size: 27px;
-  }
-
-  .sponsor-bottom span {
-    font-size: 9px;
-    letter-spacing: 2px;
-  }
-
-  .sponsor-bottom strong {
-    font-size: 19px;
-  }
-  /* =========================================
-   SPONSOR - LAYOUT FINALE
-========================================= */
 
 .sponsor-section .container {
   width: min(1180px, 92%);
   margin: 0 auto;
 }
 
-.sponsor-intro {
-  display: grid !important;
-  grid-template-columns: 1fr auto !important;
+
+/* HEADER */
+
+.sponsor-header {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 70px;
   align-items: end;
-  gap: 50px;
 }
 
-.sponsor-intro h2 {
-  font-size: clamp(55px, 6vw, 82px);
-  line-height: .88;
-  margin-bottom: 25px;
+.sponsor-header h2 {
+  margin: 15px 0 0;
+  font-size: clamp(60px, 7vw, 92px);
+  line-height: .86;
+  letter-spacing: -2px;
 }
 
-.sponsor-intro h2 span {
-  color: #111 !important;
+.sponsor-header h2 span {
+  color: #111;
 }
 
-.sponsor-description {
-  max-width: 680px !important;
+.sponsor-header-text {
+  max-width: 520px;
+}
+
+.sponsor-header-text p {
+  margin: 0 0 25px;
   color: #fff !important;
   font-size: 15px;
   line-height: 1.7;
 }
 
-.sponsor-cta {
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 5px;
-}
-
-.sponsor-cta .btn {
-  background: #111 !important;
-  color: #fff !important;
-  padding: 15px 24px;
-  white-space: nowrap;
-}
-
-/* TRE VANTAGGI */
-
-.sponsor-benefits {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 18px !important;
-  width: 100%;
-  margin-top: 55px;
-}
-
-.sponsor-benefit {
-  min-height: 210px;
-  padding: 28px !important;
-  background: rgba(0,0,0,.20);
-  border: 1px solid rgba(255,255,255,.25);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.sponsor-benefit > span {
-  margin-bottom: auto;
-  color: #111 !important;
-}
-
-.sponsor-benefit h3 {
-  font-size: 32px;
-  margin-bottom: 12px;
+.sponsor-header-text .btn {
+  display: inline-block;
+  background: #111;
   color: #fff;
-}
-
-.sponsor-benefit p {
-  color: rgba(255,255,255,.85) !important;
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.sponsor-bottom {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  margin-top: 40px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,.25);
-}
-
-.sponsor-bottom span {
-  color: rgba(255,255,255,.8);
-}
-
-.sponsor-bottom strong {
-  color: #111 !important;
+  padding: 15px 24px;
 }
 
 
 /* =========================================
-   SPONSOR - TABLET
+   TRE VANTAGGI
+========================================= */
+
+.sponsor-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+  margin-top: 65px;
+}
+
+.sponsor-benefit {
+  min-height: 220px;
+  padding: 30px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.30);
+
+  transition: transform .25s ease;
+}
+
+.sponsor-benefit:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-number {
+  color: #111;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.sponsor-benefit h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.sponsor-benefit p {
+  margin: 0;
+  color: rgba(255,255,255,.85) !important;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   PARTE FINALE
+========================================= */
+
+.sponsor-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  margin-top: 45px;
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(255,255,255,.30);
+}
+
+.sponsor-bottom span {
+  color: rgba(255,255,255,.8);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.sponsor-bottom strong {
+  color: #111;
+  font-size: 22px;
+}
+
+
+/* =========================================
+   SPONSOR TABLET
 ========================================= */
 
 @media (max-width: 850px) {
 
-  .sponsor-intro {
-    grid-template-columns: 1fr !important;
-    gap: 25px;
+  .sponsor-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sponsor-header-text {
+    max-width: 650px;
   }
 
   .sponsor-benefits {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
-  .sponsor-cta {
-    justify-content: flex-start;
+  .sponsor-benefit {
+    min-height: 180px;
   }
 
   .sponsor-bottom {
-    display: block !important;
+    display: block;
   }
 
   .sponsor-bottom strong {
@@ -1683,7 +1548,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 
 /* =========================================
-   SPONSOR - SMARTPHONE
+   SPONSOR SMARTPHONE
 ========================================= */
 
 @media (max-width: 520px) {
@@ -1692,21 +1557,35 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     padding: 70px 0;
   }
 
-  .sponsor-intro h2 {
-    font-size: 50px;
+  .sponsor-section .container {
+    width: 90%;
   }
 
-  .sponsor-description {
+  .sponsor-header h2 {
+    font-size: 50px;
+    letter-spacing: -1px;
+  }
+
+  .sponsor-header-text p {
     font-size: 14px;
+  }
+
+  .sponsor-benefits {
+    margin-top: 40px;
+    gap: 12px;
   }
 
   .sponsor-benefit {
     min-height: 170px;
-    padding: 24px !important;
+    padding: 24px;
   }
 
   .sponsor-benefit h3 {
     font-size: 28px;
+  }
+
+  .sponsor-bottom {
+    margin-top: 35px;
   }
 
   .sponsor-bottom span {
@@ -1717,8 +1596,10 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .sponsor-bottom strong {
     font-size: 19px;
   }
-  }
-  
+
+}
+
+
 /* =========================================
    FOOTER
 ========================================= */
@@ -1805,10 +1686,12 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   color: #666;
   font-size: 10px;
 }
-}
+
+
 /* =========================================
    FOOTER MOBILE
 ========================================= */
+
 @media (max-width: 700px) {
 
   .site-footer {
@@ -1836,228 +1719,5 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .footer-bottom p + p {
     margin-top: 10px;
   }
-  /* =========================================
-   DIVENTA PARTNER - NUOVO LAYOUT
-========================================= */
-
-/* =========================================
-   DIVENTA PARTNER
-========================================= */
-
-.sponsor-section {
-  background: linear-gradient(110deg, #ff5a00, #a83200);
-  color: #fff;
-  padding: 90px 0;
-}
-
-.sponsor-section .container {
-  width: min(1180px, 92%);
-  margin: 0 auto;
-}
-
-
-/* HEADER */
-
-.sponsor-header {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 70px;
-  align-items: end;
-}
-
-.sponsor-header h2 {
-  margin: 15px 0 0;
-  font-size: clamp(60px, 7vw, 92px);
-  line-height: .86;
-  letter-spacing: -2px;
-}
-
-.sponsor-header h2 span {
-  color: #111;
-}
-
-.sponsor-header-text {
-  max-width: 520px;
-}
-
-.sponsor-header-text p {
-  margin: 0 0 25px;
-  color: #fff !important;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.sponsor-header-text .btn {
-  display: inline-block;
-  background: #111;
-  color: #fff;
-  padding: 15px 24px;
-}
-
-
-/* TRE CARD */
-
-.sponsor-benefits {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  width: 100%;
-  margin-top: 65px;
-}
-
-.sponsor-benefit {
-  min-height: 220px;
-  padding: 30px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.30);
-
-  transition: transform .25s ease;
-}
-
-.sponsor-benefit:hover {
-  transform: translateY(-5px);
-}
-
-.benefit-number {
-  color: #111;
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.sponsor-benefit h3 {
-  margin: 0 0 12px;
-  color: #fff;
-  font-size: 32px;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.sponsor-benefit p {
-  margin: 0;
-  color: rgba(255,255,255,.85) !important;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-
-/* PARTE FINALE */
-
-.sponsor-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-top: 45px;
-  padding-top: 22px;
-
-  border-top: 1px solid rgba(255,255,255,.30);
-}
-
-.sponsor-bottom span {
-  color: rgba(255,255,255,.8);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-.sponsor-bottom strong {
-  color: #111;
-  font-size: 22px;
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 850px) {
-
-  .sponsor-header {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .sponsor-header-text {
-    max-width: 650px;
-  }
-
-  .sponsor-benefits {
-    grid-template-columns: 1fr;
-  }
-
-  .sponsor-benefit {
-    min-height: 180px;
-  }
-
-  .sponsor-bottom {
-    display: block;
-  }
-
-  .sponsor-bottom strong {
-    display: block;
-    margin-top: 10px;
-  }
 
 }
-
-
-/* =========================================
-   SMARTPHONE
-========================================= */
-
-@media (max-width: 520px) {
-
-  .sponsor-section {
-    padding: 70px 0;
-  }
-
-  .sponsor-section .container {
-    width: 90%;
-  }
-
-  .sponsor-header h2 {
-    font-size: 50px;
-    letter-spacing: -1px;
-  }
-
-  .sponsor-header-text p {
-    font-size: 14px;
-  }
-
-  .sponsor-benefits {
-    margin-top: 40px;
-    gap: 12px;
-  }
-
-  .sponsor-benefit {
-    min-height: 170px;
-    padding: 24px;
-  }
-
-  .sponsor-benefit h3 {
-    font-size: 28px;
-  }
-
-  .sponsor-bottom {
-    margin-top: 35px;
-  }
-
-  .sponsor-bottom span {
-    font-size: 9px;
-    letter-spacing: 2px;
-  }
-
-  .sponsor-bottom strong {
-    font-size: 19px;
-  }
-
-}
-
-}
-
