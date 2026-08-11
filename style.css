@@ -1717,7 +1717,126 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .sponsor-bottom strong {
     font-size: 19px;
   }
+/* =========================================
+   FOOTER
+========================================= */
 
+.site-footer {
+  background: #080808;
+  border-top: 1px solid #222;
+  padding: 70px 0 25px;
+  color: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.footer-slogan {
+  margin: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: .95;
+  text-transform: uppercase;
+}
+
+.footer-slogan span {
+  color: var(--orange);
+}
+
+.footer-description {
+  margin-top: 15px;
+  color: #777;
+  font-size: 12px;
+}
+
+.footer-title {
+  margin: 0 0 20px;
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.footer-column a,
+.footer-column p {
+  display: block;
+  margin: 0 0 12px;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: var(--orange);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 55px;
+  padding-top: 22px;
+  border-top: 1px solid #222;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #666;
+  font-size: 10px;
+}
+
+/* =========================================
+   FOOTER MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .site-footer {
+    padding: 55px 0 25px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-logo {
+    width: 60px;
+  }
+
+  .footer-slogan {
+    font-size: 25px;
+  }
+
+  .footer-bottom {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .footer-bottom p + p {
+    margin-top: 10px;
+  }
+
+}
 
 
 }
