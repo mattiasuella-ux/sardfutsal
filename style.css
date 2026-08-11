@@ -1139,6 +1139,23 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 }
 }
+/* LOGO SOCIETÀ - SMARTPHONE */
+@media (max-width: 550px) {
 
+  .society-visual img {
+    width: 190px !important;
+    max-width: 190px !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .society-visual {
+    min-height: auto;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+}
 
 }
