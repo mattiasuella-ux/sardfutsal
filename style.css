@@ -170,11 +170,21 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 .brand-logo{width:46px;height:46px;object-fit:contain;display:block}
 .hero-logo{width:min(180px,35vw);height:auto;object-fit:contain;margin-bottom:18px}
-.hero-logo{
-  width:min(180px,35vw);
-  height:auto;
-  object-fit:contain;
-  margin-bottom:18px;
+.hero-logo {
+  width: min(180px, 35vw);
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 18px;
+  background: transparent !important;
+  mix-blend-mode: screen;
+}
+@media (max-width: 520px) {
+  .hero-logo {
+    width: 120px;
+    background: transparent !important;
+    mix-blend-mode: screen;
+  }
+}
 }
 
 @media (max-width: 520px) {
