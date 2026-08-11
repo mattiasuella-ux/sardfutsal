@@ -1699,40 +1699,42 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     margin-top: 10px;
   }
 
+}
 
-/* SMARTPHONE */
+
+/* =========================================
+   DIVENTA PARTNER - TABLET
+========================================= */
 
 @media (max-width: 850px) {
 
   .sponsor-header {
     grid-template-columns: 1fr !important;
+    gap: 35px !important;
   }
 
   .sponsor-benefits {
     grid-template-columns: 1fr !important;
-  }
-
-}
-
-@media (max-width: 520px) {
-
-  .sponsor-header h2 {
-    font-size: 50px !important;
-  }
-
-  .sponsor-section {
-    padding: 70px 0 !important;
+    gap: 15px !important;
   }
 
   .sponsor-bottom {
     display: block !important;
   }
-   }
+
+  .sponsor-bottom strong {
+    display: block !important;
+    margin-top: 10px !important;
+  }
+
+}
+
+
 /* =========================================
    DIVENTA PARTNER - IPHONE
 ========================================= */
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
 
   .sponsor-section {
     width: 100% !important;
@@ -1746,8 +1748,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     margin: 0 auto !important;
   }
 
-  /* Titolo */
-
   .sponsor-header {
     display: block !important;
   }
@@ -1758,8 +1758,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     letter-spacing: -1px !important;
     margin-bottom: 30px !important;
   }
-
-  /* Testo */
 
   .sponsor-header-text {
     width: 100% !important;
@@ -1772,14 +1770,10 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     margin-bottom: 22px !important;
   }
 
-  /* Pulsante */
-
   .sponsor-header-text .btn {
     display: inline-block !important;
     padding: 14px 20px !important;
   }
-
-  /* Card */
 
   .sponsor-benefits {
     display: flex !important;
@@ -1803,8 +1797,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     line-height: 1.5 !important;
   }
 
-  /* Frase finale */
-
   .sponsor-bottom {
     display: block !important;
     margin-top: 35px !important;
@@ -1823,4 +1815,3 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
-
