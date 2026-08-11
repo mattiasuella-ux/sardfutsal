@@ -176,8 +176,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     width: 120px;
     background: transparent !important;
     mix-blend-mode: screen;
-  }
-}
 }
 
 @media (max-width: 520px) {
@@ -418,9 +416,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   line-height: 1.8;
   margin-bottom: 15px;
 }
-
-}
-
 .society-block {
   margin-top: 50px;
 }
@@ -1131,10 +1126,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
-}
 /* LOGO SOCIETÀ - SMARTPHONE */
 @media (max-width: 550px) {
-
   .society-visual img {
     width: 190px !important;
     max-width: 190px !important;
@@ -1354,7 +1347,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   /* LOGO SOCIETÀ - SMARTPHONE */
 
 @media (max-width: 520px) {
-
   .society-visual {
     min-height: 160px;
     padding: 10px 0;
