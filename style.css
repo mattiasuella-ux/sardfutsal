@@ -1727,6 +1727,99 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   .sponsor-bottom {
     display: block !important;
   }
+/* =========================================
+   DIVENTA PARTNER - IPHONE
+========================================= */
+
+@media only screen and (max-width: 600px) {
+
+  .sponsor-section {
+    width: 100% !important;
+    padding: 65px 0 !important;
+    overflow: hidden !important;
+  }
+
+  .sponsor-section .container {
+    width: 88% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+  }
+
+  /* Titolo */
+
+  .sponsor-header {
+    display: block !important;
+  }
+
+  .sponsor-header h2 {
+    font-size: 48px !important;
+    line-height: .88 !important;
+    letter-spacing: -1px !important;
+    margin-bottom: 30px !important;
+  }
+
+  /* Testo */
+
+  .sponsor-header-text {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .sponsor-header-text p {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 22px !important;
+  }
+
+  /* Pulsante */
+
+  .sponsor-header-text .btn {
+    display: inline-block !important;
+    padding: 14px 20px !important;
+  }
+
+  /* Card */
+
+  .sponsor-benefits {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 45px !important;
+  }
+
+  .sponsor-benefit {
+    width: 100% !important;
+    min-height: 155px !important;
+    padding: 22px !important;
+  }
+
+  .sponsor-benefit h3 {
+    font-size: 27px !important;
+  }
+
+  .sponsor-benefit p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Frase finale */
+
+  .sponsor-bottom {
+    display: block !important;
+    margin-top: 35px !important;
+  }
+
+  .sponsor-bottom span {
+    display: block !important;
+    font-size: 8px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .sponsor-bottom strong {
+    display: block !important;
+    margin-top: 10px !important;
+    font-size: 18px !important;
+  }
 
 }
 
