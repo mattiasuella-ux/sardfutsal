@@ -1362,4 +1362,54 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+  /* =========================================
+   PARTNER - MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+
+  .partners-section {
+    padding: 50px 0;
+    overflow: hidden;
+  }
+
+  .partners-slider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .partners-track {
+    display: flex;
+    width: max-content;
+    animation: partners-scroll-mobile 10s linear infinite;
+  }
+
+  .partner-logo {
+    width: 150px;
+    height: 80px;
+    margin-right: 15px;
+    padding: 12px;
+    flex-shrink: 0;
+    background: #111;
+    border: 1px solid #252525;
+  }
+
+  .partner-logo img {
+    width: 100%;
+    height: 55px;
+    object-fit: contain;
+    display: block;
+  }
+
+}
+
+@keyframes partners-scroll-mobile {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-330px);
+  }
+}
 }
