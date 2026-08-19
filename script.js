@@ -1,0 +1,49 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.querySelector("#main-nav");
+
+  if (!menuToggle || !mainNav) {
+    console.log("Menu non trovato");
+    return;
+  }
+
+  menuToggle.addEventListener("click", function () {
+
+    mainNav.classList.toggle("open");
+
+    const isOpen = mainNav.classList.contains("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Chiudi menu" : "Apri menu"
+    );
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+  });
+
+  // Chiude il menu quando clicchi una voce
+  const menuLinks = mainNav.querySelectorAll("a");
+
+  menuLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+      mainNav.classList.remove("open");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Apri menu");
+
+      menuToggle.textContent = "☰";
+
+    });
+
+  });
+
+});
