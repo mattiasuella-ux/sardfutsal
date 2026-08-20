@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inserisci il tuo Measurement ID nel campo GA4_MEASUREMENT_ID
   // per attivare Analytics. Lasciandolo vuoto, nessun Analytics viene caricato.
   // =========================================
-  const GA4_MEASUREMENT_ID = ""; // es. G-XXXXXXXXXX
+  const GA4_MEASUREMENT_ID = "G-NTTED8SL1C";
   const CONSENT_KEY = "sardfutsal_cookie_consent_v1";
 
   function loadGoogleAnalytics() {
