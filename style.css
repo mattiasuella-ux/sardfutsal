@@ -1894,3 +1894,33 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   color: #fff;
 }
 }
+
+/* =========================================
+   PRIVACY / COOKIE PAGES
+========================================= */
+.legal-page { padding-top: 110px; min-height: calc(100vh - 180px); }
+.legal-content { max-width: 900px; }
+.legal-content h1 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(48px,7vw,82px); line-height:.95; text-transform:uppercase; margin:10px 0 12px; }
+.legal-content h2 { font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; font-size:28px; margin:42px 0 12px; }
+.legal-content p, .legal-content li { color:#bdbdbd; font-size:15px; line-height:1.8; }
+.legal-content ul { padding-left:22px; margin:10px 0; }
+.legal-content a { color:var(--orange); }
+.legal-updated { color:#777 !important; font-size:12px !important; }
+.legal-links { display:flex; gap:14px; flex-wrap:wrap; margin-top:45px; }
+@media (max-width:700px){ .legal-page{padding-top:95px}.legal-content h2{font-size:24px}.legal-content p,.legal-content li{font-size:14px} }
+
+/* =========================================
+   COOKIE BANNER
+========================================= */
+.cookie-banner { position:fixed; left:18px; right:18px; bottom:18px; z-index:9999; display:none; background:#101010; color:#fff; border:1px solid #2d2d2d; box-shadow:0 12px 40px rgba(0,0,0,.5); padding:20px; }
+.cookie-banner.is-visible { display:block; }
+.cookie-banner-inner { max-width:1180px; margin:auto; display:flex; gap:24px; align-items:center; justify-content:space-between; }
+.cookie-banner-text { flex:1; }
+.cookie-banner-title { margin:0 0 7px; font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; font-size:22px; }
+.cookie-banner p { margin:0; color:#aaa; font-size:13px; line-height:1.55; }
+.cookie-banner a { color:var(--orange); }
+.cookie-actions { display:flex; gap:10px; flex-wrap:wrap; }
+.cookie-btn { border:1px solid #444; background:#191919; color:#fff; padding:11px 16px; font-weight:700; cursor:pointer; }
+.cookie-btn.accept { background:var(--orange); border-color:var(--orange); color:#111; }
+.cookie-btn:hover { opacity:.9; }
+@media(max-width:700px){ .cookie-banner{left:10px;right:10px;bottom:10px}.cookie-banner-inner{display:block}.cookie-actions{margin-top:14px}.cookie-btn{flex:1} }
