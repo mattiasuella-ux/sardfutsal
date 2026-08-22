@@ -510,60 +510,24 @@
       <span class="news-status">NEWS</span>
     </div>
 
-    <div class="news-grid">
+ <section id="news" class="section dark-section">
+  <div class="container">
 
-      <article class="news-card">
-        <div class="news-image news-image-1">
-          <span></span>
-          <strong><br></strong>
-        </div>
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow orange">DAL MONDO SARD FUTSAL</p>
+        <h2>Ultime <span>news</span></h2>
+      </div>
 
-        <div class="news-body">
-          <small>COMUNICATO</small>
-          <h3>Il nuovo sito ufficiale Sard Futsal</h3>
-          <p>
-            Tutte le informazioni sulla società, sulla squadra
-            e sul nostro progetto sportivo.
-          </p>
-          <a class="news-link" href="news.html#nuovo-sito">Leggi la notizia →</a>
-        </div>
-      </article>
+      <span class="news-status">NEWS</span>
+    </div>
 
+    <div class="news-grid" id="home-news">
+      <p>Caricamento ultime news...</p>
+    </div>
 
-      <article class="news-card">
-        <div class="news-image news-image-2">
-          <span></span>
-          <strong><br></strong>
-        </div>
-
-        <div class="news-body">
-          <small>STAGIONE</small>
-          <h3>Una nuova stagione sta per iniziare</h3>
-          <p>
-            Preparazione, squadra e nuove sfide:
-            Sard Futsal è pronta a ripartire.
-          </p>
-          <a class="news-link" href="news.html#nuova-stagione">Leggi la notizia →</a>
-        </div>
-      </article>
-
-
-      <article class="news-card">
-        <div class="news-image news-image-3">
-          <span></span>
-          <strong><br></strong>
-        </div>
-
-        <div class="news-body">
-          <small>IDENTITÀ</small>
-          <h3>Cuore sardo. Anima futsal.</h3>
-          <p>
-            Una società giovane, un progetto ambizioso
-            e un'identità costruita sul territorio.
-          </p>
-          <a class="news-link" href="news.html#identita">Leggi la notizia →</a>
-        </div>
-      </article>
+  </div>
+</section>
 
     </div>
 
@@ -797,5 +761,66 @@
   </div>
 
 </footer>
+       <script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.getElementById("home-news");
+
+  if (!container) return;
+
+  try {
+    const response = await fetch("news.html");
+
+    if (!response.ok) {
+      throw new Error("Impossibile caricare le news");
+    }
+
+    const html = await response.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const stories = [...doc.querySelectorAll(".news-story")];
+
+    container.innerHTML = "";
+
+    stories.slice(0, 3).forEach((story, index) => {
+      const title = story.querySelector("h2")?.textContent.trim() || "";
+      const paragraphs = [...story.querySelectorAll("p")]
+        .map(p => p.textContent.trim())
+        .filter(Boolean);
+
+      const meta = story.querySelector(".news-story-meta")?.textContent.trim() || "";
+      const id = story.id;
+
+      const card = document.createElement("article");
+      card.className = "news-card";
+
+      card.innerHTML = `
+        <div class="news-image news-image-${index + 1}">
+          <span></span>
+          <strong><br></strong>
+        </div>
+
+        <div class="news-body">
+          <small>${meta}</small>
+          <h3>${title}</h3>
+          <p>${paragraphs[0] || ""}</p>
+          <a class="news-link" href="news.html#${id}">
+            Leggi la notizia →
+          </a>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+  } catch (error) {
+    console.error("Errore caricamento news:", error);
+    container.innerHTML = `
+      <p>Le ultime news saranno disponibili a breve.</p>
+    `;
+  }
+});
+</script>
 </body>
 </html>
