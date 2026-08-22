@@ -1,0 +1,49 @@
+media: images
+
+content:
+  - name: news
+    label: News
+    type: collection
+    path: content/news
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+
+    fields:
+      - name: title
+        label: Titolo
+        type: string
+        required: true
+
+      - name: category
+        label: Categoria
+        type: string
+        required: true
+
+      - name: date
+        label: Data
+        type: date
+        required: true
+
+      - name: image
+        label: Immagine
+        type: image
+
+      - name: excerpt
+        label: Anteprima
+        type: text
+
+      - name: body
+        label: Contenuto
+        type: rich-text
+
+    view:
+      fields:
+        - title
+        - category
+        - date
+      primary: title
+      sort:
+        - date
+      default:
+        sort: date
+        order: desc
