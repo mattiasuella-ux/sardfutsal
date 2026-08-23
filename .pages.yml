@@ -177,10 +177,13 @@ content:
         label: Gol avversario
         type: number
 
-      - name: opponent_logo
-        label: Logo avversario
+         - name: home_logo
+        label: Logo squadra di casa
         type: image
 
+      - name: away_logo
+        label: Logo squadra ospite
+        type: image
     view:
       fields:
         - date
