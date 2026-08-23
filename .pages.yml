@@ -163,11 +163,12 @@ content:
       - name: sard_goals
         label: Gol Sard Futsal
         type: number
+        default: -1
 
       - name: opponent_goals
         label: Gol avversario
         type: number
-        
+        default: -1
       - name: scorers
         label: Marcatori
         type: text
