@@ -430,23 +430,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   width: 100%;
 }
 
-.staff-card {
-  width: 100%;
-  min-height: 150px;
-  padding: 25px;
-  box-sizing: border-box;
-  background: linear-gradient(145deg, #181818, #0e0e0e);
-  border: 1px solid #292929;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  transition: transform .25s ease, border-color .25s ease;
-}
 
-.staff-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--orange);
-}
 .staff-card {
   min-height: 150px;
   padding: 25px;
