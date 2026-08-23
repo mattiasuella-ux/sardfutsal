@@ -418,7 +418,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   margin-bottom: 15px;
 }
 
-
 .society-block {
   margin-top: 50px;
 }
@@ -429,7 +428,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   margin-top: 25px;
   width: 100%;
 }
-
 
 .staff-card {
   min-height: 150px;
@@ -559,11 +557,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 .staff-card {
   transition: transform .25s ease, border-color .25s ease;
-}
-
-.staff-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--orange);
 }
 
 /* Mobile */
@@ -1688,10 +1681,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     linear-gradient(135deg, #191919, #0b0b0b);
 }
 
-.news-body {
-  padding: 24px;
-}
-
 .news-body small {
   color: var(--orange);
   font-size: 10px;
@@ -1703,12 +1692,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   font-size: 28px;
   line-height: .95;
   margin: 10px 0 12px;
-}
-
-.news-body p {
-  color: #999;
-  font-size: 13px;
-  line-height: 1.6;
 }
 
 .news-link {
@@ -1924,7 +1907,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   animation-play-state: paused;
 }
 
-
 /* =========================================
    PARTNER - SMARTPHONE
 ========================================= */
@@ -2011,7 +1993,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   padding: 15px 25px;
 }
 
-
 /* =========================================
    BENEFICI
 ========================================= */
@@ -2057,7 +2038,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   line-height: 1.6;
 }
 
-
 /* =========================================
    FINALE
 ========================================= */
@@ -2085,7 +2065,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   color: #111;
   font-size: 22px;
 }
-
 
 /* =========================================
    FOOTER
@@ -2174,7 +2153,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   font-size: 10px;
 }
 
-
 /* =========================================
    FOOTER MOBILE
 ========================================= */
@@ -2235,7 +2213,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 }
 
-
 /* =========================================
    DIVENTA PARTNER - SMARTPHONE
 ========================================= */
@@ -2280,7 +2257,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     display: inline-block !important;
     padding: 14px 20px !important;
   }
-
 
   /* CARD */
 
@@ -2328,7 +2304,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 14px !important;
     line-height: 1.5 !important;
   }
-
 
   /* FINALE */
 
@@ -2444,7 +2419,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   line-height: 1.7;
 }
 
-
 /* IMMAGINE ARTICOLO */
 
 .article-image {
@@ -2462,7 +2436,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   max-height: 650px;
   object-fit: cover;
 }
-
 
 /* TESTO ARTICOLO */
 
@@ -2482,7 +2455,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   color: #f2f2f2;
   font-size: 20px;
 }
-
 
 /* TORNA ALLE NEWS */
 
@@ -2509,7 +2481,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   background: #ff7200;
   transform: translateY(-2px);
 }
-
 
 /* =========================================================
    RESPONSIVE
@@ -2553,7 +2524,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 }
 
-
 @media (max-width: 480px) {
 
   .news-article {
@@ -2583,12 +2553,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   padding-bottom: 100px;
 }
 
-.news-article-header {
-  max-width: 950px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .news-article-header h1 {
   margin: 0 auto 28px !important;
   max-width: 950px;
@@ -2616,7 +2580,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   line-height: 1.7;
 }
 
-
 /* IMMAGINE */
 
 .article-image {
@@ -2634,33 +2597,14 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   object-fit: cover;
 }
 
-
 /* TESTO */
-
-.news-article-content {
-  max-width: 820px;
-  margin: 0 auto;
-  color: #d0d0d0;
-  font-size: 18px;
-  line-height: 1.85;
-}
-
-.news-article-content p {
-  margin: 0 0 25px;
-}
 
 .news-article-content p:first-child {
   color: #f5f5f5;
   font-size: 20px;
 }
 
-
 /* PULSANTE */
-
-.news-article .news-back {
-  max-width: 820px;
-  margin: 50px auto 0;
-}
 
 .news-article .btn-primary {
   display: inline-flex;
@@ -2673,12 +2617,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   text-decoration: none;
   transition: 0.25s ease;
 }
-
-.news-article .btn-primary:hover {
-  background: #ff7200;
-  transform: translateY(-2px);
-}
-
 
 /* MOBILE */
 
@@ -3193,30 +3131,9 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 /* SINGOLA SQUADRA */
-.match-card .match-team {
-  width: 100% !important;
-
-  display: flex !important;
-  flex-direction: column !important;
-
-  align-items: center !important;
-  justify-content: center !important;
-
-  text-align: center !important;
-}
 
 /* LOGHI */
 .match-card .match-team-logo,
-.match-card .match-team-logo-placeholder {
-  width: 80px !important;
-  height: 80px !important;
-
-  object-fit: contain !important;
-
-  margin: 0 0 10px !important;
-
-  transform: none !important;
-}
 
 /* NOMI */
 .match-card .match-team h3 {
@@ -3250,9 +3167,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 /* NASCONDE LE LINEE */
-.match-card .match-vs > span {
-  display: none !important;
-}
 
 .match-card .match-vs-center {
   width: 180px !important;
@@ -3495,7 +3409,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   content: "RISULTATO FINALE";
 }
 
-
 /* =========================================================
    COMPETIZIONE
    ========================================================= */
@@ -3514,7 +3427,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   white-space: nowrap !important;
 }
 
-
 /* =========================================================
    DATA
    ========================================================= */
@@ -3530,7 +3442,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   font-size: 17px !important;
   font-weight: 800 !important;
 }
-
 
 /* =========================================================
    ORARIO
@@ -3550,7 +3461,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   line-height: 1 !important;
 }
 
-
 /* =========================================================
    SPAZIO PARTE CENTRALE
    ========================================================= */
@@ -3558,7 +3468,6 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .match-card .match-main {
   padding-top: 108px !important;
 }
-
 
 /* =========================================================
    MOBILE
