@@ -3603,3 +3603,91 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================================
+   ETICHETTA PARTITA
+   PROSSIMA PARTITA / RISULTATO FINALE
+   ========================================================= */
+
+.match-card-wrapper {
+  width: min(1050px, calc(100% - 40px)) !important;
+  margin: 45px auto 30px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* SCRITTA SOPRA LA CARD */
+.match-card-label {
+  display: block !important;
+
+  width: 100% !important;
+
+  margin: 0 0 14px !important;
+  padding: 0 !important;
+
+  text-align: center !important;
+
+  color: #fff !important;
+
+  font-family: 'Barlow Condensed', Arial, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+
+  line-height: 1.1 !important;
+}
+
+/* CARD */
+.match-card-wrapper .match-card {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* =========================================================
+   COMPETIZIONE PIÙ GRANDE
+   ========================================================= */
+
+.match-card .match-competition {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  letter-spacing: 4px !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   ORARIO PIÙ GRANDE
+   ========================================================= */
+
+.match-card .match-date-time {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  .match-card-wrapper {
+    width: calc(100% - 20px) !important;
+    margin: 30px auto 20px !important;
+  }
+
+  .match-card-label {
+    font-size: 16px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .match-card .match-competition {
+    font-size: 13px !important;
+    letter-spacing: 2.5px !important;
+  }
+
+  .match-card .match-date-time {
+    font-size: 21px !important;
+  }
+
+}
