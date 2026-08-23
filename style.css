@@ -1305,3 +1305,78 @@ footer {
     font-size: 19px;
   }
 }
+/* =========================================================
+   FIX DEFINITIVO ORARIO PARTITA
+   ========================================================= */
+
+.match-card {
+    position: relative !important;
+}
+
+.match-card .match-time-column {
+    position: absolute !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    top: 72px !important;
+    bottom: auto !important;
+
+    transform: translateX(-50%) !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+
+    z-index: 50 !important;
+
+    border: 0 !important;
+    background: transparent !important;
+
+    text-align: center !important;
+}
+
+.match-card .match-time {
+    display: block !important;
+
+    position: static !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 27px !important;
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .match-card .match-time-column {
+        left: 50% !important;
+        right: auto !important;
+
+        top: 70px !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    .match-card .match-time {
+        font-size: 21px !important;
+    }
+}
