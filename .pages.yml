@@ -90,6 +90,7 @@ content:
         type: select
         required: true
         options:
+        values:
           - Portiere
           - Giocatore di movimento
 
