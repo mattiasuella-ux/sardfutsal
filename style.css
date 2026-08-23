@@ -3107,3 +3107,281 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 32px !important;
   }
 }
+/* =========================================================
+   POSIZIONAMENTO DEFINITIVO MATCH CARD
+   ========================================================= */
+
+.match-card {
+  position: relative !important;
+  display: block !important;
+  width: min(1050px, calc(100% - 40px)) !important;
+  min-height: 340px !important;
+  margin: 30px auto !important;
+  overflow: hidden !important;
+}
+
+/* CONTENUTO */
+.match-card .match-main {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 105px 40px 35px !important;
+  box-sizing: border-box !important;
+}
+
+/* DATA */
+.match-card .match-date-column {
+  position: absolute !important;
+  top: 18px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  width: max-content !important;
+  min-width: 0 !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+
+  z-index: 20 !important;
+}
+
+/* DATA IN ORIZZONTALE */
+.match-card .match-date {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  white-space: nowrap !important;
+}
+
+/* ORA */
+.match-card .match-date-time {
+  display: block !important;
+  margin-top: 4px !important;
+
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+/* CAMPIONATO */
+.match-card .match-competition {
+  display: block !important;
+  width: 100% !important;
+
+  margin: 0 0 32px !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* =========================================================
+   SQUADRE
+   ========================================================= */
+
+.match-card .match-teams {
+  position: relative !important;
+
+  display: grid !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  grid-template-columns: 1fr 180px 1fr !important;
+
+  align-items: center !important;
+  justify-items: center !important;
+
+  gap: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* SINGOLA SQUADRA */
+.match-card .match-team {
+  width: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-align: center !important;
+}
+
+/* LOGHI */
+.match-card .match-team-logo,
+.match-card .match-team-logo-placeholder {
+  width: 80px !important;
+  height: 80px !important;
+
+  object-fit: contain !important;
+
+  margin: 0 0 10px !important;
+
+  transform: none !important;
+}
+
+/* NOMI */
+.match-card .match-team h3 {
+  width: 100% !important;
+  max-width: 280px !important;
+
+  margin: 0 !important;
+
+  text-align: center !important;
+
+  transform: none !important;
+
+  font-size: 20px !important;
+  line-height: 1.05 !important;
+}
+
+/* =========================================================
+   CENTRO — RISULTATO
+   ========================================================= */
+
+.match-card .match-vs {
+  width: 180px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* NASCONDE LE LINEE */
+.match-card .match-vs > span {
+  display: none !important;
+}
+
+.match-card .match-vs-center {
+  width: 180px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* GOL BIANCHI E GRANDI */
+.match-card .match-vs-center .match-time {
+  color: #fff !important;
+
+  font-size: 48px !important;
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+  letter-spacing: 1px !important;
+
+  white-space: nowrap !important;
+}
+
+/* =========================================================
+   MARCATORI
+   ========================================================= */
+
+.match-card .match-scorers {
+  width: 100% !important;
+
+  margin: 22px auto 0 !important;
+
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  justify-content: center !important;
+  align-items: center !important;
+
+  gap: 6px 18px !important;
+
+  text-align: center !important;
+}
+
+.match-card .match-scorers span {
+  color: #fff !important;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+
+  white-space: nowrap !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .match-card {
+    width: calc(100% - 20px) !important;
+    min-height: 300px !important;
+  }
+
+  .match-card .match-main {
+    padding: 85px 10px 25px !important;
+  }
+
+  .match-card .match-date-column {
+    top: 12px !important;
+  }
+
+  .match-card .match-date-time {
+    font-size: 16px !important;
+  }
+
+  .match-card .match-competition {
+    margin-bottom: 25px !important;
+    font-size: 9px !important;
+    white-space: nowrap !important;
+  }
+
+  .match-card .match-teams {
+    grid-template-columns: 1fr 85px 1fr !important;
+  }
+
+  .match-card .match-team-logo,
+  .match-card .match-team-logo-placeholder {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .match-card .match-team h3 {
+    font-size: 15px !important;
+    max-width: 130px !important;
+  }
+
+  .match-card .match-vs,
+  .match-card .match-vs-center {
+    width: 85px !important;
+  }
+
+  .match-card .match-vs-center .match-time {
+    font-size: 32px !important;
+  }
+
+  .match-card .match-scorers {
+    margin-top: 15px !important;
+  }
+
+  .match-card .match-scorers span {
+    font-size: 12px !important;
+  }
+}
