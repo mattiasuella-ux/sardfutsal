@@ -110,10 +110,12 @@ content:
       sort:
         - number
 
-      default:
+           default:
         sort: number
         order: asc
-          # =====================================================
+
+
+  # =====================================================
   # RISULTATI E CALENDARIO
   # =====================================================
 
@@ -168,7 +170,6 @@ content:
             - Vittoria
             - Pareggio
             - Sconfitta
-
       - name: sard_goals
         label: Gol Sard Futsal
         type: number
@@ -177,13 +178,29 @@ content:
         label: Gol avversario
         type: number
 
-         - name: home_logo
+      - name: home_logo
         label: Logo squadra di casa
         type: image
 
       - name: away_logo
         label: Logo squadra ospite
         type: image
+
+    view:
+      fields:
+        - date
+        - opponent
+        - competition
+        - status
+
+      primary: opponent
+
+      sort:
+        - date
+
+      default:
+        sort: date
+        order: desc
     view:
       fields:
         - date
