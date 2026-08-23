@@ -4,10 +4,18 @@ import html
 from datetime import datetime
 
 
+# =========================================================
+# CONFIGURAZIONE
+# =========================================================
+
 ROOT = Path(".")
 MATCHES_DIR = ROOT / "content" / "matches"
 INDEX_FILE = ROOT / "index.html"
 
+
+# =========================================================
+# FRONTMATTER
+# =========================================================
 
 def parse_frontmatter(text):
 
@@ -25,20 +33,32 @@ def parse_frontmatter(text):
 
             for line in frontmatter.splitlines():
 
-                if ":" in line:
+                if ":" not in line:
+                    continue
 
-                    key, value = line.split(":", 1)
+                key, value = line.split(":", 1)
 
-                    data[key.strip()] = (
-                        value.strip()
-                        .strip('"')
-                        .strip("'")
-                    )
+                data[key.strip()] = (
+                    value.strip()
+                    .strip('"')
+                    .strip("'")
+                )
 
     return data, body
 
 
+# =========================================================
+# DATA
+# =========================================================
+
 def format_date(date_string):
+
+    if not date_string:
+        return {
+            "day": "",
+            "month": "",
+            "year": ""
+        }
 
     try:
 
@@ -59,22 +79,46 @@ def format_date(date_string):
             9: "SET",
             10: "OTT",
             11: "NOV",
-            12: "DIC",
+            12: "DIC"
         }
 
-        return (
-            f"{date.day:02d} "
-            f"{months[date.month]} "
-            f"{date.year}"
-        )
+        return {
+            "day": f"{date.day:02d}",
+            "month": months[date.month],
+            "year": str(date.year)
+        }
 
-    except Exception:
+    except ValueError:
 
-        return date_string
+        return {
+            "day": date_string,
+            "month": "",
+            "year": ""
+        }
 
 
 # =========================================================
-# LEGGI PARTITE DAL CMS
+# PERCORSI IMMAGINI
+# =========================================================
+
+def clean_image_path(image):
+
+    if not image:
+        return ""
+
+    image = str(image).strip()
+
+    if image.startswith("/"):
+        image = image[1:]
+
+    return html.escape(
+        image,
+        quote=True
+    )
+
+
+# =========================================================
+# LEGGI LE PARTITE
 # =========================================================
 
 matches = []
@@ -82,13 +126,17 @@ matches = []
 
 if MATCHES_DIR.exists():
 
-    for file in MATCHES_DIR.glob("*.md"):
+    for file in sorted(
+        MATCHES_DIR.glob("*.md")
+    ):
 
         text = file.read_text(
             encoding="utf-8"
         )
 
-        data, body = parse_frontmatter(text)
+        data, body = parse_frontmatter(
+            text
+        )
 
         matches.append({
 
@@ -160,39 +208,54 @@ matches.sort(
 
 
 # =========================================================
-# GENERA LE PARTITE
+# GENERAZIONE CARD
 # =========================================================
 
-rows = []
+cards = []
 
 
 for match in matches:
 
-    date = html.escape(
-        format_date(
-            match["date"]
-        )
+    # -----------------------------------------------------
+    # DATA
+    # -----------------------------------------------------
+
+    date = format_date(
+        match["date"]
     )
 
-    date_parts = date.split(" ")
+    day = html.escape(
+        date["day"]
+    )
 
-    day = date_parts[0] if len(date_parts) > 0 else ""
-    month = date_parts[1] if len(date_parts) > 1 else ""
-    year = date_parts[2] if len(date_parts) > 2 else ""
+    month = html.escape(
+        date["month"]
+    )
+
+    year = html.escape(
+        date["year"]
+    )
+
+
+    # -----------------------------------------------------
+    # DATI
+    # -----------------------------------------------------
 
     time = html.escape(
-        match["time"]
+        str(match["time"])
     )
 
     competition = html.escape(
-        match["competition"]
+        str(match["competition"])
     )
 
     opponent = html.escape(
-        match["opponent"]
+        str(match["opponent"])
     )
 
-    status = match["status"]
+    status = str(
+        match["status"]
+    )
 
     sard_goals = html.escape(
         str(match["sard_goals"])
@@ -202,121 +265,10 @@ for match in matches:
         str(match["opponent_goals"])
     )
 
-    home_logo = match["home_logo"]
-    away_logo = match["away_logo"]
 
-
-    # =====================================================
-    # PERCORSI LOGHI
-    # =====================================================
-
-    if home_logo.startswith("/"):
-        home_logo = home_logo[1:]
-
-    if away_logo.startswith("/"):
-        away_logo = away_logo[1:]
-
-
-    home_logo = html.escape(
-        home_logo,
-        quote=True
-    )
-
-    away_logo = html.escape(
-        away_logo,
-        quote=True
-    )
-
-
-    # =====================================================
-    # STATO PARTITA
-    # =====================================================
-
-    if status == "Vittoria":
-
-        score = (
-            f"{sard_goals} - "
-            f"{opponent_goals}"
-        )
-
-        status_class = "win"
-        status_text = "VITTORIA"
-
-    elif status == "Pareggio":
-
-        score = (
-            f"{sard_goals} - "
-            f"{opponent_goals}"
-        )
-
-        status_class = "draw"
-        status_text = "PAREGGIO"
-
-    elif status == "Sconfitta":
-
-        score = (
-            f"{sard_goals} - "
-            f"{opponent_goals}"
-        )
-
-        status_class = "loss"
-        status_text = "SCONFITTA"
-
-    else:
-
-        score = "—"
-
-        status_class = "upcoming"
-        status_text = "DA GIOCARE"
-
-
-    # =====================================================
-    # LOGO CASA
-    # =====================================================
-
-    if home_logo:
-
-        home_logo_html = f"""
-            <img
-                src="{home_logo}"
-                alt="Squadra di casa"
-                class="match-team-logo"
-                loading="lazy"
-            >
-        """
-
-    else:
-
-        home_logo_html = """
-            <div class="match-team-logo-placeholder"></div>
-        """
-
-
-    # =====================================================
-    # LOGO TRASFERTA
-    # =====================================================
-
-    if away_logo:
-
-        away_logo_html = f"""
-            <img
-                src="{away_logo}"
-                alt="Squadra ospite"
-                class="match-team-logo"
-                loading="lazy"
-            >
-        """
-
-    else:
-
-        away_logo_html = """
-            <div class="match-team-logo-placeholder"></div>
-        """
-
-
-    # =====================================================
-    # NOMI SQUADRE
-    # =====================================================
+    # -----------------------------------------------------
+    # CASA / TRASFERTA
+    # -----------------------------------------------------
 
     if match["home_away"] == "Casa":
 
@@ -338,12 +290,117 @@ for match in matches:
     )
 
 
+    # -----------------------------------------------------
+    # LOGHI
+    # -----------------------------------------------------
+
+    home_logo = clean_image_path(
+        match["home_logo"]
+    )
+
+    away_logo = clean_image_path(
+        match["away_logo"]
+    )
+
+
+    # -----------------------------------------------------
+    # HTML LOGO CASA
+    # -----------------------------------------------------
+
+    if home_logo:
+
+        home_logo_html = f"""
+            <img
+                src="{home_logo}"
+                alt="{home_name}"
+                class="match-team-logo"
+                loading="lazy"
+            >
+        """
+
+    else:
+
+        home_logo_html = """
+            <div class="match-team-logo-placeholder"></div>
+        """
+
+
+    # -----------------------------------------------------
+    # HTML LOGO OSPITE
+    # -----------------------------------------------------
+
+    if away_logo:
+
+        away_logo_html = f"""
+            <img
+                src="{away_logo}"
+                alt="{away_name}"
+                class="match-team-logo"
+                loading="lazy"
+            >
+        """
+
+    else:
+
+        away_logo_html = """
+            <div class="match-team-logo-placeholder"></div>
+        """
+
+
+    # -----------------------------------------------------
+    # STATO PARTITA
+    # -----------------------------------------------------
+
+    if status == "Vittoria":
+
+        status_class = "win"
+        status_text = "VITTORIA"
+
+        score = (
+            f"{sard_goals} - "
+            f"{opponent_goals}"
+        )
+
+    elif status == "Pareggio":
+
+        status_class = "draw"
+        status_text = "PAREGGIO"
+
+        score = (
+            f"{sard_goals} - "
+            f"{opponent_goals}"
+        )
+
+    elif status == "Sconfitta":
+
+        status_class = "loss"
+        status_text = "SCONFITTA"
+
+        score = (
+            f"{sard_goals} - "
+            f"{opponent_goals}"
+        )
+
+    else:
+
+        status_class = "upcoming"
+        status_text = "DA GIOCARE"
+
+        score = "—"
+
+
     # =====================================================
-    # CARD PARTITA
+    # CARD
+    #
+    # IMPORTANTE:
+    # L'ORARIO È DENTRO .match-vs
+    # QUINDI NON ESISTE PIÙ LA COLONNA A DESTRA
     # =====================================================
 
-    rows.append(f"""
+    card = f"""
     <article class="match-card {status_class}">
+
+        <!-- DATA -->
 
         <div class="match-date-column">
 
@@ -362,14 +419,24 @@ for match in matches:
         </div>
 
 
+        <!-- PARTE CENTRALE -->
+
         <div class="match-main">
+
+
+            <!-- CAMPIONATO -->
 
             <div class="match-competition">
                 {competition}
             </div>
 
 
+            <!-- SQUADRE -->
+
             <div class="match-teams">
+
+
+                <!-- SQUADRA CASA -->
 
                 <div class="match-team">
 
@@ -382,16 +449,30 @@ for match in matches:
                 </div>
 
 
+                <!-- CENTRO -->
+
                 <div class="match-vs">
 
                     <span></span>
 
-                    <strong>VS</strong>
+                    <div class="match-vs-center">
+
+                        <span class="match-time">
+                            {time if time else "—"}
+                        </span>
+
+                        <strong>
+                            VS
+                        </strong>
+
+                    </div>
 
                     <span></span>
 
                 </div>
 
+
+                <!-- SQUADRA OSPITE -->
 
                 <div class="match-team">
 
@@ -405,6 +486,8 @@ for match in matches:
 
             </div>
 
+
+            <!-- RISULTATO -->
 
             <div class="match-result">
 
@@ -420,24 +503,17 @@ for match in matches:
 
         </div>
 
-
-        <div class="match-time-column">
-
-            <span class="match-time">
-                {time if time else "—"}
-            </span>
-
-        </div>
-
     </article>
-""")
+    """
+
+    cards.append(card)
 
 
 # =========================================================
-# NESSUNA PARTITA
+# SE NON CI SONO PARTITE
 # =========================================================
 
-if not rows:
+if not cards:
 
     generated_matches = """
     <div class="season-status">
@@ -469,12 +545,12 @@ if not rows:
 else:
 
     generated_matches = "\n".join(
-        rows
+        cards
     )
 
 
 # =========================================================
-# AGGIORNA INDEX.HTML
+# CONTROLLO INDEX
 # =========================================================
 
 if not INDEX_FILE.exists():
@@ -488,6 +564,10 @@ html_content = INDEX_FILE.read_text(
     encoding="utf-8"
 )
 
+
+# =========================================================
+# MARCATORI
+# =========================================================
 
 start_marker = (
     "<!-- MATCHES_AUTO_START -->"
@@ -510,6 +590,10 @@ if (
         "non trovati in index.html"
     )
 
+
+# =========================================================
+# SOSTITUZIONE BLOCCO
+# =========================================================
 
 pattern = (
     re.escape(start_marker)
@@ -535,16 +619,47 @@ new_html = re.sub(
 )
 
 
+# =========================================================
+# SALVA INDEX
+# =========================================================
+
 INDEX_FILE.write_text(
     new_html,
     encoding="utf-8"
 )
 
 
+# =========================================================
+# REPORT
+# =========================================================
+
+print()
+print("=" * 50)
+print("SARD FUTSAL - GENERAZIONE CALENDARIO")
+print("=" * 50)
+print()
+
 print(
-    f"Partite lette dal CMS: {len(matches)}"
+    f"Partite trovate: {len(matches)}"
 )
+
+print(
+    f"Card generate: {len(cards)}"
+)
+
+print()
 
 print(
     "Calendario aggiornato correttamente."
 )
+
+print(
+    "Orario posizionato sopra VS."
+)
+
+print(
+    "Loghi casa/trasferta collegati al CMS."
+)
+
+print()
+print("=" * 50)
