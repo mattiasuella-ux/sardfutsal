@@ -3479,3 +3479,127 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 21px !important;
   }
 }
+/* =========================================================
+   TITOLO PARTITA
+   ========================================================= */
+
+/* Titolo sopra la card */
+.match-card::before {
+  display: block;
+  position: absolute;
+
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+  z-index: 30;
+}
+
+/* Partita non ancora disputata */
+.match-card.upcoming::before {
+  content: "PROSSIMA PARTITA";
+}
+
+/* Partita terminata */
+.match-card.finished::before {
+  content: "RISULTATO FINALE";
+}
+
+
+/* =========================================================
+   COMPETIZIONE
+   ========================================================= */
+
+.match-card .match-competition {
+  width: 100% !important;
+
+  margin-bottom: 18px !important;
+
+  text-align: center !important;
+
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   DATA
+   ========================================================= */
+
+.match-card .match-date {
+  display: flex !important;
+
+  align-items: baseline !important;
+  justify-content: center !important;
+
+  gap: 5px !important;
+
+  font-size: 17px !important;
+  font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   ORARIO
+   ========================================================= */
+
+.match-card .match-date-time {
+  display: block !important;
+
+  margin-top: 5px !important;
+
+  color: #fff !important;
+
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+}
+
+
+/* =========================================================
+   SPAZIO PARTE CENTRALE
+   ========================================================= */
+
+.match-card .match-main {
+  padding-top: 108px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .match-card::before {
+    top: -30px;
+
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+
+  .match-card .match-competition {
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .match-card .match-date-time {
+    font-size: 22px !important;
+  }
+
+  .match-card .match-main {
+    padding-top: 95px !important;
+  }
+
+}
