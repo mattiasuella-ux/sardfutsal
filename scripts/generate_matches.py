@@ -343,64 +343,7 @@ for match in matches:
     except (ValueError, TypeError):
         opponent_goals_value = -1
 
-    if (
-        sard_goals_value == -2
-        and opponent_goals_value == -2
-    ):
-
-        match_label = "CALENDARIO IN AGGIORNAMENTO"
-
-        score = ""
-
-    elif (
-        sard_goals_value >= 0
-        and opponent_goals_value >= 0
-    ):
-
-        match_label = "RISULTATO FINALE"
-
-        score = (
-            f"{sard_goals_value} - "
-            f"{opponent_goals_value}"
-        )
-
-    else:
-
-        match_label = "PROSSIMA PARTITA"
-
-        score = "VS"
-        if (
-    sard_goals_value == -2
-    and opponent_goals_value == -2
-):
-
-    match_label = "CALENDARIO IN AGGIORNAMENTO"
-
-    score = ""
-
-    card = f"""
-    <div class="match-card-wrapper">
-
-        <div class="match-card-label">
-            CALENDARIO IN AGGIORNAMENTO
-        </div>
-
-        <article class="match-card match-card-update">
-
-            <img
-                src="images/calendario-aggiornamento.png"
-                alt="Calendario in aggiornamento"
-                class="calendar-update-image"
-            >
-
-        </article>
-
-    </div>
-    """
-
-    cards.append(card)
-
-    continue
+  
 
 
     # -----------------------------------------------------
