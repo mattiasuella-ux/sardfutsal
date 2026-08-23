@@ -170,11 +170,6 @@ if MATCHES_DIR.exists():
                 "Casa"
             ),
 
-            "status": data.get(
-                "status",
-                "Da giocare"
-            ),
-
             "sard_goals": data.get(
                 "sard_goals",
                 ""
@@ -251,10 +246,6 @@ for match in matches:
 
     opponent = html.escape(
         str(match["opponent"])
-    )
-
-    status = str(
-        match["status"]
     )
 
     sard_goals = html.escape(
@@ -348,57 +339,32 @@ for match in matches:
 
 
     # -----------------------------------------------------
-    # STATO PARTITA
+    # RISULTATO
     # -----------------------------------------------------
 
-    if status == "Vittoria":
+    has_score = (
+        str(match["sard_goals"]).strip() != ""
+        and str(match["opponent_goals"]).strip() != ""
+    )
 
-        status_class = "win"
-        status_text = "VITTORIA"
-
+    if has_score:
         score = (
             f"{sard_goals} - "
             f"{opponent_goals}"
         )
-
-    elif status == "Pareggio":
-
-        status_class = "draw"
-        status_text = "PAREGGIO"
-
-        score = (
-            f"{sard_goals} - "
-            f"{opponent_goals}"
-        )
-
-    elif status == "Sconfitta":
-
-        status_class = "loss"
-        status_text = "SCONFITTA"
-
-        score = (
-            f"{sard_goals} - "
-            f"{opponent_goals}"
-        )
-
     else:
-
-        status_class = "upcoming"
-        status_text = "DA GIOCARE"
-
-        score = "—"
-
+        score = ""
 
     # =====================================================
     # CARD
     #
     # IMPORTANTE:
-    # L'ORARIO È DENTRO .match-vs
+    # ORARIO/RISULTATO È DENTRO .match-vs
     # QUINDI NON ESISTE PIÙ LA COLONNA A DESTRA
     # =====================================================
 
     card = f"""
-    <article class="match-card {status_class}">
+    <article class="match-card">
 
         <!-- DATA -->
 
@@ -458,11 +424,11 @@ for match in matches:
                     <div class="match-vs-center">
 
                         <span class="match-time">
-                            {time if time else "—"}
+                            {score if score else (time if time else "—")}
                         </span>
 
                         <strong>
-                            VS
+                            {" " if score else "VS"}
                         </strong>
 
                     </div>
@@ -486,20 +452,6 @@ for match in matches:
 
             </div>
 
-
-            <!-- RISULTATO -->
-
-            <div class="match-result">
-
-                <span class="match-status">
-                    {status_text}
-                </span>
-
-                <strong class="match-score">
-                    {score}
-                </strong>
-
-            </div>
 
         </div>
 
