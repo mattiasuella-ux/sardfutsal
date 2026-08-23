@@ -8,9 +8,6 @@ ROOT = Path(".")
 MATCHES_DIR = ROOT / "content" / "matches"
 INDEX_FILE = ROOT / "index.html"
 
-# Logo Sard Futsal
-SARD_FUTSAL_LOGO = "LogoaggiornatoSardFutsal.png"
-
 
 def parse_frontmatter(text):
 
@@ -140,8 +137,13 @@ if MATCHES_DIR.exists():
                 ""
             ),
 
-            "opponent_logo": data.get(
-                "opponent_logo",
+            "home_logo": data.get(
+                "home_logo",
+                ""
+            ),
+
+            "away_logo": data.get(
+                "away_logo",
                 ""
             )
 
@@ -172,6 +174,12 @@ for match in matches:
         )
     )
 
+    date_parts = date.split(" ")
+
+    day = date_parts[0] if len(date_parts) > 0 else ""
+    month = date_parts[1] if len(date_parts) > 1 else ""
+    year = date_parts[2] if len(date_parts) > 2 else ""
+
     time = html.escape(
         match["time"]
     )
@@ -194,19 +202,34 @@ for match in matches:
         str(match["opponent_goals"])
     )
 
-    opponent_logo = match["opponent_logo"]
+    home_logo = match["home_logo"]
+    away_logo = match["away_logo"]
 
-    if opponent_logo.startswith("/"):
-        opponent_logo = opponent_logo[1:]
 
-    opponent_logo = html.escape(
-        opponent_logo,
+    # =====================================================
+    # PERCORSI LOGHI
+    # =====================================================
+
+    if home_logo.startswith("/"):
+        home_logo = home_logo[1:]
+
+    if away_logo.startswith("/"):
+        away_logo = away_logo[1:]
+
+
+    home_logo = html.escape(
+        home_logo,
+        quote=True
+    )
+
+    away_logo = html.escape(
+        away_logo,
         quote=True
     )
 
 
     # =====================================================
-    # STATO
+    # STATO PARTITA
     # =====================================================
 
     if status == "Vittoria":
@@ -248,64 +271,75 @@ for match in matches:
 
 
     # =====================================================
-    # CASA / TRASFERTA
+    # LOGO CASA
     # =====================================================
 
-    if match["home_away"] == "Trasferta":
+    if home_logo:
 
-        left_logo = opponent_logo
-        left_name = opponent
-
-        right_logo = SARD_FUTSAL_LOGO
-        right_name = "SARD FUTSAL"
+        home_logo_html = f"""
+            <img
+                src="{home_logo}"
+                alt="Squadra di casa"
+                class="match-team-logo"
+                loading="lazy"
+            >
+        """
 
     else:
 
-        left_logo = SARD_FUTSAL_LOGO
-        left_name = "SARD FUTSAL"
-
-        right_logo = opponent_logo
-        right_name = opponent
+        home_logo_html = """
+            <div class="match-team-logo-placeholder"></div>
+        """
 
 
     # =====================================================
-    # LOGO SINISTRO
+    # LOGO TRASFERTA
     # =====================================================
 
-    left_logo_html = ""
+    if away_logo:
 
-    if left_logo:
-
-        left_logo_html = f"""
+        away_logo_html = f"""
             <img
-                src="{html.escape(left_logo, quote=True)}"
-                alt="{html.escape(left_name, quote=True)}"
+                src="{away_logo}"
+                alt="Squadra ospite"
                 class="match-team-logo"
                 loading="lazy"
             >
         """
 
+    else:
 
-    # =====================================================
-    # LOGO DESTRO
-    # =====================================================
-
-    right_logo_html = ""
-
-    if right_logo:
-
-        right_logo_html = f"""
-            <img
-                src="{html.escape(right_logo, quote=True)}"
-                alt="{html.escape(right_name, quote=True)}"
-                class="match-team-logo"
-                loading="lazy"
-            >
+        away_logo_html = """
+            <div class="match-team-logo-placeholder"></div>
         """
 
 
     # =====================================================
-    # RIGA PARTITA
+    # NOMI SQUADRE
+    # =====================================================
+
+    if match["home_away"] == "Casa":
+
+        home_name = "SARD FUTSAL"
+        away_name = opponent
+
+    else:
+
+        home_name = opponent
+        away_name = "SARD FUTSAL"
+
+
+    home_name = html.escape(
+        home_name
+    )
+
+    away_name = html.escape(
+        away_name
+    )
+
+
+    # =====================================================
+    # CARD PARTITA
     # =====================================================
 
     rows.append(f"""
@@ -314,15 +348,15 @@ for match in matches:
         <div class="match-date-column">
 
             <span class="match-date-day">
-                {date.split(" ")[0]}
+                {day}
             </span>
 
             <span class="match-date-month">
-                {date.split(" ")[1]}
+                {month}
             </span>
 
             <span class="match-date-year">
-                {date.split(" ")[2]}
+                {year}
             </span>
 
         </div>
@@ -339,10 +373,10 @@ for match in matches:
 
                 <div class="match-team">
 
-                    {left_logo_html}
+                    {home_logo_html}
 
                     <h3>
-                        {html.escape(left_name)}
+                        {home_name}
                     </h3>
 
                 </div>
@@ -361,10 +395,10 @@ for match in matches:
 
                 <div class="match-team">
 
-                    {right_logo_html}
+                    {away_logo_html}
 
                     <h3>
-                        {html.escape(right_name)}
+                        {away_name}
                     </h3>
 
                 </div>
@@ -430,7 +464,7 @@ if not rows:
         </div>
 
     </div>
-"""
+    """
 
 else:
 
