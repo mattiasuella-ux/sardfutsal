@@ -373,8 +373,10 @@ for match in matches:
             f"{sard_goals} - "
             f"{opponent_goals}"
         )
+        match_label = "RISULTATO FINALE"
     else:
         score = ""
+        match_label = "PROSSIMA PARTITA"
 
     # =====================================================
     # CARD
@@ -385,93 +387,93 @@ for match in matches:
     # =====================================================
 
     card = f"""
-    <article class="match-card">
+    <div class="match-card-wrapper">
 
-        <!-- DATA + ORA -->
-
-        <div class="match-date-column">
-
-            <div class="match-date">
-                <span class="match-date-day">{day}</span>
-                <span class="match-date-month">{month}</span>
-                <span class="match-date-year">{year}</span>
-            </div>
-
-            <span class="match-date-time">
-                {time if time else "—"}
-            </span>
-
+        <div class="match-card-label">
+            {match_label}
         </div>
 
+        <article class="match-card {"finished" if has_score else "upcoming"}">
 
-        <!-- PARTE CENTRALE -->
+            <div class="match-main">
 
-        <div class="match-main">
+                <!-- CAMPIONATO -->
 
+                <div class="match-competition">
+                    {competition}
+                </div>
 
-            <!-- CAMPIONATO -->
+                <!-- DATA + ORA -->
 
-            <div class="match-competition">
-                {competition}
-            </div>
+                <div class="match-date-column">
 
+                    <div class="match-date">
+                        <span class="match-date-day">{day}</span>
+                        <span class="match-date-month">{month}</span>
+                        <span class="match-date-year">{year}</span>
+                    </div>
 
-            <!-- SQUADRE -->
-
-            <div class="match-teams">
-
-
-                <!-- SQUADRA CASA -->
-
-                <div class="match-team">
-
-                    {home_logo_html}
-
-                    <h3>
-                        {home_name}
-                    </h3>
+                    <span class="match-date-time">
+                        {time if time else "—"}
+                    </span>
 
                 </div>
 
+                <!-- SQUADRE -->
 
-                <!-- CENTRO -->
+                <div class="match-teams">
 
-                <div class="match-vs">
+                    <!-- SQUADRA CASA -->
 
-                    <span></span>
+                    <div class="match-team">
 
-                    <div class="match-vs-center">
+                        {home_logo_html}
 
-                        <span class="match-time">
-                            {score if score else "VS"}
-                        </span>
+                        <h3>
+                            {home_name}
+                        </h3>
 
                     </div>
 
-                    <span></span>
+                    <!-- CENTRO -->
+
+                    <div class="match-vs">
+
+                        <span></span>
+
+                        <div class="match-vs-center">
+
+                            <span class="match-time">
+                                {score if score else "VS"}
+                            </span>
+
+                        </div>
+
+                        <span></span>
+
+                    </div>
+
+                    <!-- SQUADRA OSPITE -->
+
+                    <div class="match-team">
+
+                        {away_logo_html}
+
+                        <h3>
+                            {away_name}
+                        </h3>
+
+                    </div>
 
                 </div>
 
-
-                <!-- SQUADRA OSPITE -->
-
-                <div class="match-team">
-
-                    {away_logo_html}
-
-                    <h3>
-                        {away_name}
-                    </h3>
-
-                </div>
+                {scorers_html}
 
             </div>
 
-            {scorers_html}
+        </article>
 
-        </div>
-
-    </article>
+    </div>
     """
 
     cards.append(card)
