@@ -962,9 +962,9 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 /* CAMPIONATO */
 .match-competition {
-  margin: 0 0 34px;
+  margin: 0 0 10px;
   color: var(--orange);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 4px;
   line-height: 1.2;
