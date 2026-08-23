@@ -3691,3 +3691,49 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================================
+   DATA - RIDIMENSIONAMENTO
+   ========================================================= */
+
+.match-card .match-date {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 7px !important;
+}
+
+/* Giorno */
+.match-card .match-date .day {
+  font-size: 48px !important;
+  line-height: 1 !important;
+}
+
+/* Mese */
+.match-card .match-date .month {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+}
+
+/* Anno */
+.match-card .match-date .year {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  .match-card .match-date .day {
+    font-size: 40px !important;
+  }
+
+  .match-card .match-date .month {
+    font-size: 16px !important;
+  }
+
+  .match-card .match-date .year {
+    font-size: 14px !important;
+  }
+
+}
