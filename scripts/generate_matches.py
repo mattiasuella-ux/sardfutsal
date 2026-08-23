@@ -322,32 +322,53 @@ for match in matches:
         opponent_goals_value = -1
 
 
-  if (
-    sard_goals_value == -2
-    and opponent_goals_value == -2
-):
+    # =====================================================
+    # STATO PARTITA
+    # -2 = calendario in aggiornamento
+    # -1 = partita non disputata
+    # 0 o superiore = risultato reale
+    # =====================================================
 
-    match_label = "CALENDARIO IN AGGIORNAMENTO"
+    try:
+        sard_goals_value = int(
+            str(match["sard_goals"]).strip()
+        )
+    except (ValueError, TypeError):
+        sard_goals_value = -1
 
-    score = ""
+    try:
+        opponent_goals_value = int(
+            str(match["opponent_goals"]).strip()
+        )
+    except (ValueError, TypeError):
+        opponent_goals_value = -1
 
-elif (
-    sard_goals_value >= 0
-    and opponent_goals_value >= 0
-):
+    if (
+        sard_goals_value == -2
+        and opponent_goals_value == -2
+    ):
 
-    match_label = "RISULTATO FINALE"
+        match_label = "CALENDARIO IN AGGIORNAMENTO"
 
-    score = (
-        f"{sard_goals_value} - "
-        f"{opponent_goals_value}"
-    )
+        score = ""
 
-else:
+    elif (
+        sard_goals_value >= 0
+        and opponent_goals_value >= 0
+    ):
 
-    match_label = "PROSSIMA PARTITA"
+        match_label = "RISULTATO FINALE"
 
-    score = "VS"
+        score = (
+            f"{sard_goals_value} - "
+            f"{opponent_goals_value}"
+        )
+
+    else:
+
+        match_label = "PROSSIMA PARTITA"
+
+        score = "VS"
 
 
     # -----------------------------------------------------
