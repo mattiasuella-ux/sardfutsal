@@ -2,6 +2,7 @@
 title: Nuovo sito ufficiale Sard Futsal
 category: COMUNICATO
 date: 2026-08-22
+image: /images/ChatGPT Image 21 ago 2026, 14_07_32.png
 excerpt: È online il nuovo sito ufficiale di Sard Futsal.
 ---
 Benvenuti nel nuovo sito ufficiale di Sard Futsal.  
