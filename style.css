@@ -3054,25 +3054,58 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 /* DATA */
+/* =========================================================
+   CAMPIONATO + DATA + ORA
+   ========================================================= */
+
 .match-card .match-date-column {
   position: absolute !important;
-  top: 18px !important;
+
+  top: 48px !important;
   left: 50% !important;
   right: auto !important;
+
   transform: translateX(-50%) !important;
+
+  width: auto !important;
+  min-width: 150px !important;
 
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-
-  width: max-content !important;
-  min-width: 0 !important;
+  justify-content: center !important;
 
   padding: 0 !important;
-  margin: 0 !important;
   border: 0 !important;
 
-  z-index: 20 !important;
+  text-align: center !important;
+  z-index: 10 !important;
+}
+
+
+/* CAMPIONATO */
+
+.match-card .match-competition {
+  position: absolute !important;
+
+  top: 18px !important;
+  left: 0 !important;
+  right: 0 !important;
+
+  margin: 0 !important;
+
+  color: var(--orange) !important;
+
+  font-size: 15px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: 4px !important;
+  line-height: 1.2 !important;
+
+  text-align: center !important;
+  text-transform: uppercase !important;
+
+  z-index: 11 !important;
 }
 
 /* DATA IN ORIZZONTALE */
