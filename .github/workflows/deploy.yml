@@ -29,22 +29,21 @@ jobs:
         with:
           python-version: "3.x"
 
-
-           - name: Generate players
+      - name: Generate players
         run: python scripts/generate_players.py
 
       - name: Generate matches
         run: python scripts/generate_matches.py
 
       - name: Generate news
-        run: python scripts/generate_news.pypy
+        run: python scripts/generate_news.py
 
       - name: Commit generated content
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add news.html news/ content/players/ index.html
-          git diff --cached --quiet || git commit -m "Update news and players automatically"
+          git add index.html news.html news/ content/players/ content/matches/
+          git diff --cached --quiet || git commit -m "Update generated content"
           git push
 
       - name: Setup Pages
