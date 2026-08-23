@@ -3690,3 +3690,36 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   text-align: center;
   text-transform: uppercase;
 }
+/* =========================================================
+   POSIZIONE DEFINITIVA DATA + CAMPIONATO
+   ========================================================= */
+
+.match-card .match-date-column {
+  position: absolute !important;
+  top: 62px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  width: max-content !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  z-index: 20 !important;
+}
+
+
+.match-card .match-competition {
+  position: absolute !important;
+  top: 18px !important;
+  left: 0 !important;
+  right: 0 !important;
+
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: center !important;
+
+  z-index: 21 !important;
+}
