@@ -110,7 +110,7 @@ content:
       sort:
         - number
 
-           default:
+      default:
         sort: number
         order: asc
 
@@ -170,6 +170,7 @@ content:
             - Vittoria
             - Pareggio
             - Sconfitta
+
       - name: sard_goals
         label: Gol Sard Futsal
         type: number
@@ -201,19 +202,3 @@ content:
       default:
         sort: date
         order: desc
-    view:
-      fields:
-        - date
-        - opponent
-        - competition
-        - status
-
-      primary: opponent
-
-      sort:
-        - date
-
-      default:
-        sort: date
-        order: desc
-        
