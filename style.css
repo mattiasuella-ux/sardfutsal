@@ -2255,3 +2255,371 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================================
+   CALENDARIO / RISULTATI - MATCH CARD
+========================================================= */
+
+.match-card {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 110px;
+  align-items: stretch;
+
+  background: linear-gradient(145deg, #191919, #0b0b0b);
+  border: 1px solid #292929;
+
+  min-height: 210px;
+  margin-top: 18px;
+
+  overflow: hidden;
+}
+
+/* =========================
+   DATA
+========================= */
+
+.match-date-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 10px;
+  border-right: 1px solid #292929;
+  text-align: center;
+}
+
+.match-date-day {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: .85;
+  color: var(--orange);
+}
+
+.match-date-month {
+  margin-top: 8px;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.match-date-year {
+  margin-top: 5px;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+/* =========================
+   PARTE CENTRALE
+========================= */
+
+.match-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+  padding: 28px 35px;
+}
+
+/* Competizione */
+
+.match-competition {
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  color: var(--orange);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* =========================
+   SQUADRE
+========================= */
+
+.match-teams {
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+/* Singola squadra */
+
+.match-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  min-width: 0;
+}
+
+.match-team-logo {
+  width: 70px;
+  height: 70px;
+
+  object-fit: contain;
+
+  margin-bottom: 12px;
+}
+
+.match-team-logo-placeholder {
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 12px;
+}
+
+.match-team h3 {
+  margin: 0;
+
+  max-width: 220px;
+
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-size: 24px;
+  line-height: 1;
+
+  color: #fff;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   VS
+========================= */
+
+.match-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  color: var(--orange);
+}
+
+.match-vs span {
+  width: 15px;
+  height: 1px;
+
+  background: #444;
+}
+
+.match-vs strong {
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-size: 25px;
+  font-weight: 800;
+
+  color: var(--orange);
+}
+
+/* =========================
+   RISULTATO
+========================= */
+
+.match-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.match-status {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.match-score {
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  color: #fff;
+}
+
+/* Vittoria */
+
+.match-card.win .match-status {
+  color: #63d471;
+}
+
+/* Pareggio */
+
+.match-card.draw .match-status {
+  color: #f0b84b;
+}
+
+/* Sconfitta */
+
+.match-card.loss .match-status {
+  color: #e05252;
+}
+
+/* =========================
+   ORA
+========================= */
+
+.match-time-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 10px;
+
+  border-left: 1px solid #292929;
+}
+
+.match-time {
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  color: #fff;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .match-card {
+    grid-template-columns: 70px minmax(0, 1fr) 70px;
+
+    min-height: 190px;
+  }
+
+  .match-date-column {
+    padding: 15px 5px;
+  }
+
+  .match-date-day {
+    font-size: 38px;
+  }
+
+  .match-date-month {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .match-date-year {
+    font-size: 8px;
+  }
+
+  .match-main {
+    padding: 22px 10px;
+  }
+
+  .match-competition {
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+  }
+
+  .match-teams {
+    grid-template-columns: 1fr 45px 1fr;
+    gap: 5px;
+  }
+
+  .match-team-logo,
+  .match-team-logo-placeholder {
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 8px;
+  }
+
+  .match-team h3 {
+    font-size: 16px;
+    line-height: 1.05;
+  }
+
+  .match-vs {
+    gap: 3px;
+  }
+
+  .match-vs span {
+    width: 8px;
+  }
+
+  .match-vs strong {
+    font-size: 18px;
+  }
+
+  .match-result {
+    margin-top: 14px;
+    gap: 7px;
+  }
+
+  .match-status {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .match-score {
+    font-size: 19px;
+  }
+
+  .match-time-column {
+    padding: 10px 5px;
+  }
+
+  .match-time {
+    font-size: 24px;
+  }
+}
+
+/* Smartphone piccoli */
+
+@media (max-width: 420px) {
+
+  .match-card {
+    grid-template-columns: 58px minmax(0, 1fr) 58px;
+  }
+
+  .match-date-day {
+    font-size: 32px;
+  }
+
+  .match-date-month {
+    font-size: 9px;
+  }
+
+  .match-team-logo,
+  .match-team-logo-placeholder {
+    width: 42px;
+    height: 42px;
+  }
+
+  .match-team h3 {
+    font-size: 14px;
+  }
+
+  .match-time {
+    font-size: 21px;
+  }
+}
