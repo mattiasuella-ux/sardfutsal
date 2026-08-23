@@ -30,11 +30,14 @@ jobs:
           python-version: "3.x"
 
 
-      - name: Generate players
+           - name: Generate players
         run: python scripts/generate_players.py
 
+      - name: Generate matches
+        run: python scripts/generate_matches.py
+
       - name: Generate news
-        run: python scripts/generate_news.py
+        run: python scripts/generate_news.pypy
 
       - name: Commit generated content
         run: |
