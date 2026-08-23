@@ -3385,3 +3385,41 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 12px !important;
   }
 }
+/* =========================================================
+   RITOCCO LOGHI E NOMI SQUADRE
+   ========================================================= */
+
+/* LOGHI: leggermente più grandi e più in alto */
+.match-card .match-team-logo,
+.match-card .match-team-logo-placeholder {
+  width: 90px !important;
+  height: 90px !important;
+  margin-bottom: 7px !important;
+  transform: translateY(-6px) !important;
+}
+
+/* NOMI: leggermente più vicini ai loghi */
+.match-card .match-team h3 {
+  margin-top: -2px !important;
+  font-size: 21px !important;
+  line-height: 1.05 !important;
+  transform: translateY(-4px) !important;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  .match-card .match-team-logo,
+  .match-card .match-team-logo-placeholder {
+    width: 68px !important;
+    height: 68px !important;
+    margin-bottom: 6px !important;
+    transform: translateY(-4px) !important;
+  }
+
+  .match-card .match-team h3 {
+    font-size: 16px !important;
+    transform: translateY(-2px) !important;
+  }
+
+}
