@@ -90,9 +90,9 @@ content:
         type: select
         required: true
         options:
-        values:
-          - Portiere
-          - Giocatore di movimento
+          values:
+            - Portiere
+            - Giocatore di movimento
 
       - name: image
         label: Foto
