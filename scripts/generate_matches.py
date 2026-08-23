@@ -303,8 +303,10 @@ for match in matches:
 
     # -----------------------------------------------------
     # GOL
-    # -1 = partita non disputata
-    # 0 o superiore = risultato reale
+    #
+    # -2 = calendario in aggiornamento
+    # -1 = prossima partita
+    # 0 o superiore = risultato finale
     # -----------------------------------------------------
 
     try:
@@ -321,30 +323,53 @@ for match in matches:
     except (ValueError, TypeError):
         opponent_goals_value = -1
 
-
-    # =====================================================
+    # -----------------------------------------------------
     # STATO PARTITA
-    # -2 = calendario in aggiornamento
-    # -1 = partita non disputata
-    # 0 o superiore = risultato reale
-    # =====================================================
+    # -----------------------------------------------------
 
-    try:
-        sard_goals_value = int(
-            str(match["sard_goals"]).strip()
+    if (
+        sard_goals_value == -2
+        and opponent_goals_value == -2
+    ):
+        match_label = "CALENDARIO IN AGGIORNAMENTO"
+        score = ""
+
+        card = f"""
+        <div class="match-card-wrapper">
+
+            <div class="match-card-label">
+                {match_label}
+            </div>
+
+            <article class="match-card match-card-update">
+
+                <img
+                    src="images/calendario-aggiornamento.png"
+                    alt="Calendario in aggiornamento"
+                    class="calendar-update-image"
+                >
+
+            </article>
+
+        </div>
+        """
+
+        cards.append(card)
+        continue
+
+    elif (
+        sard_goals_value >= 0
+        and opponent_goals_value >= 0
+    ):
+        match_label = "RISULTATO FINALE"
+        score = (
+            f"{sard_goals_value} - "
+            f"{opponent_goals_value}"
         )
-    except (ValueError, TypeError):
-        sard_goals_value = -1
 
-    try:
-        opponent_goals_value = int(
-            str(match["opponent_goals"]).strip()
-        )
-    except (ValueError, TypeError):
-        opponent_goals_value = -1
-
-  
-
+    else:
+        match_label = "PROSSIMA PARTITA"
+        score = "VS"
 
     # -----------------------------------------------------
     # CASA / TRASFERTA
