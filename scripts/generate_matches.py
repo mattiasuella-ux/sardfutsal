@@ -180,6 +180,11 @@ if MATCHES_DIR.exists():
                 ""
             ),
 
+            "scorers": data.get(
+                "scorers",
+                ""
+            ),
+
             "home_logo": data.get(
                 "home_logo",
                 ""
@@ -256,6 +261,22 @@ for match in matches:
         str(match["opponent_goals"])
     )
 
+    scorers_raw = str(match["scorers"]).strip()
+
+    scorer_items = []
+    if scorers_raw:
+        for item in re.split(r"\\n|;", scorers_raw):
+            item = item.strip()
+            if item:
+                scorer_items.append(html.escape(item))
+
+    scorers_html = ""
+    if scorer_items:
+        scorers_html = f"""
+            <div class="match-scorers">
+                {"".join(f'<span>{item}</span>' for item in scorer_items)}
+            </div>
+        """
 
     # -----------------------------------------------------
     # CASA / TRASFERTA
@@ -366,20 +387,18 @@ for match in matches:
     card = f"""
     <article class="match-card">
 
-        <!-- DATA -->
+        <!-- DATA + ORA -->
 
         <div class="match-date-column">
 
-            <span class="match-date-day">
-                {day}
-            </span>
+            <div class="match-date">
+                <span class="match-date-day">{day}</span>
+                <span class="match-date-month">{month}</span>
+                <span class="match-date-year">{year}</span>
+            </div>
 
-            <span class="match-date-month">
-                {month}
-            </span>
-
-            <span class="match-date-year">
-                {year}
+            <span class="match-date-time">
+                {time if time else "—"}
             </span>
 
         </div>
@@ -424,12 +443,8 @@ for match in matches:
                     <div class="match-vs-center">
 
                         <span class="match-time">
-                            {score if score else (time if time else "—")}
+                            {score if score else "VS"}
                         </span>
-
-                        <strong>
-                            {" " if score else "VS"}
-                        </strong>
 
                     </div>
 
@@ -452,6 +467,7 @@ for match in matches:
 
             </div>
 
+            {scorers_html}
 
         </div>
 
