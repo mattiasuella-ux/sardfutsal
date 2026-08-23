@@ -351,6 +351,21 @@ for match in matches:
     # STATO PARTITA
     # -----------------------------------------------------
 
+    if status == "Vittoria":
+
+        status_class = "win"
+        status_text = "VITTORIA"
+
+        score = (
+            f"{sard_goals} - "
+            f"{opponent_goals}"
+        )
+
+    elif status == "Pareggio":
+
+        status_class = "draw"
+        status_text = "PAREGGIO"
+
         score = (
             f"{sard_goals} - "
             f"{opponent_goals}"
