@@ -757,6 +757,185 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   top: -130px;
   pointer-events: none;
 }
+/* =========================================================
+   NUOVA GRAFICA CARD PARTITA
+   ========================================================= */
+
+/* Card più piccola e centrata */
+.match-card {
+  width: min(1050px, calc(100% - 40px)) !important;
+  margin: 30px auto !important;
+}
+
+/* DATA + ORA CENTRATE */
+.match-card .match-date-column {
+  position: absolute !important;
+  top: 18px !important;
+  left: 50% !important;
+  right: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  width: auto !important;
+  min-width: 150px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  border: 0 !important;
+
+  text-align: center !important;
+  z-index: 10 !important;
+}
+
+/* Data sulla stessa riga */
+.match-card .match-date {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 5px !important;
+}
+
+/* ORA sotto la data */
+.match-card .match-date-time {
+  display: block !important;
+
+  margin-top: 4px !important;
+
+  color: #fff !important;
+
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+
+  line-height: 1 !important;
+}
+
+/* Spazio superiore per non sovrapporre data e campionato */
+.match-card .match-main {
+  padding-top: 90px !important;
+}
+
+/* =========================================================
+   LOGHI
+   ========================================================= */
+
+/* Modifica questo valore per alzare/abbassare i loghi */
+.match-card .match-team-logo,
+.match-card .match-team-logo-placeholder {
+  transform: translateY(-8px) !important;
+}
+
+/* =========================================================
+   NOMI SQUADRE
+   ========================================================= */
+
+/* Modifica questo valore per alzare/abbassare i nomi */
+.match-card .match-team h3 {
+  transform: translateY(-6px) !important;
+}
+
+/* =========================================================
+   RISULTATO / ORARIO CENTRALE
+   ========================================================= */
+
+/* Gol grandi e BIANCHI */
+.match-card .match-time {
+  color: #fff !important;
+
+  font-size: 40px !important;
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+  letter-spacing: 1px !important;
+
+  text-align: center !important;
+}
+
+/* VS delle partite da giocare */
+.match-card .match-vs-center strong {
+  color: var(--orange) !important;
+}
+
+/* =========================================================
+   MARCATORI
+   ========================================================= */
+
+.match-card .match-scorers {
+  width: 100% !important;
+
+  margin: 14px auto 0 !important;
+
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  justify-content: center !important;
+  align-items: center !important;
+
+  gap: 6px 18px !important;
+
+  text-align: center !important;
+}
+
+.match-card .match-scorers span {
+  color: #fff !important;
+
+  font-family: 'Barlow Condensed', sans-serif !important;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+
+  line-height: 1.1 !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .match-card {
+    width: calc(100% - 24px) !important;
+    margin: 20px auto !important;
+  }
+
+  .match-card .match-date-column {
+    top: 12px !important;
+  }
+
+  .match-card .match-date-time {
+    font-size: 16px !important;
+  }
+
+  .match-card .match-main {
+    padding-top: 78px !important;
+  }
+
+  .match-card .match-time {
+    font-size: 32px !important;
+  }
+
+  .match-card .match-team-logo,
+  .match-card .match-team-logo-placeholder {
+    transform: translateY(-5px) !important;
+  }
+
+  .match-card .match-team h3 {
+    transform: translateY(-4px) !important;
+  }
+
+  .match-card .match-scorers {
+    margin-top: 10px !important;
+    gap: 5px 10px !important;
+  }
+
+  .match-card .match-scorers span {
+    font-size: 12px !important;
+  }
+}
 
 /* DATA A SINISTRA */
 .match-date-column {
