@@ -1380,3 +1380,13 @@ footer {
         font-size: 21px !important;
     }
 }
+.match-vs-center .match-time {
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 0 5px 0 !important;
+    font-size: 24px !important;
+    font-weight: 900 !important;
+}
