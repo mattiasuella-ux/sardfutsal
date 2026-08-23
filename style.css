@@ -2911,3 +2911,199 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================================
+   FIX DEFINITIVO STRUTTURA INTERNA MATCH CARD
+   ========================================================= */
+
+.match-card {
+  display: block !important;
+  width: min(1050px, calc(100% - 40px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Il contenuto deve occupare TUTTA la card */
+.match-card .match-main {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+
+  padding: 90px 45px 25px !important;
+}
+
+/* CAMPIONATO */
+.match-card .match-competition {
+  display: block !important;
+  width: 100% !important;
+
+  margin: 0 0 30px !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* TRE ZONE: CASA - CENTRO - TRASFERTA */
+.match-card .match-teams {
+  display: grid !important;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  grid-template-columns: minmax(0, 1fr) 160px minmax(0, 1fr) !important;
+
+  align-items: center !important;
+  justify-items: center !important;
+
+  gap: 20px !important;
+}
+
+/* SQUADRE */
+.match-card .match-team {
+  width: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-align: center !important;
+}
+
+/* LOGHI */
+.match-card .match-team-logo,
+.match-card .match-team-logo-placeholder {
+  width: 80px !important;
+  height: 80px !important;
+
+  object-fit: contain !important;
+
+  margin: 0 0 10px !important;
+
+  transform: none !important;
+}
+
+/* NOMI */
+.match-card .match-team h3 {
+  width: 100% !important;
+  max-width: 260px !important;
+
+  margin: 0 !important;
+
+  text-align: center !important;
+
+  transform: none !important;
+}
+
+/* CENTRO */
+.match-card .match-vs {
+  width: 160px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 0 !important;
+}
+
+/* NASCONDI LE LINEETTE LATERALI */
+.match-card .match-vs > span {
+  display: none !important;
+}
+
+/* RISULTATO */
+.match-card .match-vs-center {
+  width: 160px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* GOL */
+.match-card .match-vs-center .match-time {
+  color: #fff !important;
+
+  font-size: 44px !important;
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+
+  text-align: center !important;
+
+  white-space: nowrap !important;
+}
+
+/* MARCATORI */
+.match-card .match-scorers {
+  width: 100% !important;
+
+  margin: 18px auto 0 !important;
+
+  display: flex !important;
+
+  justify-content: center !important;
+  align-items: center !important;
+
+  flex-wrap: wrap !important;
+
+  gap: 6px 18px !important;
+}
+
+.match-card .match-scorers span {
+  color: #fff !important;
+
+  font-size: 14px !important;
+
+  text-align: center !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .match-card {
+    width: calc(100% - 20px) !important;
+  }
+
+  .match-card .match-main {
+    padding: 78px 12px 22px !important;
+  }
+
+  .match-card .match-competition {
+    font-size: 8px !important;
+    letter-spacing: 2px !important;
+    white-space: nowrap !important;
+  }
+
+  .match-card .match-teams {
+    grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr) !important;
+    gap: 4px !important;
+  }
+
+  .match-card .match-vs,
+  .match-card .match-vs-center {
+    width: 80px !important;
+  }
+
+  .match-card .match-team-logo,
+  .match-card .match-team-logo-placeholder {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .match-card .match-team h3 {
+    max-width: 130px !important;
+    font-size: 15px !important;
+  }
+
+  .match-card .match-vs-center .match-time {
+    font-size: 32px !important;
+  }
+}
