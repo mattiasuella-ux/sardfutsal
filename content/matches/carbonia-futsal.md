@@ -7,7 +7,9 @@ venue: Palazzetto Vallermosa
 home_away: Casa
 sard_goals: 2
 opponent_goals: 2
-scorers: NOCERINO
+scorers: |-
+  NOCERINO
+  MASSA
 home_logo: /images/sard-futsal-logo-web-100x100.png
 away_logo: /images/ChatGPT Image 23 ago 2026, 17_04_42.png
 ---
