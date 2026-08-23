@@ -1,18 +1,21 @@
 /* =========================================================
-   SARD FUTSAL — STYLE.CSS
-   BLOCCO 1
+   SARD FUTSAL
+   STYLE.CSS COMPLETO
    ========================================================= */
 
 :root {
   --orange: #ff5a00;
+  --orange-dark: #d94700;
   --black: #080808;
-  --dark: #101010;
-  --dark-2: #151515;
+  --black-2: #0d0d0d;
+  --dark: #121212;
+  --dark-2: #181818;
+  --line: rgba(255,255,255,.10);
   --white: #ffffff;
-  --muted: #999999;
-  --line: #292929;
+  --muted: #8b8b8b;
   --max-width: 1200px;
 }
+
 
 /* =========================================================
    RESET
@@ -20,6 +23,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -27,14 +32,10 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-
   background: var(--black);
   color: var(--white);
-
   font-family: Arial, Helvetica, sans-serif;
-
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
@@ -55,14 +56,16 @@ select {
   font: inherit;
 }
 
+
 /* =========================================================
    CONTAINER
    ========================================================= */
 
 .container {
-  width: min(90%, var(--max-width));
+  width: min(100% - 40px, var(--max-width));
   margin: 0 auto;
 }
+
 
 /* =========================================================
    HEADER
@@ -73,8 +76,8 @@ select {
   top: 0;
   z-index: 1000;
 
-  background: rgba(8, 8, 8, .96);
-  border-bottom: 1px solid #222;
+  background: rgba(8,8,8,.95);
+  border-bottom: 1px solid var(--line);
 
   backdrop-filter: blur(12px);
 }
@@ -92,13 +95,14 @@ select {
   align-items: center;
   gap: 12px;
 
+  font-size: 18px;
   font-weight: 900;
   letter-spacing: 1px;
 }
 
 .brand-logo {
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
 
@@ -110,9 +114,8 @@ select {
 
 #main-nav a {
   color: #ddd;
-
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 
   transition: .2s ease;
 }
@@ -122,7 +125,7 @@ select {
 }
 
 #main-nav .nav-cta {
-  padding: 11px 18px;
+  padding: 11px 17px;
 
   background: var(--orange);
   color: #fff;
@@ -131,7 +134,7 @@ select {
 }
 
 #main-nav .nav-cta:hover {
-  background: #ff7200;
+  background: var(--orange-dark);
   color: #fff;
 }
 
@@ -140,13 +143,12 @@ select {
 
   border: 0;
   background: transparent;
-
   color: #fff;
 
   font-size: 26px;
-
   cursor: pointer;
 }
+
 
 /* =========================================================
    HERO
@@ -155,23 +157,24 @@ select {
 .hero {
   min-height: 720px;
 
-  position: relative;
-
   display: flex;
   align-items: center;
 
+  position: relative;
   overflow: hidden;
+}
 
+.hero-team-photo {
   background:
     radial-gradient(
       circle at center,
-      rgba(255, 90, 0, .15),
+      rgba(255,90,0,.12),
       transparent 45%
     ),
     linear-gradient(
       135deg,
-      #161616,
-      #050505
+      #111 0%,
+      #050505 100%
     );
 }
 
@@ -191,42 +194,26 @@ select {
 .hero-content {
   position: relative;
   z-index: 2;
-
   text-align: center;
 }
 
 .hero-logo {
   width: 150px;
   height: 150px;
-
   object-fit: contain;
 
   margin: 0 auto 25px;
 }
 
-.eyebrow {
-  margin: 0;
-
-  font-size: 11px;
-  font-weight: 900;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-}
-
-.eyebrow.orange {
-  color: var(--orange);
+.hero .eyebrow {
+  margin-bottom: 12px;
 }
 
 .hero h1 {
-  margin: 0;
-
   font-size: clamp(55px, 9vw, 110px);
   line-height: .85;
 
   font-weight: 900;
-
   letter-spacing: -4px;
 }
 
@@ -239,7 +226,6 @@ h2 span {
   margin-top: 22px;
 
   color: #bbb;
-
   font-size: 18px;
 }
 
@@ -248,9 +234,9 @@ h2 span {
 
   display: flex;
   justify-content: center;
-
   gap: 12px;
 }
+
 
 /* =========================================================
    BUTTONS
@@ -262,16 +248,13 @@ h2 span {
   justify-content: center;
 
   min-height: 48px;
-
   padding: 0 24px;
 
   border-radius: 3px;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
-
   letter-spacing: 1px;
-
   text-transform: uppercase;
 
   transition: .2s ease;
@@ -283,12 +266,11 @@ h2 span {
 }
 
 .btn-primary:hover {
-  background: #ff7200;
+  background: var(--orange-dark);
 }
 
 .btn-ghost {
   border: 1px solid rgba(255,255,255,.25);
-
   color: #fff;
 }
 
@@ -297,12 +279,42 @@ h2 span {
   color: var(--orange);
 }
 
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.eyebrow.orange {
+  color: var(--orange);
+}
+
+
 /* =========================================================
    SECTIONS
    ========================================================= */
 
 .section {
-  padding: 100px 0;
+  padding: 110px 0;
+}
+
+.dark-section {
+  background: #0d0d0d;
+}
+
+.section h2 {
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: .95;
+
+  margin-top: 12px;
+
+  letter-spacing: -2px;
 }
 
 .section-heading {
@@ -313,38 +325,22 @@ h2 span {
   margin-bottom: 45px;
 }
 
-.section h2 {
-  margin: 12px 0 0;
-
-  font-size: clamp(38px, 5vw, 64px);
-
-  line-height: .95;
-
-  letter-spacing: -2px;
-}
-
-.dark-section {
-  background: #0d0d0d;
-}
-
 .text-link {
   color: var(--orange);
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
-
   text-transform: uppercase;
 }
 
+
 /* =========================================================
-   SPLIT
+   IDENTITÀ / SPLIT
    ========================================================= */
 
 .split {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 70px;
 
   align-items: start;
@@ -352,11 +348,9 @@ h2 span {
 
 .split p {
   margin-bottom: 20px;
-
   color: #aaa;
-
-  line-height: 1.7;
 }
+
 
 /* =========================================================
    MATCH STRIP
@@ -366,16 +360,13 @@ h2 span {
   padding: 30px 0;
 
   background: #101010;
-
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .match-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 30px;
 }
 
@@ -392,7 +383,6 @@ h2 span {
 
   font-size: 10px;
   font-weight: 800;
-
   letter-spacing: 2px;
 }
 
@@ -402,28 +392,30 @@ h2 span {
   font-size: 20px;
 }
 
+.match-grid strong span,
+.match-grid strong b {
+  color: var(--orange);
+}
+
 .match-grid p {
   margin-top: 5px;
-
   color: #777;
-
   font-size: 12px;
 }
 
+
 /* =========================================================
-   ROSA GIOCATORI
+   ROSA
    ========================================================= */
 
 .player-grid {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 18px;
 }
 
 .player-card {
-  min-height: 300px;
+  min-height: 260px;
 
   position: relative;
 
@@ -434,7 +426,6 @@ h2 span {
   justify-content: flex-end;
 
   background: #151515;
-
   border: 1px solid var(--line);
 
   overflow: hidden;
@@ -444,8 +435,7 @@ h2 span {
 
 .player-card:hover {
   transform: translateY(-5px);
-
-  border-color: rgba(255,90,0,.5);
+  border-color: rgba(255,90,0,.45);
 }
 
 .player-card img {
@@ -480,7 +470,6 @@ h2 span {
 
 .player-number {
   position: absolute;
-
   top: 15px;
   right: 18px;
 
@@ -491,175 +480,68 @@ h2 span {
 }
 
 .player-card h3 {
-  margin: 0;
-
   font-size: 22px;
 }
 
 .player-card p {
-  margin: 5px 0 0;
-
   color: var(--orange);
 
   font-size: 11px;
   font-weight: 800;
-
   text-transform: uppercase;
 }
 
+
 /* =========================================================
-   SOCIETÀ
+   ROSA AUTOMATICA
    ========================================================= */
 
-.society-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 350px;
-
-  padding: 30px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #191919,
-      #0b0b0b
-    );
-
-  border: 1px solid var(--line);
+.player-grid-real {
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.society-visual img {
-  width: 280px;
-  max-width: 80%;
-
-  height: auto;
-
-  object-fit: contain;
+.real-player {
+  min-height: 330px;
 }
 
-.society-badge {
-  width: 260px;
-  height: 260px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid var(--orange);
-}
 
 /* =========================================================
-   RISULTATI E CALENDARIO
+   RISULTATI / CALENDARIO
    ========================================================= */
 
 .results-section {
-  background: var(--black);
-
+  background: #090909;
   overflow: hidden;
 }
 
-.season-status {
-  margin-top: 35px;
-
-  padding: 35px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 30px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #191919,
-      #0b0b0b
-    );
-
-  border: 1px solid var(--line);
-
-  position: relative;
-
-  overflow: hidden;
-}
-
-.season-status-icon {
-  width: 70px;
-  height: 70px;
-
-  flex-shrink: 0;
-
-  border: 1px solid var(--orange);
-
-  position: relative;
-  z-index: 2;
-}
-
-.season-status-content {
-  position: relative;
-  z-index: 2;
-}
-
-.status-label {
-  margin: 0 0 8px;
-
-  color: var(--orange) !important;
-
-  font-size: 10px !important;
-  font-weight: 800;
-
-  letter-spacing: 2px;
-}
-
-.season-status-content h3 {
-  margin: 0 0 10px;
-
-  font-size: 34px;
-
-  line-height: 1;
-}
-
-.season-status-content p:last-child {
-  max-width: 650px;
-
-  color: #999;
-
-  font-size: 14px;
-}
 
 /* =========================================================
-   FINE BLOCCO 1
-   ========================================================= */
-/* =========================================================
-   CALENDARIO / RISULTATI
    MATCH CARD
    ========================================================= */
 
 .match-card {
+  position: relative;
+
   width: 100%;
   max-width: 1200px;
 
-  min-height: 250px;
+  min-height: 265px;
 
   margin: 25px auto 0;
 
   display: grid;
-
-  grid-template-columns: 95px minmax(0, 1fr);
+  grid-template-columns: 100px minmax(0, 1fr);
 
   background:
     linear-gradient(
-      145deg,
-      #191919,
-      #0b0b0b
+      135deg,
+      #181818,
+      #0d0d0d
     );
 
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255,255,255,.10);
 
   overflow: hidden;
-
-  position: relative;
 }
 
 
@@ -669,90 +551,81 @@ h2 span {
 
 .match-date-column {
   display: flex;
-
   flex-direction: column;
 
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
-  padding: 20px 8px;
+  padding: 20px 10px;
+
+  border-right: 1px solid rgba(255,255,255,.10);
 
   text-align: center;
-
-  border-right: 1px solid var(--line);
 }
 
 .match-date-day {
-  display: block;
-
   color: var(--orange);
 
-  font-size: 46px;
+  font-size: 48px;
   font-weight: 900;
 
   line-height: .9;
 }
 
 .match-date-month {
-  display: block;
-
   margin-top: 8px;
 
   color: #fff;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
 
   letter-spacing: 2px;
 }
 
 .match-date-year {
-  display: block;
-
   margin-top: 4px;
 
   color: #666;
 
-  font-size: 9px;
+  font-size: 10px;
 }
 
 
 /* =========================================================
-   PARTE CENTRALE
+   AREA CENTRALE
    ========================================================= */
 
 .match-main {
+  position: relative;
+
   min-width: 0;
 
-  padding: 28px 35px 25px;
+  padding: 28px 45px 35px;
 
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
 }
 
 
 /* =========================================================
-   COMPETIZIONE
+   CAMPIONATO
    ========================================================= */
 
 .match-competition {
-  margin: 0 0 28px;
+  text-align: center;
+
+  margin-bottom: 35px;
 
   color: var(--orange);
 
-  text-align: center;
-
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
 
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 
   text-transform: uppercase;
-
-  line-height: 1.2;
 }
 
 
@@ -761,30 +634,24 @@ h2 span {
    ========================================================= */
 
 .match-teams {
-  width: 100%;
-
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    100px
-    minmax(0, 1fr);
+    minmax(0,1fr)
+    110px
+    minmax(0,1fr);
 
   align-items: center;
 
   gap: 20px;
+
+  width: 100%;
 }
-
-
-/* =========================================================
-   SINGOLA SQUADRA
-   ========================================================= */
 
 .match-team {
   min-width: 0;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
@@ -792,125 +659,28 @@ h2 span {
 
   text-align: center;
 }
-
-
-/* =========================================================
-   LOGHI
-   ========================================================= */
 
 .match-team-logo,
 .match-team-logo-placeholder {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 
   object-fit: contain;
 
-  margin: 0 0 12px;
+  margin-bottom: 15px;
 }
-
-.match-team-logo-placeholder {
-  display: block;
-}
-
-
-/* =========================================================
-   NOME SQUADRA
-   ========================================================= */
 
 .match-team h3 {
-  margin: 0;
-
-  max-width: 220px;
+  max-width: 260px;
 
   color: #fff;
 
-  font-family: 'Barlow Condensed', sans-serif;
-
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 900;
 
   line-height: 1;
-
-  text-align: center;
 
   text-transform: uppercase;
-}
-
-
-/* =========================================================
-   CENTRO
-   ORARIO SOPRA VS
-   ========================================================= */
-
-.match-vs {
-  min-width: 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 7px;
-}
-
-
-/* Linee ai lati */
-
-.match-vs > span {
-  width: 15px;
-  height: 1px;
-
-  flex-shrink: 0;
-
-  background: #444;
-}
-
-
-/* Contenitore centrale */
-
-.match-vs-center {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 6px;
-
-  min-width: 55px;
-}
-
-
-/* =========================================================
-   ORARIO
-   ========================================================= */
-
-.match-vs-center .match-time {
-  display: block;
-
-  margin: 0;
-  padding: 0;
-
-  color: #fff !important;
-
-  background: transparent !important;
-
-  border: 0 !important;
-
-  box-shadow: none !important;
-
-  font-family: 'Barlow Condensed', sans-serif;
-
-  font-size: 24px !important;
-
-  font-weight: 900;
-
-  line-height: 1;
-
-  text-align: center;
-
-  white-space: nowrap;
 }
 
 
@@ -918,37 +688,85 @@ h2 span {
    VS
    ========================================================= */
 
-.match-vs-center strong {
-  display: block;
-
-  margin: 0;
-  padding: 0;
-
-  color: var(--orange);
-
-  font-family: 'Barlow Condensed', sans-serif;
-
-  font-size: 24px;
-
-  font-weight: 900;
-
-  line-height: 1;
-}
-
-
-/* =========================================================
-   RISULTATO
-   ========================================================= */
-
-.match-result {
-  margin-top: 22px;
-
+.match-vs {
   display: flex;
 
   align-items: center;
   justify-content: center;
 
   gap: 9px;
+}
+
+.match-vs span {
+  width: 18px;
+  height: 1px;
+
+  background: #444;
+}
+
+.match-vs strong {
+  color: var(--orange);
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   ORARIO
+   SOPRA IL VS
+   ========================================================= */
+
+.match-time-column {
+  position: absolute;
+
+  left: 50%;
+  top: 86px;
+
+  transform: translateX(-50%);
+
+  z-index: 5;
+
+  width: auto;
+
+  padding: 0;
+
+  border: 0;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+.match-time {
+  display: block;
+
+  color: #fff;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   RISULTATO / STATO
+   ========================================================= */
+
+.match-result {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
 }
 
 .match-status {
@@ -965,23 +783,16 @@ h2 span {
 .match-score {
   color: #fff;
 
-  font-family: 'Barlow Condensed', sans-serif;
-
   font-size: 20px;
   font-weight: 900;
 }
 
-
-/* =========================================================
-   COLORI RISULTATI
-   ========================================================= */
-
 .match-card.win .match-status {
-  color: #58d978;
+  color: #55d879;
 }
 
 .match-card.draw .match-status {
-  color: #f0b94c;
+  color: #f1b94c;
 }
 
 .match-card.loss .match-status {
@@ -990,224 +801,582 @@ h2 span {
 
 
 /* =========================================================
-   MOBILE / IPHONE
+   NESSUNA PARTITA
+   ========================================================= */
+
+.season-status {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 35px;
+
+  background: #151515;
+  border: 1px solid var(--line);
+}
+
+.season-status-icon {
+  width: 8px;
+  height: 70px;
+
+  flex: 0 0 auto;
+
+  background: var(--orange);
+}
+
+.status-label {
+  color: var(--orange);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+}
+
+.season-status h3 {
+  margin-top: 8px;
+
+  font-size: 25px;
+}
+
+.season-status p {
+  margin-top: 8px;
+
+  color: #777;
+}
+
+
+/* =========================================================
+   RISULTATI VECCHIO TABLE
+   ========================================================= */
+
+.results-table {
+  border-top: 1px solid var(--line);
+}
+
+.table-row {
+  display: grid;
+
+  grid-template-columns: 150px 1fr 100px;
+
+  align-items: center;
+
+  min-height: 70px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.table-row span,
+.table-row strong {
+  padding: 0 15px;
+}
+
+.table-head {
+  color: #777;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   NEWS
+   ========================================================= */
+
+.news-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-top: 40px;
+}
+
+.news-card {
+  background: #151515;
+
+  border: 1px solid var(--line);
+
+  overflow: hidden;
+}
+
+.news-image {
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #242424,
+      #0e0e0e
+    );
+
+  color: var(--orange);
+
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.news-body {
+  padding: 25px;
+}
+
+.news-body small {
+  color: var(--orange);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.news-body h3 {
+  margin-top: 10px;
+
+  font-size: 22px;
+}
+
+.news-body p {
+  margin-top: 10px;
+
+  color: #777;
+}
+
+
+/* =========================================================
+   SPONSOR
+   ========================================================= */
+
+.sponsor-section {
+  background: #101010;
+}
+
+.sponsor-box {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding: 65px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #191919,
+      #0d0d0d
+    );
+
+  border: 1px solid var(--line);
+}
+
+.sponsor-box h2 {
+  margin-top: 10px;
+}
+
+.sponsor-box p {
+  max-width: 600px;
+
+  margin-top: 20px;
+
+  color: #888;
+}
+
+
+/* =========================================================
+   CONTATTI
+   ========================================================= */
+
+.contact-section {
+  background: #090909;
+}
+
+.contact-list p {
+  margin-bottom: 25px;
+
+  color: #999;
+}
+
+.contact-list strong {
+  color: var(--orange);
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  background: #050505;
+
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  min-height: 130px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.footer-logo {
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+}
+
+.footer-inner p {
+  color: #666;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #main-nav {
+    position: absolute;
+
+    top: 76px;
+    left: 0;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+
+    padding: 25px;
+
+    background: #090909;
+
+    border-bottom: 1px solid var(--line);
+  }
+
+  #main-nav.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .match-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-grid,
+  .player-grid-real {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sponsor-box {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 40px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE MATCH
    ========================================================= */
 
 @media (max-width: 700px) {
 
-  .match-card {
-    width: 100%;
+  .container {
+    width: min(100% - 24px, var(--max-width));
+  }
 
-    min-height: 235px;
+  .section {
+    padding: 75px 0;
+  }
 
-    grid-template-columns: 58px minmax(0, 1fr);
+  .hero-logo {
+    width: 120px;
+    height: 120px;
+  }
 
-    margin-top: 18px;
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    max-width: 260px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
   }
 
 
-  /* DATA */
+  /* MATCH */
+
+  .match-card {
+    grid-template-columns: 65px minmax(0,1fr);
+
+    min-height: 245px;
+  }
 
   .match-date-column {
-    padding: 12px 4px;
+    padding: 15px 5px;
   }
 
   .match-date-day {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .match-date-month {
-    margin-top: 7px;
-
     font-size: 9px;
-
-    letter-spacing: 1.5px;
   }
 
   .match-date-year {
-    margin-top: 4px;
-
     font-size: 8px;
   }
 
-
-  /* CENTRO */
-
   .match-main {
-    padding: 21px 8px 22px;
+    padding: 24px 8px 30px;
   }
-
-
-  /* CAMPIONATO */
 
   .match-competition {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
-    font-size: 7.5px;
-
-    letter-spacing: 1.7px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+    font-size: 8px;
+    letter-spacing: 2px;
   }
-
-
-  /* SQUADRE */
 
   .match-teams {
     grid-template-columns:
-      minmax(0, 1fr)
-      58px
-      minmax(0, 1fr);
-
-    gap: 4px;
-  }
-
-
-  /* LOGHI */
-
-  .match-team-logo,
-  .match-team-logo-placeholder {
-    width: 58px;
-    height: 58px;
-
-    margin-bottom: 8px;
-  }
-
-
-  /* NOMI */
-
-  .match-team h3 {
-    max-width: 115px;
-
-    font-size: 13px;
-
-    line-height: 1.05;
-  }
-
-
-  /* CENTRO */
-
-  .match-vs {
-    gap: 3px;
-  }
-
-  .match-vs > span {
-    width: 5px;
-  }
-
-  .match-vs-center {
-    min-width: 48px;
+      minmax(0,1fr)
+      55px
+      minmax(0,1fr);
 
     gap: 5px;
   }
 
+  .match-team-logo,
+  .match-team-logo-placeholder {
+    width: 65px;
+    height: 65px;
 
-  /* ORARIO */
-
-  .match-vs-center .match-time {
-    font-size: 19px !important;
+    margin-bottom: 9px;
   }
 
+  .match-team h3 {
+    font-size: 14px;
 
-  /* VS */
-
-  .match-vs-center strong {
-    font-size: 19px;
+    max-width: 125px;
   }
 
+  .match-vs {
+    gap: 4px;
+  }
 
-  /* RISULTATO */
+  .match-vs span {
+    width: 7px;
+  }
+
+  .match-vs strong {
+    font-size: 20px;
+  }
+
+  /* ORARIO SOPRA VS */
+
+  .match-time-column {
+    top: 83px;
+  }
+
+  .match-time {
+    font-size: 21px;
+  }
 
   .match-result {
     margin-top: 18px;
-
-    gap: 7px;
   }
 
   .match-status {
     font-size: 7px;
-
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
   }
 
   .match-score {
     font-size: 17px;
   }
 
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
 
-  /* SICUREZZA:
-     se rimane qualche vecchia colonna orario,
-     non deve essere visualizzata */
+  .footer-inner {
+    flex-direction: column;
 
-  .match-time-column {
-    display: none !important;
+    justify-content: center;
+
+    padding: 30px 0;
+
+    text-align: center;
   }
 }
 
 
 /* =========================================================
-   IPHONE PICCOLO
+   MOBILE PICCOLO
    ========================================================= */
 
-@media (max-width: 390px) {
+@media (max-width: 420px) {
+
+  .player-grid,
+  .player-grid-real {
+    grid-template-columns: 1fr;
+  }
 
   .match-card {
-    grid-template-columns: 52px minmax(0, 1fr);
-
-    min-height: 225px;
+    grid-template-columns: 55px minmax(0,1fr);
   }
 
   .match-date-day {
-    font-size: 29px;
-  }
-
-  .match-date-month {
-    font-size: 8px;
-  }
-
-  .match-main {
-    padding-left: 5px;
-    padding-right: 5px;
+    font-size: 30px;
   }
 
   .match-teams {
     grid-template-columns:
-      minmax(0, 1fr)
-      52px
-      minmax(0, 1fr);
+      minmax(0,1fr)
+      45px
+      minmax(0,1fr);
   }
 
   .match-team-logo,
   .match-team-logo-placeholder {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
   }
 
   .match-team h3 {
-    max-width: 105px;
-
     font-size: 12px;
   }
 
-  .match-vs-center .match-time {
-    font-size: 17px !important;
+  .match-vs strong {
+    font-size: 17px;
   }
 
-  .match-vs-center strong {
-    font-size: 18px;
+  .match-time {
+    font-size: 19px;
   }
+}
+/* =========================================================
+   FIX DEFINITIVO ORARIO PARTITA
+   ========================================================= */
 
-  .match-result {
-    margin-top: 15px;
-  }
+.match-card {
+    position: relative !important;
+}
+
+.match-card .match-time-column {
+    position: absolute !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    top: 72px !important;
+    bottom: auto !important;
+
+    transform: translateX(-50%) !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+
+    z-index: 50 !important;
+
+    border: 0 !important;
+    background: transparent !important;
+
+    text-align: center !important;
+}
+
+.match-card .match-time {
+    display: block !important;
+
+    position: static !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 27px !important;
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    white-space: nowrap !important;
 }
 
 
 /* =========================================================
-   FINE BLOCCO 2
+   MOBILE
    ========================================================= */
 
+@media (max-width: 700px) {
+
+    .match-card .match-time-column {
+        left: 50% !important;
+        right: auto !important;
+
+        top: 70px !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    .match-card .match-time {
+        font-size: 21px !important;
+    }
+}
