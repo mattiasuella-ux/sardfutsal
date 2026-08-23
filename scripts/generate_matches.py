@@ -18,27 +18,81 @@ def parse_frontmatter(text):
     data = {}
     body = text
 
-    if text.startswith("---"):
+    if not text.startswith("---"):
+        return data, body
 
-        parts = text.split("---", 2)
+    parts = text.split("---", 2)
 
-        if len(parts) == 3:
+    if len(parts) != 3:
+        return data, body
 
-            frontmatter = parts[1]
-            body = parts[2].strip()
+    frontmatter = parts[1]
+    body = parts[2].strip()
 
-            for line in frontmatter.splitlines():
+    lines = frontmatter.splitlines()
 
-                if ":" not in line:
-                    continue
+    i = 0
 
-                key, value = line.split(":", 1)
+    while i < len(lines):
 
-                data[key.strip()] = (
-                    value.strip()
-                    .strip('"')
-                    .strip("'")
+        line = lines[i]
+
+        if ":" not in line:
+            i += 1
+            continue
+
+        key, value = line.split(":", 1)
+
+        key = key.strip()
+        value = value.strip()
+
+        # Gestione dei campi multilinea del CMS
+        # esempio:
+        #
+        # scorers: |-
+        #   NOCERINO
+        #   MASSA
+
+        if value in ("|", "|-"):
+
+            multiline = []
+
+            i += 1
+
+            while i < len(lines):
+
+                next_line = lines[i]
+
+                # Una nuova proprietà del frontmatter
+                # interrompe il campo multilinea
+                if (
+                    next_line
+                    and not next_line.startswith(" ")
+                    and ":" in next_line
+                ):
+                    break
+
+                multiline.append(
+                    next_line.strip()
                 )
+
+                i += 1
+
+            data[key] = "\n".join(
+                item
+                for item in multiline
+                if item
+            )
+
+            continue
+
+        data[key] = (
+            value
+            .strip('"')
+            .strip("'")
+        )
+
+        i += 1
 
     return data, body
 
