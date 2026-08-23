@@ -9,7 +9,7 @@ MATCHES_DIR = ROOT / "content" / "matches"
 INDEX_FILE = ROOT / "index.html"
 
 # Logo Sard Futsal
-SARD_FUTSAL_LOGO = "images/logo-sard-futsal.png"
+SARD_FUTSAL_LOGO = "LogoaggiornatoSardFutsal.png
 
 
 def parse_frontmatter(text):
