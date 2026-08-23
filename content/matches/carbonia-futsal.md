@@ -5,6 +5,6 @@ competition: CAMPIONATO SERIED CALCIO A 5
 opponent: IN AGGIORNAMENTO
 venue: Palazzetto Vallermosa
 home_away: Casa
-sard_goals: -1
-opponent_goals: -1
+sard_goals: -2
+opponent_goals: -2
 ---
