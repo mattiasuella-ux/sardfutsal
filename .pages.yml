@@ -159,18 +159,7 @@ content:
           values:
             - Casa
             - Trasferta
-
-      - name: status
-        label: Stato
-        type: select
-        required: true
-        options:
-          values:
-            - Da giocare
-            - Vittoria
-            - Pareggio
-            - Sconfitta
-
+            
       - name: sard_goals
         label: Gol Sard Futsal
         type: number
