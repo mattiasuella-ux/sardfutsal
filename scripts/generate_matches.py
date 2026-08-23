@@ -364,8 +364,9 @@ for match in matches:
     # -----------------------------------------------------
 
    # =====================================================
+# =====================================================
 # STATO PARTITA
-# -1 = partita non ancora disputata
+# -1 = partita non disputata
 # 0 o superiore = risultato reale
 # =====================================================
 
@@ -379,7 +380,8 @@ try:
 except (ValueError, TypeError):
     opponent_goals_value = -1
 
-if has_score:
+
+if sard_goals_value >= 0 and opponent_goals_value >= 0:
 
     match_label = "RISULTATO FINALE"
 
@@ -393,9 +395,6 @@ else:
     match_label = "PROSSIMA PARTITA"
 
     score = "VS"
-
-    # =====================================================
-    # CARD
     #
     # IMPORTANTE:
     # ORARIO/RISULTATO È DENTRO .match-vs
