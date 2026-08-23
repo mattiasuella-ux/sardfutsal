@@ -379,14 +379,9 @@ try:
 except (ValueError, TypeError):
     opponent_goals_value = -1
 
-has_score = (
-    sard_goals_value >= 0
-    and opponent_goals_value >= 0
-)
-
 if has_score:
 
-    status_text = "RISULTATO FINALE"
+    match_label = "RISULTATO FINALE"
 
     score = (
         f"{sard_goals_value} - "
@@ -395,7 +390,7 @@ if has_score:
 
 else:
 
-    status_text = "PROSSIMA PARTITA"
+    match_label = "PROSSIMA PARTITA"
 
     score = "VS"
 
