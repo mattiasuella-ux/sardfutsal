@@ -113,3 +113,87 @@ content:
       default:
         sort: number
         order: asc
+          # =====================================================
+  # RISULTATI E CALENDARIO
+  # =====================================================
+
+  - name: matches
+    label: Risultati & Calendario
+    type: collection
+    path: content/matches
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+
+    fields:
+
+      - name: date
+        label: Data
+        type: date
+        required: true
+
+      - name: time
+        label: Ora
+        type: string
+
+      - name: competition
+        label: Competizione
+        type: string
+        required: true
+
+      - name: opponent
+        label: Avversario
+        type: string
+        required: true
+
+      - name: venue
+        label: Campo / Palazzetto
+        type: string
+
+      - name: home_away
+        label: Casa / Trasferta
+        type: select
+        required: true
+        options:
+          values:
+            - Casa
+            - Trasferta
+
+      - name: status
+        label: Stato
+        type: select
+        required: true
+        options:
+          values:
+            - Da giocare
+            - Vittoria
+            - Pareggio
+            - Sconfitta
+
+      - name: sard_goals
+        label: Gol Sard Futsal
+        type: number
+
+      - name: opponent_goals
+        label: Gol avversario
+        type: number
+
+      - name: opponent_logo
+        label: Logo avversario
+        type: image
+
+    view:
+      fields:
+        - date
+        - opponent
+        - competition
+        - status
+
+      primary: opponent
+
+      sort:
+        - date
+
+      default:
+        sort: date
+        order: desc
+        
