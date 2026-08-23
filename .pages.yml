@@ -1,6 +1,11 @@
 media: images
 
 content:
+
+  # =====================================================
+  # NEWS
+  # =====================================================
+
   - name: news
     label: News
     type: collection
@@ -9,6 +14,7 @@ content:
     filename: "{primary}.md"
 
     fields:
+
       - name: title
         label: Titolo
         type: string
@@ -41,9 +47,68 @@ content:
         - title
         - category
         - date
+
       primary: title
+
       sort:
         - date
+
       default:
         sort: date
         order: desc
+
+
+  # =====================================================
+  # ROSA
+  # =====================================================
+
+  - name: players
+    label: Rosa
+    type: collection
+    path: content/players
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+
+    fields:
+
+      - name: name
+        label: Nome giocatore
+        type: string
+        required: true
+
+      - name: number
+        label: Numero di maglia
+        type: number
+
+      - name: role
+        label: Ruolo
+        type: string
+        required: true
+
+      - name: category
+        label: Categoria
+        type: select
+        required: true
+        options:
+          - Portiere
+          - Giocatore di movimento
+
+      - name: image
+        label: Foto
+        type: image
+
+    view:
+      fields:
+        - name
+        - number
+        - role
+        - category
+
+      primary: name
+
+      sort:
+        - number
+
+      default:
+        sort: number
+        order: asc
