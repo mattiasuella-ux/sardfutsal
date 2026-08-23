@@ -7,5 +7,4 @@ venue: Palazzetto Vallermosa
 home_away: Casa
 status: Da giocare
 sard_goals: -5
-opponent_logo: /images/01dbb199-b89f-41e3-a631-dfddc85a7451.jpeg
 ---
