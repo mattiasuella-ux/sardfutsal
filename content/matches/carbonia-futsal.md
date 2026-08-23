@@ -5,7 +5,7 @@ competition: CAMPIONATO SERIED CALCIO A 5
 opponent: CARBONIA FUTSAL
 venue: Palazzetto Vallermosa
 home_away: Casa
-status: Da giocare
+status: Vittoria
 sard_goals: 3
 opponent_goals: 7
 home_logo: /images/sard-futsal-logo-web-100x100.png
