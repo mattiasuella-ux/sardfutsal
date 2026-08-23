@@ -8,20 +8,28 @@ ROOT = Path(".")
 MATCHES_DIR = ROOT / "content" / "matches"
 INDEX_FILE = ROOT / "index.html"
 
+# Logo Sard Futsal
+SARD_FUTSAL_LOGO = "images/logo-sard-futsal.png"
+
 
 def parse_frontmatter(text):
+
     data = {}
     body = text
 
     if text.startswith("---"):
+
         parts = text.split("---", 2)
 
         if len(parts) == 3:
+
             frontmatter = parts[1]
             body = parts[2].strip()
 
             for line in frontmatter.splitlines():
+
                 if ":" in line:
+
                     key, value = line.split(":", 1)
 
                     data[key.strip()] = (
@@ -34,7 +42,9 @@ def parse_frontmatter(text):
 
 
 def format_date(date_string):
+
     try:
+
         date = datetime.strptime(
             date_string,
             "%Y-%m-%d"
@@ -62,14 +72,16 @@ def format_date(date_string):
         )
 
     except Exception:
+
         return date_string
 
 
 # =========================================================
-# LEGGI LE PARTITE DAL CMS
+# LEGGI PARTITE DAL CMS
 # =========================================================
 
 matches = []
+
 
 if MATCHES_DIR.exists():
 
@@ -82,16 +94,57 @@ if MATCHES_DIR.exists():
         data, body = parse_frontmatter(text)
 
         matches.append({
-            "date": data.get("date", ""),
-            "time": data.get("time", ""),
-            "competition": data.get("competition", ""),
-            "opponent": data.get("opponent", ""),
-            "venue": data.get("venue", ""),
-            "home_away": data.get("home_away", "Casa"),
-            "status": data.get("status", "Da giocare"),
-            "sard_goals": data.get("sard_goals", ""),
-            "opponent_goals": data.get("opponent_goals", ""),
-            "opponent_logo": data.get("opponent_logo", ""),
+
+            "date": data.get(
+                "date",
+                ""
+            ),
+
+            "time": data.get(
+                "time",
+                ""
+            ),
+
+            "competition": data.get(
+                "competition",
+                ""
+            ),
+
+            "opponent": data.get(
+                "opponent",
+                ""
+            ),
+
+            "venue": data.get(
+                "venue",
+                ""
+            ),
+
+            "home_away": data.get(
+                "home_away",
+                "Casa"
+            ),
+
+            "status": data.get(
+                "status",
+                "Da giocare"
+            ),
+
+            "sard_goals": data.get(
+                "sard_goals",
+                ""
+            ),
+
+            "opponent_goals": data.get(
+                "opponent_goals",
+                ""
+            ),
+
+            "opponent_logo": data.get(
+                "opponent_logo",
+                ""
+            )
+
         })
 
 
@@ -110,10 +163,13 @@ matches.sort(
 
 rows = []
 
+
 for match in matches:
 
     date = html.escape(
-        format_date(match["date"])
+        format_date(
+            match["date"]
+        )
     )
 
     time = html.escape(
@@ -128,13 +184,7 @@ for match in matches:
         match["opponent"]
     )
 
-    venue = html.escape(
-        match["venue"]
-    )
-
-    status = html.escape(
-        match["status"]
-    )
+    status = match["status"]
 
     sard_goals = html.escape(
         str(match["sard_goals"])
@@ -144,27 +194,22 @@ for match in matches:
         str(match["opponent_goals"])
     )
 
-    logo = match["opponent_logo"]
+    opponent_logo = match["opponent_logo"]
 
-    if logo.startswith("/"):
-        logo = logo[1:]
+    if opponent_logo.startswith("/"):
+        opponent_logo = opponent_logo[1:]
 
-    logo = html.escape(
-        logo,
+    opponent_logo = html.escape(
+        opponent_logo,
         quote=True
     )
 
-    # -----------------------------------------
-    # STATO PARTITA
-    # -----------------------------------------
 
-    if status == "Da giocare":
+    # =====================================================
+    # STATO
+    # =====================================================
 
-        score = "—"
-        status_class = "upcoming"
-        status_text = "DA GIOCARE"
-
-    elif status == "Vittoria":
+    if status == "Vittoria":
 
         score = (
             f"{sard_goals} - "
@@ -184,7 +229,7 @@ for match in matches:
         status_class = "draw"
         status_text = "PAREGGIO"
 
-    else:
+    elif status == "Sconfitta":
 
         score = (
             f"{sard_goals} - "
@@ -194,57 +239,163 @@ for match in matches:
         status_class = "loss"
         status_text = "SCONFITTA"
 
+    else:
 
-    # -----------------------------------------
-    # LOGO AVVERSARIO
-    # -----------------------------------------
+        score = "—"
 
-    logo_html = ""
+        status_class = "upcoming"
+        status_text = "DA GIOCARE"
 
-    if logo:
 
-        logo_html = f"""
-        <img
-          class="match-opponent-logo"
-          src="{logo}"
-          alt="{opponent}"
-          loading="lazy"
-        >
+    # =====================================================
+    # CASA / TRASFERTA
+    # =====================================================
+
+    if match["home_away"] == "Trasferta":
+
+        left_logo = opponent_logo
+        left_name = opponent
+
+        right_logo = SARD_FUTSAL_LOGO
+        right_name = "SARD FUTSAL"
+
+    else:
+
+        left_logo = SARD_FUTSAL_LOGO
+        left_name = "SARD FUTSAL"
+
+        right_logo = opponent_logo
+        right_name = opponent
+
+
+    # =====================================================
+    # LOGO SINISTRO
+    # =====================================================
+
+    left_logo_html = ""
+
+    if left_logo:
+
+        left_logo_html = f"""
+            <img
+                src="{html.escape(left_logo, quote=True)}"
+                alt="{html.escape(left_name, quote=True)}"
+                class="match-team-logo"
+                loading="lazy"
+            >
         """
 
 
-    # -----------------------------------------
-    # CARD PARTITA
-    # -----------------------------------------
+    # =====================================================
+    # LOGO DESTRO
+    # =====================================================
+
+    right_logo_html = ""
+
+    if right_logo:
+
+        right_logo_html = f"""
+            <img
+                src="{html.escape(right_logo, quote=True)}"
+                alt="{html.escape(right_name, quote=True)}"
+                class="match-team-logo"
+                loading="lazy"
+            >
+        """
+
+
+    # =====================================================
+    # RIGA PARTITA
+    # =====================================================
 
     rows.append(f"""
-      <div class="table-row match-row {status_class}">
+    <article class="match-card {status_class}">
 
-        <span class="match-date">
-          {date}
-        </span>
+        <div class="match-date-column">
 
-        <span class="match-info">
+            <span class="match-date-day">
+                {date.split(" ")[0]}
+            </span>
 
-          <strong>
-            {opponent}
-          </strong>
+            <span class="match-date-month">
+                {date.split(" ")[1]}
+            </span>
 
-          <small>
-            {competition}
-          </small>
+            <span class="match-date-year">
+                {date.split(" ")[2]}
+            </span>
 
-        </span>
+        </div>
 
-        <span class="match-score">
-          {score}
-        </span>
 
-        <span class="match-status">
-          {status_text}
-        </span>
+        <div class="match-main">
 
-      </div>
+            <div class="match-competition">
+                {competition}
+            </div>
+
+
+            <div class="match-teams">
+
+                <div class="match-team">
+
+                    {left_logo_html}
+
+                    <h3>
+                        {html.escape(left_name)}
+                    </h3>
+
+                </div>
+
+
+                <div class="match-vs">
+
+                    <span></span>
+
+                    <strong>VS</strong>
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="match-team">
+
+                    {right_logo_html}
+
+                    <h3>
+                        {html.escape(right_name)}
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="match-result">
+
+                <span class="match-status">
+                    {status_text}
+                </span>
+
+                <strong class="match-score">
+                    {score}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="match-time-column">
+
+            <span class="match-time">
+                {time if time else "—"}
+            </span>
+
+        </div>
+
+    </article>
 """)
 
 
@@ -257,33 +408,35 @@ if not rows:
     generated_matches = """
     <div class="season-status">
 
-      <div class="season-status-icon"></div>
+        <div class="season-status-icon"></div>
 
-      <div class="season-status-content">
+        <div class="season-status-content">
 
-        <p class="status-label">
-          CALENDARIO IN AGGIORNAMENTO
-        </p>
+            <p class="status-label">
+                CALENDARIO IN AGGIORNAMENTO
+            </p>
 
-        <h3>
-          Pronti per una nuova stagione.
-        </h3>
+            <h3>
+                Pronti per una nuova stagione.
+            </h3>
 
-        <p>
-          Il calendario ufficiale della stagione
-          2026/27 sarà pubblicato non appena
-          saranno definiti girone, avversarie
-          e date delle gare.
-        </p>
+            <p>
+                Il calendario ufficiale della stagione
+                2026/27 sarà pubblicato non appena
+                saranno definiti girone, avversarie
+                e date delle gare.
+            </p>
 
-      </div>
+        </div>
 
     </div>
-    """
+"""
 
 else:
 
-    generated_matches = "\n".join(rows)
+    generated_matches = "\n".join(
+        rows
+    )
 
 
 # =========================================================
