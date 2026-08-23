@@ -3423,3 +3423,45 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* =========================================================
+   RIFINITURA PARTE ALTA CARD
+   ========================================================= */
+
+.match-card .match-date-column {
+  top: 14px !important;
+}
+
+.match-card .match-date {
+  gap: 6px !important;
+}
+
+.match-card .match-date-time {
+  margin-top: 6px !important;
+  font-size: 17px !important;
+}
+
+.match-card .match-main {
+  padding-top: 112px !important;
+}
+
+.match-card .match-competition {
+  margin-bottom: 30px !important;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  .match-card .match-date-column {
+    top: 10px !important;
+  }
+
+  .match-card .match-date-time {
+    margin-top: 5px !important;
+    font-size: 15px !important;
+  }
+
+  .match-card .match-main {
+    padding-top: 95px !important;
+  }
+
+}
