@@ -38,20 +38,11 @@ jobs:
       - name: Generate news
         run: python scripts/generate_news.py
 
-            - name: Commit generated content
-            run: |
+      - name: Commit generated content
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add index.html
-          git add news.html
-          git add news/
-          git add content/players/
-
-          if [ -d "content/matches" ]; then
-            git add content/matches/
-          fi
-
+          git add -A
           git diff --cached --quiet || git commit -m "Update generated content"
           git push
 
