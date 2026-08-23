@@ -363,20 +363,41 @@ for match in matches:
     # RISULTATO
     # -----------------------------------------------------
 
-    has_score = (
-        str(match["sard_goals"]).strip() != ""
-        and str(match["opponent_goals"]).strip() != ""
+   # =====================================================
+# STATO PARTITA
+# -1 = partita non ancora disputata
+# 0 o superiore = risultato reale
+# =====================================================
+
+try:
+    sard_goals_value = int(str(match["sard_goals"]).strip())
+except (ValueError, TypeError):
+    sard_goals_value = -1
+
+try:
+    opponent_goals_value = int(str(match["opponent_goals"]).strip())
+except (ValueError, TypeError):
+    opponent_goals_value = -1
+
+has_score = (
+    sard_goals_value >= 0
+    and opponent_goals_value >= 0
+)
+
+if has_score:
+
+    status_text = "RISULTATO FINALE"
+
+    score = (
+        f"{sard_goals_value} - "
+        f"{opponent_goals_value}"
     )
 
-    if has_score:
-        score = (
-            f"{sard_goals} - "
-            f"{opponent_goals}"
-        )
-        match_label = "RISULTATO FINALE"
-    else:
-        score = ""
-        match_label = "PROSSIMA PARTITA"
+else:
+
+    status_text = "PROSSIMA PARTITA"
+
+    score = "VS"
 
     # =====================================================
     # CARD
