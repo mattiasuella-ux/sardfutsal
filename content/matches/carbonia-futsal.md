@@ -7,5 +7,5 @@ venue: Palazzetto Vallermosa
 home_away: Casa
 status: Da giocare
 sard_goals: -5
-home_logo: /images/sard-futsal-logo-web.png
+home_logo: /images/sard-futsal-logo-web-100x100.png
 ---
