@@ -3643,3 +3643,17 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   height: 100%;
   object-fit: cover;
 }
+/* =====================================================
+   TITOLO STATO PARTITA
+   ===================================================== */
+
+.match-card-label {
+  margin-bottom: 18px;
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
