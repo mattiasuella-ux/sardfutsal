@@ -322,23 +322,32 @@ for match in matches:
         opponent_goals_value = -1
 
 
-    if (
-        sard_goals_value >= 0
-        and opponent_goals_value >= 0
-    ):
+  if (
+    sard_goals_value == -2
+    and opponent_goals_value == -2
+):
 
-        match_label = "RISULTATO FINALE"
+    match_label = "CALENDARIO IN AGGIORNAMENTO"
 
-        score = (
-            f"{sard_goals_value} - "
-            f"{opponent_goals_value}"
-        )
+    score = ""
 
-    else:
+elif (
+    sard_goals_value >= 0
+    and opponent_goals_value >= 0
+):
 
-        match_label = "PROSSIMA PARTITA"
+    match_label = "RISULTATO FINALE"
 
-        score = "VS"
+    score = (
+        f"{sard_goals_value} - "
+        f"{opponent_goals_value}"
+    )
+
+else:
+
+    match_label = "PROSSIMA PARTITA"
+
+    score = "VS"
 
 
     # -----------------------------------------------------
