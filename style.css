@@ -3465,3 +3465,17 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
 }
+/* ORARIO PIÙ GRANDE */
+.match-card .match-date-time {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  line-height: 1 !important;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .match-card .match-date-time {
+    font-size: 21px !important;
+  }
+}
