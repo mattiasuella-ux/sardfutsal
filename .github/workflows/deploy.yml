@@ -20,6 +20,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -28,15 +29,21 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Create players
+        run: python scripts/create_players.py
+
+      - name: Generate players
+        run: python scripts/generate_players.py
+
       - name: Generate news
         run: python scripts/generate_news.py
 
-      - name: Commit generated news
+      - name: Commit generated content
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add news.html news/
-          git diff --cached --quiet || git commit -m "Update news automatically"
+          git add news.html news/ content/players/ index.html
+          git diff --cached --quiet || git commit -m "Update news and players automatically"
           git push
 
       - name: Setup Pages
