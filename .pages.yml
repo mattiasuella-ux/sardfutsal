@@ -167,6 +167,10 @@ content:
       - name: opponent_goals
         label: Gol avversario
         type: number
+        
+      - name: scorers
+        label: Marcatori
+        type: text
 
       - name: home_logo
         label: Logo squadra di casa
