@@ -29,8 +29,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Create players
-        run: python scripts/create_players.py
 
       - name: Generate players
         run: python scripts/generate_players.py
