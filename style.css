@@ -3790,3 +3790,41 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .match-scorers-away span {
     display: block;
 }
+/* =====================================================
+   MARCATORI CASA / TRASFERTA
+   ===================================================== */
+
+.match-scorers-row {
+    display: flex !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+}
+
+.match-scorers-home {
+    width: 50% !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.match-scorers-away {
+    width: 50% !important;
+    text-align: right !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.match-scorers-spacer {
+    display: none !important;
+}
+
+.match-scorers-home span {
+    display: block !important;
+    text-align: left !important;
+}
+
+.match-scorers-away span {
+    display: block !important;
+    text-align: right !important;
+}
