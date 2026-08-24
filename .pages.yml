@@ -160,10 +160,13 @@ content:
             - Casa
             - Trasferta
             
-      - name: sard_goals
-        label: Gol Sard Futsal
-        type: number
-        default: -1
+      - name: scorers_home
+        label: Marcatori Casa
+        type: text
+
+      - name: scorers_away
+        label: Marcatori Trasferta
+        type: text
 
       - name: opponent_goals
         label: Gol avversario
