@@ -279,7 +279,7 @@ for match in matches:
         </article>
     </div>
     """
-      cards.append(card)
+    cards.append(card)
 # =========================================================
 # SE NON CI SONO PARTITE
 # =========================================================
