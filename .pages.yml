@@ -164,9 +164,6 @@ content:
         label: Gol Casa
         type: number
         default: -1
-      - name: scorers
-        label: Marcatori
-        type: text
      
       - name: opponent_goals
         label: Gol avversario
