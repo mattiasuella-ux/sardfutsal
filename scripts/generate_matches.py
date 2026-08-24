@@ -160,7 +160,7 @@ for match in matches:
     opponent = html.escape(str(match["opponent"]))
 
     try:
-        sard_goals_value = int(str(match["sard_goals"]).strip())
+        sard_goals_value = int(str(match["home_goals"]).strip())
     except (ValueError, TypeError):
         sard_goals_value = -1
 
@@ -171,7 +171,7 @@ for match in matches:
 
     extra_card_class = ""
 
-    if sard_goals_value == -2 and opponent_goals_value == -2:
+    if home_goals_value == -2 and opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
         card = f"""
         <div class="match-card-wrapper">
