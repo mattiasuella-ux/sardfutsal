@@ -1,7 +1,7 @@
 ---
 date: 2026-08-23
 time: 21:30
-competition: CAMPIONATO SERIE D CALCIO A 5
+competition: SERIE D CALCIO A 5
 opponent: CARBONIA FUTSAL
 venue: Palazzetto Vallermosa
 home_away: Casa
