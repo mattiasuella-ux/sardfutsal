@@ -3895,3 +3895,87 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   margin-top: 10px;
   text-transform: uppercase;
 }
+/* =========================================================
+   BLOCCO CENTRALE PREMIUM (VS BIANCO + TYPO SPORTIVA)
+   ========================================================= */
+
+/* Font sportivo e compatto per tutto il blocco centrale */
+.match-vs,
+.match-date-column,
+.match-team h3 {
+  font-family: 'Barlow Condensed', 'Oswald', 'Impact', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Allineamento mediano perfetto */
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+/* Data in alto a pillola */
+.match-date-column {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.match-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-date-day {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--orange, #ff5a00);
+  line-height: 1;
+}
+
+.match-date-month,
+.match-date-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ccc;
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+
+/* Orario ingrandito arancione/bianco a forte impatto */
+.match-date-time {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-top: 6px;
+  text-shadow: 0 0 15px rgba(255, 90, 0, 0.3);
+}
+
+/* VS in Bianco Chiaro e pulito */
+.match-vs-center .match-time {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff !important; /* Forza il bianco */
+  margin-top: 4px;
+  opacity: 0.95;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Nomi delle squadre perfezionati */
+.match-team h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  color: #ffffff;
+}
