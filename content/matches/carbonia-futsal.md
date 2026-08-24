@@ -7,7 +7,7 @@ venue: Palazzetto Vallermosa
 home_away: Casa
 status: Terminata
 sard_goals: 2
-opponent_goals: 2
+opponent_goals: 3
 scorers_home: |-
   NOCERINO
   MASSA
