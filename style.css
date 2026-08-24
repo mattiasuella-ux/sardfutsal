@@ -3799,32 +3799,44 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     width: 100% !important;
     align-items: flex-start !important;
     justify-content: space-between !important;
+    margin-top: 10px !important;
+}
+
+.match-scorers-home,
+.match-scorers-away {
+    width: 50% !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    color: #777 !important;
 }
 
 .match-scorers-home {
-    width: 50% !important;
     text-align: left !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 .match-scorers-away {
-    width: 50% !important;
     text-align: right !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 .match-scorers-spacer {
     display: none !important;
 }
 
-.match-scorers-home span {
-    display: block !important;
-    text-align: left !important;
-}
-
+.match-scorers-home span,
 .match-scorers-away span {
     display: block !important;
-    text-align: right !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+}
+
+/* Pallone davanti ai marcatori di casa */
+.match-scorers-home span::before {
+    content: "⚽ ";
+}
+
+/* Pallone dopo i marcatori di trasferta */
+.match-scorers-away span::after {
+    content: " ⚽";
 }
