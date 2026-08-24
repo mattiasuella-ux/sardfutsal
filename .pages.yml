@@ -161,7 +161,7 @@ content:
             - Trasferta
             
       - name: home_goals
-        label: Gol avversario
+        label: Gol Casa
         type: number
         default: -1
       - name: scorers
