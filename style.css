@@ -3765,3 +3765,28 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     line-height: 1;
     font-weight: 800;
 }
+.match-scorers-row {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.match-scorers-home {
+    grid-column: 1;
+    text-align: left;
+}
+
+.match-scorers-spacer {
+    grid-column: 2;
+}
+
+.match-scorers-away {
+    grid-column: 3;
+    text-align: right;
+}
+
+.match-scorers-home span,
+.match-scorers-away span {
+    display: block;
+}
