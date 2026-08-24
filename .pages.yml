@@ -160,20 +160,28 @@ content:
             - Casa
             - Trasferta
             
-      - name: scorers_home
-        label: Marcatori Casa
+      - name: home_goals
+        label: Gol avversario
+        type: number
+        default: -1
+      - name: scorers
+        label: Marcatori
         type: text
-
-      - name: scorers_away
-        label: Marcatori Trasferta
-        type: text
-
+     
       - name: opponent_goals
         label: Gol avversario
         type: number
         default: -1
       - name: scorers
         label: Marcatori
+        type: text
+
+         - name: scorers_home
+        label: Marcatori Casa
+        type: text
+
+      - name: scorers_away
+        label: Marcatori Trasferta
         type: text
 
       - name: home_logo
