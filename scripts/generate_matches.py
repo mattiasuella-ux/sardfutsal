@@ -145,9 +145,6 @@ matches.sort(key=lambda match: match["date"])
 # GENERAZIONE CARD
 # =========================================================
 
-# =========================================================
-# GENERAZIONE CARD
-# =========================================================
 
 cards = []
 first_next_found = False
@@ -173,19 +170,21 @@ for match in matches:
         opponent_goals_value = -1
 
     # CONDIZIONE: Card "Calendario in Aggiornamento" se entrambi o uno dei valori è -2
-    if sard_goals_value == -2 or opponent_goals_value == -2:
+
+        if sard_goals_value == -2 and opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
         card = f"""
         <div class="match-card-wrapper">
             <div class="match-card-label">{match_label}</div>
             <article class="match-card match-card-update">
-                <img src="images/calendario-aggiornamento.png" alt="Calendario in aggiornamento" class="calendar-update-image">
+                <div class="match-card-image-container">
+                    <img src="images/calendario-aggiornamento.png" alt="Calendario in aggiornamento" class="calendar-update-image">
+                </div>
             </article>
         </div>
         """
         cards.append(card)
         continue
-
     # PARTITA GIOCATA (Risultato valido)
     elif sard_goals_value >= 0 and opponent_goals_value >= 0:
         match_label = "RISULTATO FINALE"
