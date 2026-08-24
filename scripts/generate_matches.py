@@ -171,7 +171,9 @@ for match in matches:
 
     # CONDIZIONE: Card "Calendario in Aggiornamento" se entrambi o uno dei valori è -2
 
-        if sard_goals_value == -2 and opponent_goals_value == -2:
+      extra_card_class = ""
+
+    if sard_goals_value == -2 and opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
         card = f"""
         <div class="match-card-wrapper">
@@ -185,10 +187,8 @@ for match in matches:
         """
         cards.append(card)
         continue
-    # PARTITA GIOCATA (Risultato valido)
+
     elif sard_goals_value >= 0 and opponent_goals_value >= 0:
-        match_label = "RISULTATO FINALE"
-        score = f"{sard_goals_value} - {opponent_goals_value}"
 
     # PROSSIMA PARTITA (Gol non ancora inseriti o -1)
     else:
