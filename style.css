@@ -40,7 +40,7 @@ h1, h2, h3, .brand {
 
 .container {
   width: min(1180px, 92%);
-  margin: auto;
+  margin: 0 auto;
 }
 
 .orange {
@@ -454,7 +454,6 @@ h2 {
   transform: scale(1.03);
 }
 
-/* Legacy Player Card */
 .player-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1145,7 +1144,7 @@ h2 {
 }
 
 /* =========================================
-   SPONSOR, CONTATTI & FOOTER
+   SPONSOR, PARTNER & CONTATTI
    ========================================= */
 .sponsor-section {
   background: linear-gradient(110deg, var(--orange), #a83200);
@@ -1170,6 +1169,32 @@ h2 {
   background: #111;
 }
 
+/* GRIGLIA ED ELEMENTI DEI PARTNER */
+.partner-grid, .sponsor-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.partner-grid img, .sponsor-logos img {
+  max-width: 180px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+  transition: transform 0.25s ease;
+}
+
+.partner-grid img:hover, .sponsor-logos img:hover {
+  transform: scale(1.05);
+}
+
 .contact-section {
   background: #f5f5f5;
   color: #111;
@@ -1191,26 +1216,41 @@ h2 {
   color: #111;
 }
 
+/* =========================================
+   FOOTER (FIXED)
+   ========================================= */
 footer {
   background: #050505;
   border-top: 1px solid #222;
-  padding: 35px 0;
+  padding: 45px 0;
+  width: 100%;
 }
 
 .footer-inner {
+  width: min(1180px, 92%);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-inner > div {
+  flex: 1;
+  min-width: 220px;
 }
 
 .footer-inner strong {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 25px;
+  color: var(--white);
 }
 
 .footer-inner p {
-  font-size: 12px;
+  font-size: 13px;
   color: #777;
+  line-height: 1.6;
 }
 
 .footer-logo {
@@ -1218,7 +1258,7 @@ footer {
   height: 72px;
   object-fit: contain;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 /* =========================================
@@ -1391,7 +1431,8 @@ footer {
   }
 
   .footer-inner {
-    display: block;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .footer-inner > p {
