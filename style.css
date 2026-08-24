@@ -3830,13 +3830,3 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-weight: 500 !important;
     white-space: nowrap !important;
 }
-
-/* Pallone davanti ai marcatori di casa */
-.match-scorers-home span::before {
-    content: "⚽ ";
-}
-
-/* Pallone dopo i marcatori di trasferta */
-.match-scorers-away span::after {
-    content: " ⚽";
-}
