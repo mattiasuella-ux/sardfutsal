@@ -5,7 +5,7 @@ competition: SERIE D CALCIO A 5
 opponent: CARBONIA FUTSAL
 venue: Palazzetto Vallermosa
 home_away: Casa
-status: Terminata
+status: Calendario in aggiornamento
 sard_goals: 2
 opponent_goals: 3
 scorers_home: |-
