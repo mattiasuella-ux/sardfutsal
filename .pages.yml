@@ -172,11 +172,8 @@ content:
         label: Gol avversario
         type: number
         default: -1
-      - name: scorers
-        label: Marcatori
-        type: text
-
-         - name: scorers_home
+    
+       - name: scorers_home
         label: Marcatori Casa
         type: text
 
@@ -198,6 +195,7 @@ content:
         - opponent
         - competition
         - status
+        - venue
 
       primary: opponent
 
