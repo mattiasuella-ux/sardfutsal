@@ -239,6 +239,7 @@ for match in matches:
     away_scorers_html = f'<div class="match-scorers-away">{"".join(f"<span>{item}</span>" for item in away_scorers)}</div>' if away_scorers else ""
 
     card = f"""
+    
     <div class="match-card-wrapper {extra_card_class}">
         <div class="match-card-label">{match_label}</div>
         <article class="match-card">
@@ -278,9 +279,7 @@ for match in matches:
         </article>
     </div>
     """
-  
-
-
+      cards.append(card)
 # =========================================================
 # SE NON CI SONO PARTITE
 # =========================================================
