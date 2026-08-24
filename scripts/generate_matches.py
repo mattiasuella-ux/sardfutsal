@@ -42,7 +42,6 @@ def parse_frontmatter(text):
         key = key.strip()
         value = value.strip()
 
-        # Valori multilinea
         if value in ("|", "|-"):
             multiline = []
             i += 1
@@ -188,14 +187,19 @@ if MATCHES_DIR.exists():
                 "Casa"
             ),
 
+            "status": data.get(
+                "status",
+                "Da giocare"
+            ),
+
             "sard_goals": data.get(
                 "sard_goals",
-                "-1"
+                ""
             ),
 
             "opponent_goals": data.get(
                 "opponent_goals",
-                "-1"
+                ""
             ),
 
             "scorers_home": data.get(
@@ -259,6 +263,7 @@ for match in matches:
         date["year"]
     )
 
+
     # =====================================================
     # DATI TESTUALI
     # =====================================================
@@ -275,37 +280,17 @@ for match in matches:
         str(match["opponent"])
     )
 
+
     # =====================================================
-    # RISULTATI
+    # STATO PARTITA
     # =====================================================
 
-    try:
-        sard_goals_value = int(
-            str(
-                match["sard_goals"]
-            ).strip()
+    status = str(
+        match.get(
+            "status",
+            "Da giocare"
         )
-
-    except (
-        ValueError,
-        TypeError
-    ):
-        sard_goals_value = -1
-
-
-    try:
-        opponent_goals_value = int(
-            str(
-                match["opponent_goals"]
-            ).strip()
-        )
-
-    except (
-        ValueError,
-        TypeError
-    ):
-        opponent_goals_value = -1
-
+    ).strip()
 
     extra_card_class = ""
 
@@ -314,10 +299,7 @@ for match in matches:
     # CALENDARIO IN AGGIORNAMENTO
     # =====================================================
 
-    if (
-        sard_goals_value == -2
-        and opponent_goals_value == -2
-    ):
+    if status == "Calendario in aggiornamento":
 
         match_label = (
             "CALENDARIO IN AGGIORNAMENTO"
@@ -353,13 +335,48 @@ for match in matches:
 
 
     # =====================================================
-    # RISULTATO FINALE
+    # PARTITA TERMINATA
     # =====================================================
 
-    if (
-        sard_goals_value >= 0
-        and opponent_goals_value >= 0
-    ):
+    elif status == "Terminata":
+
+        try:
+
+            sard_goals_value = int(
+                str(
+                    match.get(
+                        "sard_goals",
+                        0
+                    )
+                ).strip()
+            )
+
+        except (
+            ValueError,
+            TypeError
+        ):
+
+            sard_goals_value = 0
+
+
+        try:
+
+            opponent_goals_value = int(
+                str(
+                    match.get(
+                        "opponent_goals",
+                        0
+                    )
+                ).strip()
+            )
+
+        except (
+            ValueError,
+            TypeError
+        ):
+
+            opponent_goals_value = 0
+
 
         match_label = (
             "RISULTATO FINALE"
@@ -372,7 +389,7 @@ for match in matches:
 
 
     # =====================================================
-    # PROSSIMA PARTITA
+    # PARTITA DA GIOCARE
     # =====================================================
 
     else:
