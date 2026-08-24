@@ -3775,3 +3775,49 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   color: var(--orange) !important;
   text-shadow: 0 0 12px rgba(255, 90, 0, 0.4);
 }
+/* =========================================================
+   ALLINEAMENTO DATA E VS AL CENTRO
+   ========================================================= */
+
+/* Allinea la data (23 AGO 2026) in orizzontale su un'unica riga */
+.match-date {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+/* Numero del giorno rimpicciolito */
+.match-date-day {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--orange, #ff5a00);
+}
+
+.match-date-month,
+.match-date-year {
+  font-size: 0.85rem;
+  color: #aaa;
+  font-weight: 600;
+}
+
+/* Abbassa il blocco VS / Orario allineandolo ai loghi delle squadre */
+.match-vs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Spinge il VS verso il basso */
+  align-items: center;
+  padding-bottom: 8px;      /* Distanza dal bordo inferiore per riallineare ai loghi */
+}
+
+.match-vs-center {
+  margin-top: 6px;           /* Spazio tra l'orario (21:30) e la scritta VS */
+}
+
+.match-vs-center .match-time {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
