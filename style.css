@@ -3751,3 +3751,17 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     border-radius: 8px;      /* Segue la curvatura della card */
     display: block;
 }
+.match-date {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 7px;
+}
+
+.match-date-day,
+.match-date-month,
+.match-date-year {
+    font-size: 16px !important;
+    line-height: 1;
+    font-weight: 800;
+}
