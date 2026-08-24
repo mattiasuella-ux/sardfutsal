@@ -145,6 +145,10 @@ matches.sort(key=lambda match: match["date"])
 # GENERAZIONE CARD
 # =========================================================
 
+# =========================================================
+# GENERAZIONE CARD
+# =========================================================
+
 cards = []
 first_next_found = False
 
@@ -168,9 +172,8 @@ for match in matches:
     except (ValueError, TypeError):
         opponent_goals_value = -1
 
-    extra_card_class = ""
-
-    if sard_goals_value == -2 and opponent_goals_value == -2:
+    # CONDIZIONE: Card "Calendario in Aggiornamento" se entrambi o uno dei valori è -2
+    if sard_goals_value == -2 or opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
         card = f"""
         <div class="match-card-wrapper">
@@ -183,9 +186,12 @@ for match in matches:
         cards.append(card)
         continue
 
+    # PARTITA GIOCATA (Risultato valido)
     elif sard_goals_value >= 0 and opponent_goals_value >= 0:
         match_label = "RISULTATO FINALE"
         score = f"{sard_goals_value} - {opponent_goals_value}"
+
+    # PROSSIMA PARTITA (Gol non ancora inseriti o -1)
     else:
         if not first_next_found:
             match_label = "PROSSIMO IMPEGNO • NEXT MATCH"
@@ -193,6 +199,7 @@ for match in matches:
             first_next_found = True
         else:
             match_label = "PROSSIMA PARTITA"
+            extra_card_class = ""
         score = "VS"
 
     if match["home_away"] == "Casa":
