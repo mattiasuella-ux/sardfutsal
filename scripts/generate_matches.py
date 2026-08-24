@@ -146,6 +146,10 @@ matches.sort(key=lambda match: match["date"])
 # =========================================================
 
 
+# =========================================================
+# GENERAZIONE CARD
+# =========================================================
+
 cards = []
 first_next_found = False
 
@@ -169,9 +173,7 @@ for match in matches:
     except (ValueError, TypeError):
         opponent_goals_value = -1
 
-    # CONDIZIONE: Card "Calendario in Aggiornamento" se entrambi o uno dei valori è -2
-
-      extra_card_class = ""
+    extra_card_class = ""
 
     if sard_goals_value == -2 and opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
@@ -186,6 +188,102 @@ for match in matches:
         </div>
         """
         cards.append(card)
+        continue
+
+    elif sard_goals_value >= 0 and opponent_goals_value >= 0:
+        match_label = "RISULTATO FINALE"
+        score = f"{sard_goals_value} - {opponent_goals_value}"
+    else:
+        if not first_next_found:
+            match_label = "PROSSIMO IMPEGNO • NEXT MATCH"
+            extra_card_class = "is-next-match"
+            first_next_found = True
+        else:
+            match_label = "PROSSIMA PARTITA"
+        score = "VS"
+
+    if match["home_away"] == "Casa":
+        home_name = "SARD FUTSAL"
+        away_name = opponent
+    else:
+        home_name = opponent
+        away_name = "SARD FUTSAL"
+
+    home_name = html.escape(home_name)
+    away_name = html.escape(away_name)
+
+    home_logo = clean_image_path(match["home_logo"])
+    away_logo = clean_image_path(match["away_logo"])
+
+    home_logo_html = f'<img src="{home_logo}" alt="{home_name}" class="match-team-logo" loading="lazy">' if home_logo else '<div class="match-team-logo-placeholder"></div>'
+    away_logo_html = f'<img src="{away_logo}" alt="{away_name}" class="match-team-logo" loading="lazy">' if away_logo else '<div class="match-team-logo-placeholder"></div>'
+
+    scorers_raw = str(match["scorers"]).strip()
+    home_scorers = []
+    away_scorers = []
+
+    if scorers_raw:
+        for item in re.split(r"\r?\n|;", scorers_raw):
+            item = item.strip()
+            if not item:
+                continue
+
+            if ":" in item:
+                side, scorer = item.split(":", 1)
+                side = side.strip().upper()
+                scorer = scorer.strip()
+
+                if side == "CASA":
+                    home_scorers.append(html.escape(scorer))
+                elif side == "OSPITE":
+                    away_scorers.append(html.escape(scorer))
+            else:
+                home_scorers.append(html.escape(item))
+
+    home_scorers_html = f'<div class="match-scorers-home">{"".join(f"<span>{item}</span>" for item in home_scorers)}</div>' if home_scorers else ""
+    away_scorers_html = f'<div class="match-scorers-away">{"".join(f"<span>{item}</span>" for item in away_scorers)}</div>' if away_scorers else ""
+
+    card = f"""
+    <div class="match-card-wrapper {extra_card_class}">
+        <div class="match-card-label">{match_label}</div>
+        <article class="match-card">
+            <div class="match-main">
+                <div class="match-competition">{competition}</div>
+                <div class="match-date-column">
+                    <div class="match-date">
+                        <span class="match-date-day">{day}</span>
+                        <span class="match-date-month">{month}</span>
+                        <span class="match-date-year">{year}</span>
+                    </div>
+                    <span class="match-date-time">{time if time else "—"}</span>
+                </div>
+                <div class="match-teams">
+                    <div class="match-team">
+                        {home_logo_html}
+                        <h3>{home_name}</h3>
+                    </div>
+                    <div class="match-vs">
+                        <span></span>
+                        <div class="match-vs-center">
+                            <span class="match-time">{score}</span>
+                        </div>
+                        <span></span>
+                    </div>
+                    <div class="match-team">
+                        {away_logo_html}
+                        <h3>{away_name}</h3>
+                    </div>
+                </div>
+                <div class="match-scorers-row">
+                    {home_scorers_html}
+                    <div class="match-scorers-spacer"></div>
+                    {away_scorers_html}
+                </div>
+            </div>
+        </article>
+    </div>
+    """
+    cards.append(card)
         continue
 
     elif sard_goals_value >= 0 and opponent_goals_value >= 0:
