@@ -128,7 +128,8 @@ if MATCHES_DIR.exists():
             "home_away": data.get("home_away", "Casa"),
             "sard_goals": data.get("sard_goals", "-1"),
             "opponent_goals": data.get("opponent_goals", "-1"),
-            "scorers": data.get("scorers", ""),
+            "scorers_home": data.get("scorers_home", ""),
+            "scorers_away": data.get("scorers_away", ""),
             "home_logo": data.get("home_logo", ""),
             "away_logo": data.get("away_logo", "")
         })
@@ -216,29 +217,38 @@ for match in matches:
     scorers_raw = str(match["scorers"]).strip()
     home_scorers = []
     away_scorers = []
+    
+    home_scorers_raw = str(match["scorers_home"]).strip()
+    away_scorers_raw = str(match["scorers_away"]).strip()
 
-    if scorers_raw:
-        for item in re.split(r"\r?\n|;", scorers_raw):
-            item = item.strip()
-            if not item:
-                continue
+    home_scorers = [
+        html.escape(item.strip())
+        for item in re.split(r"\r?\n|;", home_scorers_raw)
+        if item.strip()
+    ]
 
-            if ":" in item:
-                side, scorer = item.split(":", 1)
-                side = side.strip().upper()
-                scorer = scorer.strip()
+    away_scorers = [
+        html.escape(item.strip())
+        for item in re.split(r"\r?\n|;", away_scorers_raw)
+        if item.strip()
+    ]
 
-                if side == "CASA":
-                    home_scorers.append(html.escape(scorer))
-                elif side == "OSPITE":
-                    away_scorers.append(html.escape(scorer))
-            else:
-                home_scorers.append(html.escape(item))
+    home_scorers_html = (
+        f'<div class="match-scorers-home">'
+        f'{"".join(f"<span>{item}</span>" for item in home_scorers)}'
+        f'</div>'
+        if home_scorers else ""
+    )
 
-    home_scorers_html = f'<div class="match-scorers-home">{"".join(f"<span>{item}</span>" for item in home_scorers)}</div>' if home_scorers else ""
-    away_scorers_html = f'<div class="match-scorers-away">{"".join(f"<span>{item}</span>" for item in away_scorers)}</div>' if away_scorers else ""
+    away_scorers_html = (
+        f'<div class="match-scorers-away">'
+        f'{"".join(f"<span>{item}</span>" for item in away_scorers)}'
+        f'</div>'
+        if away_scorers else ""
+    )
 
     card = f"""
+   
     
     <div class="match-card-wrapper {extra_card_class}">
         <div class="match-card-label">{match_label}</div>
