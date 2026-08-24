@@ -1,120 +1,3 @@
-media: images
-
-content:
-
-  # =====================================================
-  # NEWS
-  # =====================================================
-
-  - name: news
-    label: News
-    type: collection
-    path: content/news
-    format: yaml-frontmatter
-    filename: "{primary}.md"
-
-    fields:
-
-      - name: title
-        label: Titolo
-        type: string
-        required: true
-
-      - name: category
-        label: Categoria
-        type: string
-        required: true
-
-      - name: date
-        label: Data
-        type: date
-        required: true
-
-      - name: image
-        label: Immagine
-        type: image
-
-      - name: excerpt
-        label: Anteprima
-        type: text
-
-      - name: body
-        label: Contenuto
-        type: rich-text
-
-    view:
-      fields:
-        - title
-        - category
-        - date
-
-      primary: title
-
-      sort:
-        - date
-
-      default:
-        sort: date
-        order: desc
-
-
-  # =====================================================
-  # ROSA
-  # =====================================================
-
-  - name: players
-    label: Rosa
-    type: collection
-    path: content/players
-    format: yaml-frontmatter
-    filename: "{primary}.md"
-
-    fields:
-
-      - name: name
-        label: Nome giocatore
-        type: string
-        required: true
-
-      - name: number
-        label: Numero di maglia
-        type: number
-
-      - name: role
-        label: Ruolo
-        type: string
-        required: true
-
-      - name: category
-        label: Categoria
-        type: select
-        required: true
-        options:
-          values:
-            - Portiere
-            - Giocatore di movimento
-
-      - name: image
-        label: Foto
-        type: image
-
-    view:
-      fields:
-        - name
-        - number
-        - role
-        - category
-
-      primary: name
-
-      sort:
-        - number
-
-      default:
-        sort: number
-        order: asc
-
-
   # =====================================================
   # RISULTATI E CALENDARIO
   # =====================================================
@@ -159,18 +42,18 @@ content:
           values:
             - Casa
             - Trasferta
-            
-      - name: home_goals
-        label: Gol Casa
+
+      - name: sard_goals
+        label: Gol Sard Futsal
         type: number
         default: -1
-     
+
       - name: opponent_goals
         label: Gol avversario
         type: number
         default: -1
-    
-       - name: scorers_home
+
+      - name: scorers_home
         label: Marcatori Casa
         type: text
 
@@ -191,7 +74,7 @@ content:
         - date
         - opponent
         - competition
-        - status
+        - home_away
         - venue
 
       primary: opponent
