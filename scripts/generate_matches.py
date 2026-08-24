@@ -159,36 +159,55 @@ for match in matches:
     competition = html.escape(str(match["competition"]))
     opponent = html.escape(str(match["opponent"]))
 
-   try:
-    sard_goals_value = int(str(match["sard_goals"]).strip())
-except (ValueError, TypeError):
-    sard_goals_value = -1
+    # =====================================================
+    # RISULTATI
+    # =====================================================
 
-try:
-    opponent_goals_value = int(str(match["opponent_goals"]).strip())
-except (ValueError, TypeError):
-    opponent_goals_value = -1
+    try:
+        sard_goals_value = int(str(match["sard_goals"]).strip())
+    except (ValueError, TypeError):
+        sard_goals_value = -1
 
-extra_card_class = ""
+    try:
+        opponent_goals_value = int(str(match["opponent_goals"]).strip())
+    except (ValueError, TypeError):
+        opponent_goals_value = -1
 
-if sard_goals_value == -2 and opponent_goals_value == -2:
+    extra_card_class = ""
+
+    # =====================================================
+    # CALENDARIO IN AGGIORNAMENTO
+    # =====================================================
+
+    if sard_goals_value == -2 and opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
+
         card = f"""
         <div class="match-card-wrapper">
             <div class="match-card-label">{match_label}</div>
             <article class="match-card match-card-update">
                 <div class="match-card-image-container">
-                    <img src="images/calendario-aggiornamento.png" alt="Calendario in aggiornamento" class="calendar-update-image">
+                    <img
+                        src="images/calendario-aggiornamento.png"
+                        alt="Calendario in aggiornamento"
+                        class="calendar-update-image"
+                    >
                 </div>
             </article>
         </div>
         """
+
         cards.append(card)
         continue
 
-    elif sard_goals_value >= 0 and opponent_goals_value >= 0:
+    # =====================================================
+    # RISULTATO FINALE / PROSSIMA PARTITA
+    # =====================================================
+
+    if sard_goals_value >= 0 and opponent_goals_value >= 0:
         match_label = "RISULTATO FINALE"
         score = f"{sard_goals_value} - {opponent_goals_value}"
+
     else:
         if not first_next_found:
             match_label = "PROSSIMO IMPEGNO • NEXT MATCH"
@@ -196,7 +215,12 @@ if sard_goals_value == -2 and opponent_goals_value == -2:
             first_next_found = True
         else:
             match_label = "PROSSIMA PARTITA"
+
         score = "VS"
+
+    # =====================================================
+    # CASA / TRASFERTA
+    # =====================================================
 
     if match["home_away"] == "Casa":
         home_name = "SARD FUTSAL"
@@ -208,86 +232,171 @@ if sard_goals_value == -2 and opponent_goals_value == -2:
     home_name = html.escape(home_name)
     away_name = html.escape(away_name)
 
+    # =====================================================
+    # LOGHI
+    # =====================================================
+
     home_logo = clean_image_path(match["home_logo"])
     away_logo = clean_image_path(match["away_logo"])
 
-    home_logo_html = f'<img src="{home_logo}" alt="{home_name}" class="match-team-logo" loading="lazy">' if home_logo else '<div class="match-team-logo-placeholder"></div>'
-    away_logo_html = f'<img src="{away_logo}" alt="{away_name}" class="match-team-logo" loading="lazy">' if away_logo else '<div class="match-team-logo-placeholder"></div>'
+    if home_logo:
+        home_logo_html = (
+            f'<img src="{home_logo}" '
+            f'alt="{home_name}" '
+            f'class="match-team-logo" loading="lazy">'
+        )
+    else:
+        home_logo_html = (
+            '<div class="match-team-logo-placeholder"></div>'
+        )
 
-       # =====================================================
+    if away_logo:
+        away_logo_html = (
+            f'<img src="{away_logo}" '
+            f'alt="{away_name}" '
+            f'class="match-team-logo" loading="lazy">'
+        )
+    else:
+        away_logo_html = (
+            '<div class="match-team-logo-placeholder"></div>'
+        )
+
+    # =====================================================
     # MARCATORI CASA / TRASFERTA
     # =====================================================
 
-    home_scorers_raw = str(match.get("scorers_home", "")).strip()
-    away_scorers_raw = str(match.get("scorers_away", "")).strip()
+    home_scorers_raw = str(
+        match.get("scorers_home", "")
+    ).strip()
+
+    away_scorers_raw = str(
+        match.get("scorers_away", "")
+    ).strip()
 
     home_scorers = [
         html.escape(item.strip())
-        for item in re.split(r"\r?\n|;", home_scorers_raw)
+        for item in re.split(
+            r"\r?\n|;",
+            home_scorers_raw
+        )
         if item.strip()
     ]
 
     away_scorers = [
         html.escape(item.strip())
-        for item in re.split(r"\r?\n|;", away_scorers_raw)
+        for item in re.split(
+            r"\r?\n|;",
+            away_scorers_raw
+        )
         if item.strip()
     ]
 
-    home_scorers_html = (
-        f'<div class="match-scorers-home">'
-        f'{"".join(f"<span>{item}</span>" for item in home_scorers)}'
-        f'</div>'
-        if home_scorers else ""
-    )
+    if home_scorers:
+        home_scorers_html = (
+            '<div class="match-scorers-home">'
+            + "".join(
+                f"<span>{item}</span>"
+                for item in home_scorers
+            )
+            + "</div>"
+        )
+    else:
+        home_scorers_html = ""
 
-    away_scorers_html = (
-        f'<div class="match-scorers-away">'
-        f'{"".join(f"<span>{item}</span>" for item in away_scorers)}'
-        f'</div>'
-        if away_scorers else ""
-    )
+    if away_scorers:
+        away_scorers_html = (
+            '<div class="match-scorers-away">'
+            + "".join(
+                f"<span>{item}</span>"
+                for item in away_scorers
+            )
+            + "</div>"
+        )
+    else:
+        away_scorers_html = ""
+
+    # =====================================================
+    # CARD
+    # =====================================================
 
     card = f"""
-    
     <div class="match-card-wrapper {extra_card_class}">
         <div class="match-card-label">{match_label}</div>
+
         <article class="match-card">
+
             <div class="match-main">
-                <div class="match-competition">{competition}</div>
-                <div class="match-date-column">
-                    <div class="match-date">
-                        <span class="match-date-day">{day}</span>
-                        <span class="match-date-month">{month}</span>
-                        <span class="match-date-year">{year}</span>
-                    </div>
-                    <span class="match-date-time">{time if time else "—"}</span>
+
+                <div class="match-competition">
+                    {competition}
                 </div>
+
+                <div class="match-date-column">
+
+                    <div class="match-date">
+                        <span class="match-date-day">
+                            {day}
+                        </span>
+
+                        <span class="match-date-month">
+                            {month}
+                        </span>
+
+                        <span class="match-date-year">
+                            {year}
+                        </span>
+                    </div>
+
+                    <span class="match-date-time">
+                        {time if time else "—"}
+                    </span>
+
+                </div>
+
                 <div class="match-teams">
+
                     <div class="match-team">
                         {home_logo_html}
                         <h3>{home_name}</h3>
                     </div>
+
                     <div class="match-vs">
+
                         <span></span>
+
                         <div class="match-vs-center">
-                            <span class="match-time">{score}</span>
+                            <span class="match-time">
+                                {score}
+                            </span>
                         </div>
+
                         <span></span>
+
                     </div>
+
                     <div class="match-team">
                         {away_logo_html}
                         <h3>{away_name}</h3>
                     </div>
+
                 </div>
+
                 <div class="match-scorers-row">
+
                     {home_scorers_html}
+
                     <div class="match-scorers-spacer"></div>
+
                     {away_scorers_html}
+
                 </div>
+
             </div>
+
         </article>
     </div>
     """
+
     cards.append(card)
 # =========================================================
 # SE NON CI SONO PARTITE
