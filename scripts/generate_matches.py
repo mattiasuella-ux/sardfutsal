@@ -214,6 +214,13 @@ for match in matches:
     home_logo_html = f'<img src="{home_logo}" alt="{home_name}" class="match-team-logo" loading="lazy">' if home_logo else '<div class="match-team-logo-placeholder"></div>'
     away_logo_html = f'<img src="{away_logo}" alt="{away_name}" class="match-team-logo" loading="lazy">' if away_logo else '<div class="match-team-logo-placeholder"></div>'
 
+       # =====================================================
+    # MARCATORI CASA / TRASFERTA
+    # =====================================================
+
+    home_scorers_raw = str(match.get("scorers_home", "")).strip()
+    away_scorers_raw = str(match.get("scorers_away", "")).strip()
+
     home_scorers = [
         html.escape(item.strip())
         for item in re.split(r"\r?\n|;", home_scorers_raw)
@@ -241,7 +248,6 @@ for match in matches:
     )
 
     card = f"""
-   
     
     <div class="match-card-wrapper {extra_card_class}">
         <div class="match-card-label">{match_label}</div>
