@@ -159,17 +159,24 @@ content:
           values:
             - Casa
             - Trasferta
+            
+       - name: status
+        label: Stato partita
+        type: select
+        required: true
+        options:
+          values:
+            - Da giocare
+            - Terminata
+            - Calendario in aggiornamento
 
       - name: sard_goals
         label: Gol Sard Futsal
         type: number
-        default: -1
 
       - name: opponent_goals
         label: Gol avversario
         type: number
-        default: -1
-
       - name: scorers_home
         label: Marcatori Casa
         type: text
@@ -191,6 +198,7 @@ content:
         - date
         - opponent
         - competition
+        - status
         - home_away
         - venue
 
