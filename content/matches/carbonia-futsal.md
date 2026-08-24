@@ -8,8 +8,8 @@ home_away: Casa
 status: Terminata
 sard_goals: 2
 opponent_goals: 2
-scorers_home: nocerino
-scorers_away: loi
+scorers_home: NOCERINO
+scorers_away: LOI
 home_logo: /images/sard-futsal-logo-web-100x100-1.png
 away_logo: /images/ChatGPT Image 23 ago 2026, 17_04_42-1.png
 ---
