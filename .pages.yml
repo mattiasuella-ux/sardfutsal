@@ -160,7 +160,7 @@ content:
             - Casa
             - Trasferta
             
-       - name: status
+      - name: status
         label: Stato partita
         type: select
         required: true
@@ -177,6 +177,7 @@ content:
       - name: opponent_goals
         label: Gol avversario
         type: number
+        
       - name: scorers_home
         label: Marcatori Casa
         type: text
