@@ -159,19 +159,19 @@ for match in matches:
     competition = html.escape(str(match["competition"]))
     opponent = html.escape(str(match["opponent"]))
 
-    try:
-        sard_goals_value = int(str(match["home_goals"]).strip())
-    except (ValueError, TypeError):
-        sard_goals_value = -1
+   try:
+    sard_goals_value = int(str(match["sard_goals"]).strip())
+except (ValueError, TypeError):
+    sard_goals_value = -1
 
-    try:
-        opponent_goals_value = int(str(match["opponent_goals"]).strip())
-    except (ValueError, TypeError):
-        opponent_goals_value = -1
+try:
+    opponent_goals_value = int(str(match["opponent_goals"]).strip())
+except (ValueError, TypeError):
+    opponent_goals_value = -1
 
-    extra_card_class = ""
+extra_card_class = ""
 
-    if home_goals_value == -2 and opponent_goals_value == -2:
+if sard_goals_value == -2 and opponent_goals_value == -2:
         match_label = "CALENDARIO IN AGGIORNAMENTO"
         card = f"""
         <div class="match-card-wrapper">
