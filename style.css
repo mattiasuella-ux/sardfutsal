@@ -3821,3 +3821,77 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   font-weight: 800;
   letter-spacing: 2px;
 }
+/* =========================================================
+   BLOCCO CENTRALE PERFEZIONATO (ORARIO + VS + DATA)
+   ========================================================= */
+
+/* Allineamento mediano perfetto di tutta la riga */
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+/* Data in alto (23 AGO 2026) */
+.match-date-column {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.match-date {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.match-date-day {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--orange, #ff5a00);
+}
+
+.match-date-month,
+.match-date-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #bbb;
+  letter-spacing: 1px;
+}
+
+/* Orario ingrandito e dominante */
+.match-date-time {
+  display: block;
+  font-size: 1.8rem; /* Aumentato per massimo risalto */
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  margin-top: 6px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Badge "VS" compatto ed elegante sotto l'orario */
+.match-vs-center .match-time {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--orange, #ff5a00);
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* Perfezionamento nomi squadre */
+.match-team h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
