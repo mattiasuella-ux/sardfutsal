@@ -544,18 +544,18 @@ for match in matches:
     # HTML MARCATORI CASA
     # =====================================================
 
-    if home_scorers:
+   home_scorers:
 
-        home_scorers_html = (
-            '<div class="match-scorers-home">'
-            +
-            "".join(
-                f"<span>{item}</span>"
-                for item in home_scorers
-            )
-            +
-            '</div>'
+    home_scorers_html = (
+        '<div class="match-scorers-home">'
+        +
+        "".join(
+            f'<span>⚽ {item}</span>'
+            for item in home_scorers
         )
+        +
+        '</div>'
+    )
 
     else:
 
@@ -566,19 +566,18 @@ for match in matches:
     # HTML MARCATORI TRASFERTA
     # =====================================================
 
-    if away_scorers:
+   if away_scorers:
 
-        away_scorers_html = (
-            '<div class="match-scorers-away">'
-            +
-            "".join(
-                f"<span>{item}</span>"
-                for item in away_scorers
-            )
-            +
-            '</div>'
+    away_scorers_html = (
+        '<div class="match-scorers-away">'
+        +
+        "".join(
+            f"<span>{item}</span>"
+            for item in away_scorers
         )
-
+        +
+        '</div>'
+    )
     else:
 
         away_scorers_html = ""
