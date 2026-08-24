@@ -214,13 +214,6 @@ for match in matches:
     home_logo_html = f'<img src="{home_logo}" alt="{home_name}" class="match-team-logo" loading="lazy">' if home_logo else '<div class="match-team-logo-placeholder"></div>'
     away_logo_html = f'<img src="{away_logo}" alt="{away_name}" class="match-team-logo" loading="lazy">' if away_logo else '<div class="match-team-logo-placeholder"></div>'
 
-    scorers_raw = str(match["scorers"]).strip()
-    home_scorers = []
-    away_scorers = []
-    
-    home_scorers_raw = str(match["scorers_home"]).strip()
-    away_scorers_raw = str(match["scorers_away"]).strip()
-
     home_scorers = [
         html.escape(item.strip())
         for item in re.split(r"\r?\n|;", home_scorers_raw)
