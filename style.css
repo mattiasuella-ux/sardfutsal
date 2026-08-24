@@ -3723,3 +3723,55 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
   z-index: 21 !important;
 }
+/* =========================================================
+   NEXT MATCH & WRAPPER CARD PARTITE
+   ========================================================= */
+
+.match-card-wrapper {
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.match-card-wrapper .match-card-label {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #222;
+}
+
+/* =========================================================
+   STILE IN EVIDENZA PER IL NEXT MATCH
+   ========================================================= */
+
+.match-card-wrapper.is-next-match {
+  transform: translateY(-3px);
+}
+
+.match-card-wrapper.is-next-match .match-card {
+  background: linear-gradient(145deg, #1c130b 0%, #0c0c0c 100%) !important;
+  border: 2px solid var(--orange) !important;
+  box-shadow: 0 10px 30px rgba(255, 90, 0, 0.25) !important;
+}
+
+.match-card-wrapper.is-next-match .match-card-label {
+  background-color: var(--orange) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(255, 90, 0, 0.4);
+}
+
+.match-card-wrapper.is-next-match .match-team-logo {
+  filter: drop-shadow(0 4px 12px rgba(255, 90, 0, 0.2));
+}
+
+.match-card-wrapper.is-next-match .match-time {
+  color: var(--orange) !important;
+  text-shadow: 0 0 12px rgba(255, 90, 0, 0.4);
+}
