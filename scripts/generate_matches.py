@@ -30,15 +30,31 @@ def parse_frontmatter(text):
 
     lines = frontmatter.splitlines()
     i = 0
+    last_key = None
+
+    # Riconosce una riga "chiave: valore" solo se la parte prima dei ":"
+    # è una chiave semplice (senza spazi): evita di confondere con i due
+    # punti che possono comparire dentro un testo libero.
+    key_line = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*\s*:")
 
     while i < len(lines):
         line = lines[i]
+        stripped = line.strip()
 
-        if ":" not in line:
+        if not stripped:
             i += 1
             continue
 
-        key, value = line.split(":", 1)
+        if not key_line.match(stripped):
+            # Riga di continuazione di un valore "piegato" su più righe
+            # (es. salvato dal CMS su due righe): la riattacchiamo al
+            # valore precedente.
+            if last_key is not None:
+                data[last_key] = (data[last_key] + " " + stripped).strip()
+            i += 1
+            continue
+
+        key, value = stripped.split(":", 1)
         key = key.strip()
         value = value.strip()
 
@@ -62,10 +78,12 @@ def parse_frontmatter(text):
             data[key] = "\n".join(
                 item for item in multiline if item
             )
+            last_key = key
 
             continue
 
         data[key] = value.strip('"').strip("'")
+        last_key = key
         i += 1
 
     return data, body
