@@ -17,26 +17,48 @@ def parse_frontmatter(text):
     data = {}
     body = text
 
-    if text.startswith("---"):
+    if not text.startswith("---"):
+        return data, body
 
-        parts = text.split("---", 2)
+    parts = text.split("---", 2)
 
-        if len(parts) == 3:
+    if len(parts) != 3:
+        return data, body
 
-            frontmatter = parts[1]
-            body = parts[2].strip()
+    frontmatter = parts[1]
+    body = parts[2].strip()
 
-            for line in frontmatter.splitlines():
+    lines = frontmatter.splitlines()
+    last_key = None
 
-                if ":" in line:
+    # Riconosce una riga "chiave: valore" solo se la parte prima dei ":"
+    # è una chiave semplice (senza spazi): evita di confondere con i due
+    # punti che possono comparire dentro un testo libero.
+    key_line = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*\s*:")
 
-                    key, value = line.split(":", 1)
+    for line in lines:
+        stripped = line.strip()
 
-                    data[key.strip()] = (
-                        value.strip()
-                        .strip('"')
-                        .strip("'")
-                    )
+        if not stripped:
+            continue
+
+        if not key_line.match(stripped):
+            # Riga di continuazione di un valore "piegato" su più righe
+            # (es. salvato dal CMS su due righe): la riattacchiamo al
+            # valore precedente.
+            if last_key is not None:
+                data[last_key] = (data[last_key] + " " + stripped).strip()
+            continue
+
+        key, value = stripped.split(":", 1)
+        key = key.strip()
+
+        data[key] = (
+            value.strip()
+            .strip('"')
+            .strip("'")
+        )
+        last_key = key
 
     return data, body
 
