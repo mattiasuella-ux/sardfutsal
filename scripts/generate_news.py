@@ -19,26 +19,68 @@ def parse_frontmatter(text):
     data = {}
     body = text
 
-    if text.startswith("---"):
+    if not text.startswith("---"):
+        return data, body
 
-        parts = text.split("---", 2)
+    parts = text.split("---", 2)
 
-        if len(parts) == 3:
+    if len(parts) != 3:
+        return data, body
 
-            frontmatter = parts[1]
-            body = parts[2].strip()
+    frontmatter = parts[1]
+    body = parts[2].strip()
 
-            for line in frontmatter.splitlines():
+    lines = frontmatter.splitlines()
+    i = 0
+    last_key = None
 
-                if ":" in line:
+    # Riconosce una riga "chiave: valore" solo se la parte prima dei ":"
+    # è una chiave semplice (senza spazi): evita di confondere con i due
+    # punti che possono comparire dentro una frase.
+    key_line = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*\s*:")
 
-                    key, value = line.split(":", 1)
+    while i < len(lines):
 
-                    data[key.strip()] = (
-                        value.strip()
-                        .strip('"')
-                        .strip("'")
-                    )
+        line = lines[i]
+        stripped = line.strip()
+
+        if not stripped:
+            i += 1
+            continue
+
+        if not key_line.match(stripped):
+            # Riga di continuazione di un valore "piegato" su più righe
+            # (es. un'anteprima lunga salvata dal CMS su due righe):
+            # la riattacchiamo al valore precedente.
+            if last_key is not None:
+                data[last_key] = (data[last_key] + " " + stripped).strip()
+            i += 1
+            continue
+
+        key, value = stripped.split(":", 1)
+        key = key.strip()
+        value = value.strip()
+
+        if value in ("|", "|-"):
+            multiline = []
+            i += 1
+
+            while i < len(lines):
+                next_line = lines[i]
+
+                if next_line and not next_line.startswith(" ") and ":" in next_line:
+                    break
+
+                multiline.append(next_line.strip())
+                i += 1
+
+            data[key] = "\n".join(item for item in multiline if item)
+            last_key = key
+            continue
+
+        data[key] = value.strip('"').strip("'")
+        last_key = key
+        i += 1
 
     return data, body
 
@@ -140,9 +182,22 @@ def extract_paragraphs(body):
             " "
         )
 
-        paragraphs.append(
-            html.escape(paragraph)
+        paragraph = html.escape(paragraph)
+
+        # Markdown semplice: **grassetto** e *corsivo* (in questo ordine,
+        # per non interpretare parte di un "**" come "*" singolo).
+        paragraph = re.sub(
+            r"\*\*(.+?)\*\*",
+            r"<strong>\1</strong>",
+            paragraph
         )
+        paragraph = re.sub(
+            r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)",
+            r"<em>\1</em>",
+            paragraph
+        )
+
+        paragraphs.append(paragraph)
 
     return paragraphs
 
