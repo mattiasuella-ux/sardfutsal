@@ -40,7 +40,8 @@ content:
 
       - name: body
         label: Contenuto
-        type: rich-text
+        type: text
+        description: "Lascia una riga vuota tra un paragrafo e l'altro (Invio due volte). Per il grassetto scrivi **così** tra due asterischi."
 
     view:
       fields:
