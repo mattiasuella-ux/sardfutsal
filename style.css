@@ -2,6 +2,7 @@
 
 :root{--orange:#ff5a00;--orange2:#ff7a1a;--black:#080808;--dark:#111;--white:#f7f7f7;--muted:#aaa}
 *{box-sizing:border-box;margin:0;padding:0}
+img{max-width:100%;height:auto}
 html{scroll-behavior:smooth}
 body{font-family:Inter,Arial,sans-serif;background:var(--black);color:var(--white);line-height:1.6}
 a{color:inherit;text-decoration:none}
@@ -3652,6 +3653,24 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .match-card-wrapper .match-card {
   width: 100% !important;
   margin: 0 !important;
+}
+
+/* IMMAGINE CALENDARIO / PROSSIMA PARTITA — responsive */
+.match-card-update {
+  display: block !important;
+}
+
+.match-card-image-container {
+  width: 100% !important;
+}
+
+.match-card-image-container img,
+.calendar-update-image {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  grid-column: 1 / -1 !important;
 }
 
 /* =========================================================
