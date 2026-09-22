@@ -1,7 +1,7 @@
 ---
-name: "Marco Arceri"
-number: ""
-role: "Portiere"
-category: "Portiere"
-image: "images/marco-arceri.jpeg"
+name: Marco Arceri
+number: 1
+role: Portiere
+category: Portiere
+image: /images/marco-arceri.jpeg
 ---
