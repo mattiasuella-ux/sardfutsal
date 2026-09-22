@@ -158,7 +158,31 @@ h2{font-size:clamp(48px,6vw,76px);line-height:.92;margin-bottom:25px}
 .sponsor-box{display:flex;align-items:center;justify-content:space-between;gap:40px}.sponsor-box .orange{color:#111}.sponsor-box h2 span{color:#111}.sponsor-box p{color:#fff}.sponsor-box .btn{background:#111}
 .contact-section{background:#f5f5f5;color:#111}.contact-section p{color:#555}.contact-section h2 span{color:var(--orange)}.contact-list p{margin-bottom:20px}.contact-list strong{color:#111}
 footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner{display:flex;justify-content:space-between;gap:30px}.footer-inner strong{font-family:'Barlow Condensed';font-size:25px}.footer-inner p{font-size:12px;color:#777}
-@media(max-width:850px){nav{display:none;position:absolute;top:76px;left:0;width:100%;background:#0b0b0b;flex-direction:column;align-items:stretch;padding:20px 5%;gap:0}nav.open{display:flex}nav a{padding:14px 0;border-bottom:1px solid #222}.menu-toggle{display:block}.match-grid,.split{grid-template-columns:1fr}.match-grid>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.25)}.player-grid{grid-template-columns:1fr 1fr}.news-grid{grid-template-columns:1fr}.section-heading{display:block}.section-heading .text-link{margin-top:0}.sponsor-box{display:block}.sponsor-box .btn{margin-top:25px}.footer-inner{display:block}.footer-inner>p{margin-top:15px}}
+@media(max-width:850px){nav{display:none;position:absolute;top:76px;left:0;width:100%;background:#0b0b0b;flex-direction:column;align-items:stretch;padding:20px 5%;gap:0}nav.open{display:flex}nav a{padding:14px 0;border-bottom:1px solid #222}.menu-toggle{display:block;order:1}.match-grid,.split{grid-template-columns:1fr}.match-grid>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.25)}.player-grid{grid-template-columns:1fr 1fr}.news-grid{grid-template-columns:1fr}.section-heading{display:block}.section-heading .text-link{margin-top:0}.sponsor-box{display:block}.sponsor-box .btn{margin-top:25px}.footer-inner{display:block}.footer-inner>p{margin-top:15px}
+
+/* Header stile Inter: hamburger sx, logo centrato, icona dx */
+.nav{position:relative}
+.brand{order:2;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);gap:0}
+.brand span{display:none}
+.nav-icon{order:3;margin-left:auto;color:#fff;font-size:20px;display:flex;align-items:center}
+.nav-icon:hover{color:var(--orange)}
+
+/* Hero stile Inter: foto piena senza overlay + blocco colore sotto con testo enorme */
+.hero.hero-team-photo{display:block;min-height:auto;overflow:visible;background:none;padding:0}
+.hero.hero-team-photo:after{display:none}
+.hero-team-photo::before{content:"";display:block;width:100%;height:56vh;background-image:url('squadra-home.jpeg');background-size:cover;background-position:center top}
+.hero-team-photo .hero-overlay{display:none}
+.hero-content{position:static;background:var(--orange);padding:34px 6% 46px;text-align:left}
+.hero-logo{display:none}
+.hero h1{color:#080808}
+.hero h1 span{color:#fff}
+.hero .tagline{color:#080808}
+.hero-actions .btn-primary{background:#080808;color:#fff}
+.hero-actions .btn-primary:hover{background:#000}
+.hero-actions .btn-ghost{border-color:rgba(8,8,8,.4);color:#080808}
+.hero-actions .btn-ghost:hover{border-color:#080808;background:#080808;color:#fff}
+}
+.nav-icon{display:none}
 @media(max-width:520px){.hero{min-height:650px}.hero-content{padding-top:80px}.player-grid{grid-template-columns:1fr}.table-row{grid-template-columns:70px 1fr 65px;font-size:12px}.table-head{font-size:8px}}
 
 .brand-logo{width:46px;height:46px;object-fit:contain;display:block}
@@ -3720,113 +3744,4 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 14px !important;
   }
 
-}
-/* Card specifica per l'aggiornamento */
-.match-card-update {
-    padding: 0;              /* Rimuove padding interni per far aderire l'immagine */
-    overflow: hidden;        /* Fondamentale: taglia tutto ciò che esce dai bordi arrotondati */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0d0d0d;
-}
-
-/* Contenitore immagine interno */
-.match-card-image-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;           /* Crea un margine interno intorno all'immagine */
-    box-sizing: border-box;
-}
-
-/* Gestione dell'immagine dentro la card */
-.calendar-update-image {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    object-fit: contain;     /* Ridimensiona l'immagine mantenendo le proporzioni dentro la card */
-    border-radius: 8px;      /* Segue la curvatura della card */
-    display: block;
-}
-.match-date {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 7px;
-}
-
-.match-date-day,
-.match-date-month,
-.match-date-year {
-    font-size: 16px !important;
-    line-height: 1;
-    font-weight: 800;
-}
-.match-scorers-row {
-    display: grid;
-    grid-template-columns: 1fr 80px 1fr;
-    width: 100%;
-    margin-top: 12px;
-}
-
-.match-scorers-home {
-    grid-column: 1;
-    text-align: left;
-}
-
-.match-scorers-spacer {
-    grid-column: 2;
-}
-
-.match-scorers-away {
-    grid-column: 3;
-    text-align: right;
-}
-
-.match-scorers-home span,
-.match-scorers-away span {
-    display: block;
-}
-/* =====================================================
-   MARCATORI CASA / TRASFERTA
-   ===================================================== */
-
-.match-scorers-row {
-    display: flex !important;
-    width: 100% !important;
-    align-items: flex-start !important;
-    justify-content: space-between !important;
-    margin-top: 10px !important;
-}
-
-.match-scorers-home,
-.match-scorers-away {
-    width: 50% !important;
-    margin: 0 !important;
-    padding: 0 8px !important;
-    font-size: 12px !important;
-    line-height: 1.5 !important;
-    color: #777 !important;
-}
-
-.match-scorers-home {
-    text-align: left !important;
-}
-
-.match-scorers-away {
-    text-align: right !important;
-}
-
-.match-scorers-spacer {
-    display: none !important;
-}
-
-.match-scorers-home span,
-.match-scorers-away span {
-    display: block !important;
-    font-weight: 500 !important;
-    white-space: nowrap !important;
 }
