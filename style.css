@@ -169,20 +169,13 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .nav-icon{order:3;margin-left:auto;color:#fff;font-size:20px;display:flex;align-items:center}
 .nav-icon:hover{color:var(--orange)}
 
-/* Hero stile Inter: foto piena senza overlay + blocco colore sotto con testo enorme */
-.hero.hero-team-photo{display:block;min-height:auto;overflow:visible;background:none;padding:0}
-.hero.hero-team-photo:after{display:none}
-.hero-team-photo::before{content:"";display:block;width:100%;height:56vh;background-image:url('squadra-home.jpeg');background-size:cover;background-position:center top}
-.hero-team-photo .hero-overlay{display:none}
-.hero-content{position:static;background:var(--orange);padding:34px 6% 46px;text-align:left}
-.hero-logo{display:none}
-.hero h1{color:#080808}
-.hero h1 span{color:#fff}
-.hero .tagline{color:#080808}
-.hero-actions .btn-primary{background:#080808;color:#fff}
-.hero-actions .btn-primary:hover{background:#000}
-.hero-actions .btn-ghost{border-color:rgba(8,8,8,.4);color:#080808}
-.hero-actions .btn-ghost:hover{border-color:#080808;background:#080808;color:#fff}
+/* Hero mobile: foto con overlay scuro, logo/testo centrati e sovrapposti */
+.hero.hero-team-photo{min-height:100vh}
+.hero-team-photo .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,.8) 100%)}
+.hero-content{text-align:center}
+.hero-logo{margin-left:auto;margin-right:auto}
+.hero .tagline{text-align:center}
+.hero-actions{justify-content:center}
 }
 @media(max-width:520px){.hero{min-height:650px}.hero-content{padding-top:80px}.player-grid{grid-template-columns:1fr}.table-row{grid-template-columns:70px 1fr 65px;font-size:12px}.table-head{font-size:8px}}
 
