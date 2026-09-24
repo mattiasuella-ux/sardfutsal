@@ -5,7 +5,7 @@ import html
 
 ROOT = Path(".")
 PLAYERS_DIR = ROOT / "content" / "players"
-INDEX_FILE = ROOT / "index.html"
+INDEX_FILE = ROOT / "squadra.html"
 
 
 # =========================================================
@@ -291,7 +291,7 @@ generated_roster = f"""
 if not INDEX_FILE.exists():
 
     raise SystemExit(
-        "ERRORE: index.html non trovato."
+        "ERRORE: squadra.html non trovato."
     )
 
 
@@ -318,7 +318,7 @@ if (
     raise SystemExit(
         "ERRORE: marcatori "
         "PLAYERS_AUTO_START / PLAYERS_AUTO_END "
-        "non trovati in index.html"
+        "non trovati in squadra.html"
     )
 
 
