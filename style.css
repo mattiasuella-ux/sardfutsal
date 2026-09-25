@@ -159,7 +159,13 @@ h2{font-size:clamp(48px,6vw,76px);line-height:.92;margin-bottom:25px}
 .sponsor-box{display:flex;align-items:center;justify-content:space-between;gap:40px}.sponsor-box .orange{color:#111}.sponsor-box h2 span{color:#111}.sponsor-box p{color:#fff}.sponsor-box .btn{background:#111}
 .contact-section{background:#f5f5f5;color:#111}.contact-section p{color:#555}.contact-section h2 span{color:var(--orange)}.contact-list p{margin-bottom:20px}.contact-list strong{color:#111}
 footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner{display:flex;justify-content:space-between;gap:30px}.footer-inner strong{font-family:'Barlow Condensed';font-size:25px}.footer-inner p{font-size:12px;color:#777}
-.nav-icon{display:none}
+.nav-icon{display:flex;align-items:center;color:#fff;font-size:16px}
+.nav-icon:hover{color:var(--orange)}
+.brand-mobile{display:none}
+#main-nav{display:flex;align-items:center;flex:1;gap:20px}
+.nav-left,.nav-right{display:flex;align-items:center;gap:22px}
+.nav-left{flex:1;justify-content:flex-start}
+.nav-right{flex:1;justify-content:flex-end}
 @media(max-width:850px){nav{display:none;position:absolute;top:76px;left:0;width:100%;background:#0b0b0b;flex-direction:column;align-items:stretch;padding:20px 5%;gap:0}nav.open{display:flex}nav a{padding:14px 0;border-bottom:1px solid #222}.menu-toggle{display:block;order:1}.match-grid,.split{grid-template-columns:1fr}.match-grid>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.25)}.player-grid{grid-template-columns:1fr 1fr}.news-grid{grid-template-columns:1fr}.section-heading{display:block}.section-heading .text-link{margin-top:0}.sponsor-box{display:block}.sponsor-box .btn{margin-top:25px}.footer-inner{display:block}.footer-inner>p{margin-top:15px}
 
 /* Header stile Inter: hamburger sx, logo centrato, icona dx */
@@ -167,6 +173,10 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .brand{order:2;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);gap:0}
 .brand span{display:none}
 .nav-icon{order:3;margin-left:auto;color:#fff;font-size:20px;display:flex;align-items:center}
+.brand-mobile{display:flex}
+.brand-desktop{display:none}
+#main-nav{flex-direction:column;align-items:stretch;gap:0}
+.nav-left,.nav-right{flex-direction:column;align-items:stretch;gap:0;flex:none;width:100%}
 .nav-icon:hover{color:var(--orange)}
 
 /* Hero mobile: foto con overlay scuro, logo/testo centrati e sovrapposti */
