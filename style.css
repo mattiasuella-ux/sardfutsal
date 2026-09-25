@@ -175,7 +175,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .nav-icon{order:3;margin-left:auto;color:#fff;font-size:20px;display:flex;align-items:center}
 .brand-mobile{display:flex}
 .brand-desktop{display:none}
-#main-nav{flex-direction:column;align-items:stretch;gap:0}
+#main-nav{display:none;flex-direction:column;align-items:stretch;gap:0}
+#main-nav.open{display:flex}
 .nav-left,.nav-right{flex-direction:column;align-items:stretch;gap:0;flex:none;width:100%}
 .nav-icon:hover{color:var(--orange)}
 
