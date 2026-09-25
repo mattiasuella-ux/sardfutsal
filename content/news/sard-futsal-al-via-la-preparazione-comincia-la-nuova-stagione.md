@@ -2,6 +2,7 @@
 title: "Sard Futsal, al via la preparazione: comincia la nuova stagione"
 category: NEWS
 date: 2026-09-13
+image: /images/sard-futsal-logo-web-1.png
 excerpt: La Sard Futsal torna in campo per dare ufficialmente il via alla
   preparazione in vista della nuova stagione.
 ---
