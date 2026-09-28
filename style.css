@@ -3765,39 +3765,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 }
 
-/* Card bianche */
-.player-card,
-.player-card.real-player,
-.staff-card,
-.president-card,
-.value-card,
-.news-card {
+/* Card sponsor del carosello scorrevole */
+.partners-section .partner-logo {
   background: #fff !important;
-  color: #111;
-}
-
-/* Sfondo bianco dietro le immagini */
-.player-card.real-player img,
-.news-image,
-.news-image-1,
-.news-image-2,
-.news-image-3 {
-  background: #fff;
-}
-
-/* Titoli scuri */
-.player-card.real-player h3,
-.staff-card h3,
-.president-card h3,
-.value-card h3,
-.news-body h3 {
-  color: #111;
-}
-
-/* Testi leggibili sulle card bianche */
-.player-card.real-player p,
-.president-card p,
-.value-card p,
-.news-body p {
-  color: #555 !important;
+  border-color: #ddd;
 }
