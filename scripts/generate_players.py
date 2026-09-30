@@ -168,33 +168,47 @@ for player in players:
     )
 
 
+    full_name = player["name"].strip()
+    name_parts = full_name.split(" ", 1)
+
+    if len(name_parts) > 1:
+        first_name = html.escape(name_parts[0])
+        last_name = html.escape(name_parts[1])
+    else:
+        first_name = ""
+        last_name = html.escape(full_name)
+
+    number_html = (
+        f'<div class="pcard-number">{number}</div>'
+        if number else ""
+    )
+
     card = f"""
-    <article class="player-card real-player">
+<article class="pcard">
 
-      <img
-        src="{image}"
-        alt="{name}"
-        loading="lazy"
-      >
+<div class="pcard-media">
+<img
+class="pcard-img"
+src="{image}"
+alt="{name}"
+loading="lazy"
+>
+</div>
 
-      <div class="player-number">
-        {number}
-      </div>
+<div class="pcard-top">
+<div class="pcard-name">
+<h3>{last_name}</h3>
+<span>{first_name}</span>
+</div>
+{number_html}
+</div>
 
-      <div>
+<div class="pcard-bottom">
+<span class="pcard-role">{role}</span>
+</div>
 
-        <h3>
-          {name}
-        </h3>
-
-        <p>
-          {role}
-        </p>
-
-      </div>
-
-    </article>
-"""
+</article>
+    """
 
 
     if player["category"] == "Portiere":
