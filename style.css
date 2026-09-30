@@ -2707,3 +2707,116 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
     font-size: 16px;
   }
 }
+
+
+/* --- MIGLIORIE GRAFICHE MATCH CARD --- */
+
+.match-card {
+  border-color: rgba(255,255,255,.08);
+  border-top: 0;
+  border-radius: 6px;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255,90,0,.20), transparent 55%),
+    radial-gradient(circle at 0% 0%, rgba(255,255,255,.05), transparent 40%),
+    linear-gradient(135deg, #181818 0%, #0b0b0b 58%, #111 100%);
+}
+
+/* barra accento arancione in alto */
+.match-card .match-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--orange) 30%, #ff8a3d 50%, var(--orange) 70%, transparent);
+  box-shadow: 0 0 18px rgba(255,90,0,.6);
+}
+
+/* competizione a pillola */
+.match-card .match-competition {
+  width: fit-content;
+  margin: 0 auto 20px;
+  padding: 7px 18px;
+  font-size: 13px;
+  background: rgba(255,90,0,.10);
+  border: 1px solid rgba(255,90,0,.35);
+  border-radius: 999px;
+}
+
+/* data e ora */
+.match-card .match-date-column {
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.match-card .match-date-day {
+  font-size: 68px;
+  text-shadow: 0 0 28px rgba(255,90,0,.40);
+}
+
+.match-card .match-date-month {
+  font-size: 17px;
+  color: #fff;
+}
+
+.match-card .match-date-year {
+  color: #8a8a8a;
+}
+
+.match-card .match-date-time {
+  background: linear-gradient(135deg, var(--orange), #ff7a1f);
+  border-color: transparent;
+  box-shadow: 0 6px 22px rgba(255,90,0,.35);
+  font-size: 24px;
+}
+
+/* logo con alone circolare */
+.match-card .match-team-logo,
+.match-card .match-team-logo-placeholder {
+  width: 118px;
+  height: 118px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+  background: radial-gradient(circle, rgba(255,255,255,.07), rgba(255,255,255,.015) 70%);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 50%;
+}
+
+.match-card .match-team:hover .match-team-logo {
+  border-color: rgba(255,90,0,.45);
+}
+
+.match-card .match-team h3 {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+/* VS con linee decorative */
+.match-card .match-vs-center {
+  position: relative;
+}
+
+.match-card .match-vs-center::before,
+.match-card .match-vs-center::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, transparent, rgba(255,90,0,.7));
+}
+
+.match-card .match-vs-center::before { bottom: calc(50% + 34px); }
+.match-card .match-vs-center::after { top: calc(50% + 34px); transform: scaleY(-1); }
+
+@media (max-width: 720px) {
+  .match-card .match-vs-center::before,
+  .match-card .match-vs-center::after { display: none; }
+  .match-card .match-date-day { font-size: 54px; }
+}
+
+
+
+
