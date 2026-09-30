@@ -1,6 +1,6 @@
 ---
 date: 2026-09-30
-time: 21:0
+time: 21:00
 competition: ALLENAMENTO CONGIUNTO
 opponent: FUTSAL VILLASOR
 venue: PALESTRA IS ARENAS
