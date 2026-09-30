@@ -581,7 +581,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   z-index: 2;
   margin-top: 12px;
   color: #999;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* Dirigenza */
@@ -2196,11 +2196,11 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   position: relative;
   display: block;
   width: 100%;
-  min-height: 350px;
+  min-height: 315px;
   margin: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 65%, rgba(255,90,0,.13), transparent 35%),
+    radial-gradient(circle at 50% 65%, rgba(255,90,0,.17), transparent 36%),
     linear-gradient(135deg, #181818 0%, #0b0b0b 58%, #111 100%);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow:
@@ -2243,7 +2243,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   z-index: 2;
   width: 100%;
   min-width: 0;
-  padding: 30px 45px 28px;
+  padding: 26px 45px 24px;
   box-sizing: border-box;
 }
 
@@ -2257,7 +2257,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   justify-content: center;
   gap: 12px;
   width: 100%;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
   padding: 0;
   border: 0;
   text-align: center;
@@ -2274,7 +2274,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .match-card .match-date-day {
   color: var(--orange);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 900;
   line-height: .8;
   text-shadow: 0 0 22px rgba(255,90,0,.25);
@@ -2314,7 +2314,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 .match-card .match-competition {
   display: block;
   width: 100%;
-  margin: 0 0 30px;
+  margin: 0 0 22px;
   color: var(--orange);
   text-align: center;
   font-size: 15px;
@@ -2328,10 +2328,10 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 .match-card .match-teams {
   display: grid;
-  grid-template-columns: minmax(0,1fr) 150px minmax(0,1fr);
+  grid-template-columns: minmax(0,1fr) 130px minmax(0,1fr);
   align-items: center;
   justify-items: center;
-  gap: 15px;
+  gap: 10px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -2350,9 +2350,9 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
 .match-card .match-team-logo,
 .match-card .match-team-logo-placeholder {
-  width: 90px;
-  height: 90px;
-  margin: 0 0 9px;
+  width: 105px;
+  height: 105px;
+  margin: 0 0 8px;
   object-fit: contain;
   transform: none;
   filter: drop-shadow(0 12px 18px rgba(0,0,0,.65));
@@ -2370,7 +2370,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   margin: 0;
   color: #fff;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 900;
   line-height: 1.05;
   text-align: center;
@@ -2380,7 +2380,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 /* VS / RISULTATO */
 
 .match-card .match-vs {
-  width: 150px;
+  width: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2393,7 +2393,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 }
 
 .match-card .match-vs-center {
-  width: 150px;
+  width: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2411,7 +2411,7 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   border: 0 !important;
   box-shadow: none !important;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 46px !important;
+  font-size: 48px !important;
   font-weight: 900 !important;
   font-style: italic;
   line-height: 1;
@@ -2566,11 +2566,11 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
   }
 
   .match-card {
-    min-height: 300px;
+    min-height: 275px;
   }
 
   .match-card .match-main {
-    padding: 24px 10px 22px;
+    padding: 20px 10px 18px;
   }
 
   .match-card .match-date-column {
@@ -2610,8 +2610,8 @@ footer{background:#050505;border-top:1px solid #222;padding:35px 0}.footer-inner
 
   .match-card .match-team-logo,
   .match-card .match-team-logo-placeholder {
-    width: 68px;
-    height: 68px;
+    width: 76px;
+    height: 76px;
     margin-bottom: 7px;
   }
 
