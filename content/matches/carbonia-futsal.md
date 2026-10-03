@@ -6,8 +6,8 @@ opponent: FUTSAL VILLASOR
 venue: PALESTRA IS ARENAS
 home_away: Trasferta
 status: Terminata
-sard_goals: 4
-opponent_goals: 3
+sard_goals: 3
+opponent_goals: 4
 home_logo: /images/Immagine Codex 29 set 2026, 15_34_55 (1).png
 away_logo: /images/ChatGPT Image 22 set 2026, 19_10_35 (1).png
 ---
