@@ -2,6 +2,7 @@
 title: REPORT MEDICO
 category: NEWS
 date: 2026-10-05
+image: /images/SARDFUTSAL (44).png
 ---
 Gianluca Escana, intervento riuscito: ora il percorso di recupero
 
