@@ -920,122 +920,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-    const stories = [...doc.querySelectorAll(".news-story")];
-
-
+    const tiles = [...doc.querySelectorAll(".news-tile")];
 
     container.innerHTML = "";
 
-
-
-    stories.slice(0, 3).forEach((story, index) => {
-
-      const title = story.querySelector("h2")?.textContent.trim() || "";
-
-      const paragraphs = [...story.querySelectorAll("p")]
-
-        .map(p => p.textContent.trim())
-
-        .filter(Boolean);
-
-     const image =
-
-  story.querySelector(".news-story-image img")?.getAttribute("src") || "";
-
-
-
-      const meta = story.querySelector(".news-story-meta")?.textContent.trim() || "";
-
-      const id = story.id;
-
-
-
-      const card = document.createElement("article");
-
-      card.className = "news-card";
-
-
-
-     card.innerHTML = `
-
-
-
-  <div class="news-image news-image-${index + 1}">
-
-    ${
-
-      image
-
-        ? `<img
-
-             src="${image}"
-
-             alt="${title}"
-
-             loading="lazy"
-
-           >`
-
-        : `<span></span><strong><br></strong>`
-
-    }
-
-  </div>
-
-
-
-  <div class="news-body">
-
-
-
-    <small>
-
-      ${meta}
-
-    </small>
-
-
-
-    <h3>
-
-      ${title}
-
-    </h3>
-
-
-
-    <p>
-
-      ${paragraphs[0] || ""}
-
-    </p>
-
-
-
-    <a
-
-      class="news-link"
-
-      href="news.html#${id}"
-
-    >
-
-      Leggi la notizia →
-
-    </a>
-
-
-
-  </div>
-
-
-
-`;
-
-
-
-      container.appendChild(card);
-
+    tiles.slice(0, 3).forEach(tile => {
+      container.appendChild(document.importNode(tile, true));
     });
 
 

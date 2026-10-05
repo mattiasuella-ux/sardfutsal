@@ -311,83 +311,73 @@ news_items.sort(
 # GENERAZIONE NEWS.HTML
 # =========================================================
 
-cards = []
+def format_short_date(date_string):
+
+    try:
+
+        return datetime.strptime(
+            date_string,
+            "%Y-%m-%d"
+        ).strftime("%d/%m/%Y")
+
+    except Exception:
+
+        return date_string
+
+
+# Logo mostrato quando una news non ha una foto
+PLACEHOLDER_IMAGE = "/sard-futsal-logo.png"
+
+tiles = []
 
 
 for news in news_items:
 
-    paragraphs_html = "\n".join(
-
-        f"              <p>{paragraph}</p>"
-
-        for paragraph in news["paragraphs"]
-
-    )
-
-    if not paragraphs_html:
-
-        paragraphs_html = (
-            f"              <p>"
-            f"{html.escape(news['excerpt'])}"
-            f"</p>"
-        )
-
-
-    image_html = ""
-
     if news["image"]:
 
-        image_url = normalize_image_path(
-            news["image"]
-        )
+        image_url = normalize_image_path(news["image"])
+        tile_class = "news-tile"
 
-        image_html = f"""
-            <div class="news-story-image">
+    else:
+
+        image_url = PLACEHOLDER_IMAGE
+        tile_class = "news-tile news-tile-no-photo"
+
+    tiles.append(
+        f"""          <a
+            class="{tile_class}"
+            id="{news['slug']}"
+            href="news/{news['slug']}.html"
+          >
+
+            <div class="news-tile-image">
               <img
                 src="{html.escape(image_url, quote=True)}"
                 alt="{html.escape(news['title'], quote=True)}"
                 loading="lazy"
               >
             </div>
-"""
 
-
-    cards.append(
-
-        f"""          <article
-            class="news-story"
-            id="{news['slug']}"
-          >
-
-{image_html}
-
-            <div class="news-story-meta">
+            <div class="news-tile-meta">
               {html.escape(news['category'])}
-              ·
-              {format_date(news['date'])}
+              -
+              {format_short_date(news['date'])}
             </div>
 
-            <div>
+            <h2 class="news-tile-title">
+              {html.escape(news['title'])}
+            </h2>
 
-              <h2>
-                {html.escape(news['title'])}
-              </h2>
+            <p class="news-tile-excerpt">
+              {html.escape(news['excerpt'])}
+            </p>
 
-              <p class="news-excerpt">
-                {html.escape(news['excerpt'])}
-              </p>
-
-{paragraphs_html}
-
-            </div>
-
-          </article>"""
-
+          </a>"""
     )
 
 
 generated_news = "\n\n".join(
-    cards
+    tiles
 )
 
 
