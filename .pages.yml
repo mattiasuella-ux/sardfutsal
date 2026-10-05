@@ -34,6 +34,34 @@ content:
         label: Immagine
         type: image
 
+      - name: image_position
+        label: Posizione della foto
+        type: select
+        description: "Sceglie quale parte della foto resta visibile quando viene ritagliata (nella card e nella notizia)."
+        default: "50% 50%"
+        options:
+          values:
+            - value: "50% 50%"
+              label: Centro
+            - value: "50% 0%"
+              label: In alto
+            - value: "50% 100%"
+              label: In basso
+            - value: "0% 50%"
+              label: A sinistra
+            - value: "100% 50%"
+              label: A destra
+            - value: "0% 0%"
+              label: In alto a sinistra
+            - value: "100% 0%"
+              label: In alto a destra
+            - value: "0% 100%"
+              label: In basso a sinistra
+            - value: "100% 100%"
+              label: In basso a destra
+            - value: "50% 25%"
+              label: Un po' in alto (volti)
+
       - name: excerpt
         label: Anteprima
         type: text

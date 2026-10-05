@@ -228,6 +228,19 @@ def normalize_image_path(image):
     return "/" + image
 
 
+# Punto della foto che resta visibile quando viene ritagliata,
+# scelto da Pages CMS (es. "50% 25%"). Valori non validi -> centro.
+
+def normalize_image_position(value):
+
+    value = (value or "").strip()
+
+    if re.fullmatch(r"\d{1,3}% \d{1,3}%", value):
+        return value
+
+    return "50% 50%"
+
+
 # =========================================================
 # RACCOLTA NEWS DAL CMS
 # =========================================================
@@ -269,6 +282,10 @@ else:
             ""
         )
 
+        image_position = normalize_image_position(
+            data.get("image_position", "")
+        )
+
         excerpt = data.get(
             "excerpt",
             ""
@@ -287,6 +304,8 @@ else:
             "date": date,
 
             "image": image,
+
+            "image_position": image_position,
 
             "excerpt": excerpt,
 
@@ -354,6 +373,7 @@ for news in news_items:
               <img
                 src="{html.escape(image_url, quote=True)}"
                 alt="{html.escape(news['title'], quote=True)}"
+                style="object-position: {news['image_position']}"
                 loading="lazy"
               >
             </div>
@@ -524,6 +544,7 @@ for news in news_items:
           <img
             src="{html.escape(image_url, quote=True)}"
             alt="{html.escape(news['title'], quote=True)}"
+            style="object-position: {news['image_position']}"
             loading="lazy"
           >
         </div>
