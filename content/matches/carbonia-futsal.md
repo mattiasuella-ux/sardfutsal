@@ -1,13 +1,13 @@
 ---
-date: 2026-09-30
+date: 2026-10-07
 time: 21:00
 competition: ALLENAMENTO CONGIUNTO
-opponent: FUTSAL VILLASOR
-venue: PALESTRA IS ARENAS
-home_away: Trasferta
-status: Terminata
+opponent: MONREALE C5
+venue: PALAZZETTO VALLERMOSA
+home_away: Casa
+status: Da giocare
 sard_goals: 3
 opponent_goals: 4
-home_logo: /images/Immagine Codex 29 set 2026, 15_34_55 (1).png
-away_logo: /images/ChatGPT Image 22 set 2026, 19_10_35 (1).png
+home_logo: /images/logosardfutsal.png
+away_logo: /images/Stemma sportivo rosso e bianco Monreale 1936.png
 ---
