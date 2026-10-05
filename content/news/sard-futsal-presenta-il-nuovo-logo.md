@@ -2,7 +2,6 @@
 title: Sard Futsal presenta il nuovo logo
 category: NEWS
 date: 2026-09-26
-excerpt: Un nuovo simbolo, la stessa identità.
 ---
 Sard Futsal presenta ufficialmente il suo nuovo logo, un’evoluzione che racconta la crescita del club e guarda con entusiasmo al futuro.
 
