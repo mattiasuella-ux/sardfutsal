@@ -2,7 +2,6 @@
 title: REPORT MEDICO
 category: NEWS
 date: 2026-10-05
-image: /images/WhatsApp Image 2026-10-05 at 12.38.16.jpeg
 excerpt: INTERVENTO CHIRURGICO PER ESCANA
 ---
 Gianluca Escana, intervento riuscito: ora il percorso di recupero
