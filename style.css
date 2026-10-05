@@ -3081,29 +3081,19 @@ border-color: var(--orange);
   border-radius: 16px;
 }
 
-/* prima notizia in evidenza: due colonne, foto panoramica */
+/* tre card uguali affiancate, foto alta a tutta larghezza */
 @media (min-width: 981px) {
-  .news-list.news-tiles {
+  .news-list.news-tiles,
+  .news-grid#home-news {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .news-list.news-tiles .news-tile:first-child {
-    grid-column: span 2;
+  .news-tile-image {
+    aspect-ratio: 3 / 4;
   }
 
-  .news-list.news-tiles .news-tile:first-child .news-tile-image {
-    aspect-ratio: auto;
-    height: 100%;
-    min-height: 0;
-  }
-
-  .news-list.news-tiles .news-tile:first-child {
-    display: grid;
-    grid-template-rows: 1fr auto auto auto;
-  }
-
-  .news-list.news-tiles .news-tile:first-child .news-tile-title {
-    font-size: 40px;
+  .news-tile-title {
+    font-size: 32px;
   }
 }
 
