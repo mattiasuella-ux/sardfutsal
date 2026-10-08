@@ -259,6 +259,70 @@ cards = []
 first_next_found = False
 
 
+# =========================================================
+# MARCATORI
+# =========================================================
+
+# Un marcatore per riga (o separato da ";"): se lo stesso nome compare
+# piu' volte i gol vengono sommati, cosi' compare una volta sola con
+# tanti palloni quanti sono i gol. Si puo' anche scrivere "Rossi x2"
+# o "Rossi (2)".
+
+GOAL_EMOJI = "⚽"
+
+SCORER_COUNT = re.compile(
+    r"^(?P<name>.*?)\s*(?:[x×]\s*(?P<n1>\d+)|\((?P<n2>\d+)\))$",
+    re.IGNORECASE
+)
+
+
+def group_scorers(raw):
+
+    totals = {}
+
+    for item in re.split(r"\r?\n|;", raw):
+
+        item = item.strip()
+
+        if not item:
+            continue
+
+        goals = 1
+        found = SCORER_COUNT.match(item)
+
+        if found and found.group("name").strip():
+
+            item = found.group("name").strip()
+            goals = int(found.group("n1") or found.group("n2"))
+
+        key = " ".join(item.split()).casefold()
+
+        if key in totals:
+            totals[key][1] += goals
+        else:
+            totals[key] = [" ".join(item.split()), goals]
+
+    return [(name, goals) for name, goals in totals.values()]
+
+
+def scorers_html(raw, css_class):
+
+    scorers = group_scorers(raw)
+
+    if not scorers:
+        return f'<div class="{css_class}"></div>'
+
+    rows = "".join(
+        '<span class="match-scorer">'
+        f'<span class="match-scorer-name">{html.escape(name)}</span>'
+        f'<span class="match-scorer-goals">{GOAL_EMOJI * min(goals, 12)}</span>'
+        '</span>'
+        for name, goals in scorers
+    )
+
+    return f'<div class="{css_class}">{rows}</div>'
+
+
 for match in matches:
 
     # =====================================================
@@ -512,94 +576,15 @@ for match in matches:
     # MARCATORI CASA / TRASFERTA
     # =====================================================
 
-    home_scorers_raw = str(
-        match.get(
-            "scorers_home",
-            ""
-        )
-    ).strip()
+    home_scorers_html = scorers_html(
+        match.get("scorers_home", ""),
+        "match-scorers-home"
+    )
 
-
-    away_scorers_raw = str(
-        match.get(
-            "scorers_away",
-            ""
-        )
-    ).strip()
-
-
-    home_scorers = [
-
-        html.escape(
-            item.strip()
-        )
-
-        for item in re.split(
-            r"\r?\n|;",
-            home_scorers_raw
-        )
-
-        if item.strip()
-    ]
-
-
-    away_scorers = [
-
-        html.escape(
-            item.strip()
-        )
-
-        for item in re.split(
-            r"\r?\n|;",
-            away_scorers_raw
-        )
-
-        if item.strip()
-    ]
-
-
-       # =====================================================
-    # HTML MARCATORI CASA
-    # =====================================================
-
-    if home_scorers:
-
-        home_scorers_html = (
-            '<div class="match-scorers-home">'
-            +
-            "".join(
-                f'<span>⚽ {item}</span>'
-                for item in home_scorers
-            )
-            +
-            '</div>'
-        )
-
-    else:
-
-        home_scorers_html = ""
-
-
-    # =====================================================
-    # HTML MARCATORI TRASFERTA
-    # =====================================================
-
-    if away_scorers:
-
-        away_scorers_html = (
-            '<div class="match-scorers-away">'
-            +
-            "".join(
-                f'<span>{item} ⚽</span>'
-                for item in away_scorers
-            )
-            +
-            '</div>'
-        )
-
-    else:
-
-        away_scorers_html = ""
+    away_scorers_html = scorers_html(
+        match.get("scorers_away", ""),
+        "match-scorers-away"
+    )
 
 
     # =====================================================

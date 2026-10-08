@@ -3111,3 +3111,71 @@ border-color: var(--orange);
 
   .news-tile-image { aspect-ratio: 1 / 1; }
 }
+
+
+/* =========================================================
+   MARCATORI: in colonna sotto ogni squadra, nome + palloni
+   ========================================================= */
+
+.match-card .match-scorers-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.match-card .match-scorers-home { grid-column: 1; }
+.match-card .match-scorers-spacer { grid-column: 2; }
+.match-card .match-scorers-away { grid-column: 3; }
+
+.match-card .match-scorers-home,
+.match-card .match-scorers-away {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.match-card .match-scorers-home:empty,
+.match-card .match-scorers-away:empty {
+  display: none;
+}
+
+.match-card .match-scorer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  max-width: 100%;
+}
+
+.match-card .match-scorer-name {
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.match-card .match-scorer-goals {
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+@media (max-width: 700px) {
+  .match-card .match-scorers-row {
+    grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .match-card .match-scorer-name { font-size: 15px; }
+  .match-card .match-scorer-goals { font-size: 11px; }
+}
