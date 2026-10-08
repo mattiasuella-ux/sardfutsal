@@ -5,8 +5,8 @@ competition: ALLENAMENTO CONGIUNTO
 opponent: MONREALE C5
 venue: PALAZZETTO VALLERMOSA
 home_away: Casa
-status: Da giocare
-sard_goals: 3
+status: Terminata
+sard_goals: 6
 opponent_goals: 4
 home_logo: /images/logosardfutsal.png
 away_logo: /images/Stemma sportivo rosso e bianco Monreale 1936.png
