@@ -12,7 +12,7 @@ scorers_home: |-
   Massa
   Massa
   Massa
-  Cuccu M
+  CuccuM
   Montis
   Montis
 home_logo: /images/logosardfutsal.png
