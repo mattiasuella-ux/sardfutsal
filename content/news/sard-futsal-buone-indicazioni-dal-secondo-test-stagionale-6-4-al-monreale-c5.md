@@ -3,10 +3,9 @@ title: "SARD FUTSAL, BUONE INDICAZIONI DAL SECONDO TEST STAGIONALE: 6-4 AL
   MONREALE C5"
 category: NEWS
 date: 2026-10-08
-image: /images/Screenshot 2026-10-08 212752.png
+image: /images/Screenshot 2026-10-08 212752-1.png
 image_position: 50% 50%
 ---
-
 Seconda uscita stagionale positiva per il Sard Futsal, che supera il Monreale C5 con il risultato di 6-4 al termine di un allenamento congiunto ricco di intensità e spunti interessanti.
 
 La formazione del Sard Futsal prosegue il proprio percorso di preparazione in vista della nuova stagione, mostrando segnali incoraggianti sia sul piano del gioco che sotto porta.
