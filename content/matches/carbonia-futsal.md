@@ -1,20 +1,17 @@
 ---
-date: 2026-10-07
-time: 21:00
-competition: ALLENAMENTO CONGIUNTO
-opponent: MONREALE C5
+date: 2026-10-23
+time: 21:30
+competition: COPPA ITALIA SERIE D
+opponent: CARBONIA FUTSAL
 venue: PALAZZETTO VALLERMOSA
 home_away: Casa
 status: Terminata
-sard_goals: 6
-opponent_goals: 4
+sard_goals: 3
+opponent_goals: 3
 scorers_home: |-
-  Massa
-  Massa
-  Massa
-  Cuccu M
-  Montis
-  Montis
+  PITZALIS
+  CABRIOLU
+  MONTIS L
 home_logo: /images/logosardfutsal.png
-away_logo: /images/Stemma sportivo rosso e bianco Monreale 1936.png
+away_logo: /images/WhatsApp Image 2026-10-14 at 18.32.20.jpeg
 ---
