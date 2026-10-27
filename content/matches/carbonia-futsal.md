@@ -1,17 +1,12 @@
 ---
-date: 2026-10-23
-time: 21:30
+date: 2026-10-30
+time: 21:00
 competition: COPPA ITALIA SERIE D
-opponent: CARBONIA FUTSAL
-venue: PALAZZETTO VALLERMOSA
-home_away: Casa
-status: Terminata
-sard_goals: 3
-opponent_goals: 3
-scorers_home: |-
-  PITZALIS
-  CABRIOLU
-  MONTIS L
-home_logo: /images/logosardfutsal.png
-away_logo: /images/WhatsApp Image 2026-10-14 at 18.32.20.jpeg
+opponent: CITTA DI CARBONIA
+venue: PALAZZETTO DELLO SPORT
+home_away: Trasferta
+status: Da giocare
+sard_goals: 0
+opponent_goals: 0
+home_logo: /images/WhatsApp Image 2026-10-14 at 18.28.30.jpeg
 ---
