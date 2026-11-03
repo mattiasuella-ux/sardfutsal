@@ -4,7 +4,7 @@ time: 21:00
 competition: COPPA ITALIA SERIE D
 opponent: CITTA DI CARBONIA
 venue: PALAZZETTO DELLO SPORT
-home_away: Casa
+home_away: Trasferta
 status: Terminata
 sard_goals: 5
 opponent_goals: 2
