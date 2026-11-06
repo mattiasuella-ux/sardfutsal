@@ -1,5 +1,5 @@
 ---
-date: 2026-10-30
+date: 2026-11-06
 time: 21:00
 competition: COPPA ITALIA SERIE D
 opponent: CITTA DI CARBONIA
