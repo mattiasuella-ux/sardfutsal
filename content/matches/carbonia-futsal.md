@@ -1,13 +1,11 @@
 ---
 date: 2026-11-06
-time: 21:00
-competition: COPPA ITALIA SERIE D
-opponent: CITTA DI CARBONIA
+time: 21:15
+competition: CAMPIONATO SERIE D
+opponent: CARBONIA FUTSAL
 venue: PALAZZETTO DELLO SPORT
 home_away: Trasferta
-status: Terminata
-sard_goals: 5
-opponent_goals: 2
+status: Da giocare
 scorers_away: |-
   CUCCU M.
   CUCCU M.
