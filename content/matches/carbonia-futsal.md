@@ -8,7 +8,7 @@ home_away: Trasferta
 status: Terminata
 sard_goals: 3
 opponent_goals: 3
-scorers_home: |-
+scorers_away: |-
   PITZALIS
   PITZALIS
   NOCERINO
