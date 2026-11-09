@@ -5,7 +5,13 @@ competition: CAMPIONATO SERIE D
 opponent: CARBONIA FUTSAL
 venue: PALAZZETTO DELLO SPORT
 home_away: Trasferta
-status: Da giocare
+status: Terminata
+sard_goals: 3
+opponent_goals: 3
+scorers_home: |-
+  PITZALIS
+  PITZALIS
+  NOCERINO
 home_logo: /images/620856906_17883343887443477_5924141338756300284_n.jpg
 away_logo: /images/ChatGPT Image 26 set 2026, 10_30_32.png
 ---
