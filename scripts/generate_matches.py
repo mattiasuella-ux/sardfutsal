@@ -461,11 +461,13 @@ upcoming_matches = [
     and str(m["date"]).strip() >= today
 ]
 
-if finished_matches:
-    featured.add(id(finished_matches[-1]))
-
+# Sopra c'e' solo la card del prossimo impegno; i risultati stanno
+# nell'elenco "Risultati". Se non resta nessuna partita da giocare
+# (fine stagione) si mostra l'ultimo risultato.
 if upcoming_matches:
     featured.add(id(upcoming_matches[0]))
+elif finished_matches:
+    featured.add(id(finished_matches[-1]))
 
 
 for match in matches:
@@ -838,6 +840,10 @@ for match in matches:
             </div>
 
         </article>
+
+        <a class="match-calendar-link" href="#calendario">
+            VEDI TUTTO IL CALENDARIO <span>&rarr;</span>
+        </a>
 
     </div>
     """

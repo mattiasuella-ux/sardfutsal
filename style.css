@@ -3391,3 +3391,49 @@ span.calendar-logo {
 @media (max-width: 700px) {
   .calendar-logo { width: 34px; height: 34px; border-radius: 8px; }
 }
+
+
+/* =========================================================
+   SEZIONE CALENDARIO + link sotto la card in evidenza
+   ========================================================= */
+
+.calendar-section {
+  background: #101010;
+  scroll-margin-top: 76px;
+}
+
+.calendar-section .calendar-wrapper {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.match-calendar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 26px;
+  color: #fff;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: rgba(255,90,0,.10);
+  border: 1px solid rgba(255,90,0,.45);
+  border-radius: 999px;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.match-calendar-link span {
+  color: var(--orange);
+  transition: transform .25s ease;
+}
+
+.match-calendar-link:hover {
+  background: rgba(255,90,0,.22);
+  transform: translateY(-2px);
+}
+
+.match-calendar-link:hover span {
+  transform: translateX(4px);
+}
