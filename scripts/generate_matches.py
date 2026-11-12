@@ -1006,9 +1006,16 @@ def calendar_row(match):
         if not path:
             return '<span class="calendar-logo"></span>'
 
+        # il logo di Sard Futsal ha parti bianche: sta su fondo scuro
+        css_class = (
+            "calendar-logo is-sard"
+            if "logosardfutsal" in path
+            else "calendar-logo"
+        )
+
         return (
             f'<img src="{path}" alt="" '
-            'class="calendar-logo" loading="lazy">'
+            f'class="{css_class}" loading="lazy">'
         )
 
     if is_home:

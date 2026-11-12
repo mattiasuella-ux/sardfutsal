@@ -3360,3 +3360,34 @@ border-color: var(--orange);
 .calendar-title + .calendar-month {
   margin-top: 4px;
 }
+
+
+/* loghi uniformi: tessera quadrata con angoli arrotondati.
+   Fondo chiaro per i loghi degli avversari (alcuni sono trasparenti,
+   altri hanno sfondo bianco/nero/blu), fondo scuro per quello di Sard Futsal. */
+
+.calendar-logo {
+  width: 42px;
+  height: 42px;
+  padding: 3px;
+  box-sizing: border-box;
+  object-fit: contain;
+  background: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
+
+.calendar-logo.is-sard {
+  background: radial-gradient(circle at 50% 40%, #262626, #0e0e0e);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,.45), 0 0 12px rgba(255,90,0,.12);
+}
+
+span.calendar-logo {
+  background: rgba(255,255,255,.05);
+  box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .calendar-logo { width: 34px; height: 34px; border-radius: 8px; }
+}
