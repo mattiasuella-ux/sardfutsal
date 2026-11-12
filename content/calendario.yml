@@ -1,1 +1,161 @@
-partite: []
+partite:
+  - date: 2026-11-06
+    time: "21:15"
+    competition: CAMPIONATO SERIE D
+    opponent: "Carbonia Futsal"
+    venue: "Palazzetto Comunale, Via delle Cernitrici, Carbonia"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-carbonia-futsal.jpg
+  - date: 2026-11-13
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Sant'Elena Quartu"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-sant-elena-quartu.jpg
+  - date: 2026-11-20
+    time: "21:00"
+    competition: CAMPIONATO SERIE D
+    opponent: "Atletico Capoterra 2025"
+    venue: "Palazzetto Sergio Dessì, Strada 352, Poggio dei Pini, Capoterra"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-atletico-capoterra.jpg
+  - date: 2026-11-27
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Domus Chia Calcio a 5"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-domus-chia.png
+  - date: 2026-12-18
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Città di Carbonia"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-citta-di-carbonia.jpg
+  - date: 2027-01-08
+    time: "21:00"
+    competition: CAMPIONATO SERIE D
+    opponent: "Futsal 4 Mori"
+    venue: "Pala Pegaso, Via Trento, Capoterra"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-futsal-4-mori.png
+  - date: 2027-01-15
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "PGS Club San Paolo"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-pgs-club-san-paolo.jpg
+  - date: 2027-01-22
+    time: "21:15"
+    competition: CAMPIONATO SERIE D
+    opponent: "Mostri della Palude"
+    venue: "Palazzetto Comunale, Via Siena, Capoterra"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-mostri-della-palude.webp
+  - date: 2027-01-29
+    time: "21:00"
+    competition: CAMPIONATO SERIE D
+    opponent: "Azzurra Monserrato"
+    venue: "Impianti Riu Saliu, Campo Sintetico, Via Capo Comino, Monserrato"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-azzurra-monserrato.png
+  - date: 2027-02-12
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Uta Calcio a 5"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-uta-calcio-a5.png
+  - date: 2027-02-19
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Carbonia Futsal"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-carbonia-futsal.jpg
+  - date: 2027-02-26
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Sant'Elena Quartu"
+    venue: "Campo Sintetico, Via delle Serre, Quartucciu"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-sant-elena-quartu.jpg
+  - date: 2027-03-05
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Atletico Capoterra 2025"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-atletico-capoterra.jpg
+  - date: 2027-03-12
+    time: "20:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Domus Chia Calcio a 5"
+    venue: "Tenso Struttura, Viale Repubblica, Perdaxius"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-domus-chia.png
+  - date: 2027-04-02
+    time: "21:00"
+    competition: CAMPIONATO SERIE D
+    opponent: "Città di Carbonia"
+    venue: "Palazzetto Comunale, Via delle Cernitrici, Carbonia"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-citta-di-carbonia.jpg
+  - date: 2027-04-09
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Futsal 4 Mori"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-futsal-4-mori.png
+  - date: 2027-04-16
+    time: "20:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "PGS Club San Paolo"
+    venue: "Palazzetto Comunale, Via Monte Acuto, Cagliari"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-pgs-club-san-paolo.jpg
+  - date: 2027-04-30
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Mostri della Palude"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-mostri-della-palude.webp
+  - date: 2027-05-07
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Azzurra Monserrato"
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
+    status: Da giocare
+    away_logo: /images/logo-azzurra-monserrato.png
+  - date: 2027-05-14
+    time: "21:30"
+    competition: CAMPIONATO SERIE D
+    opponent: "Uta Calcio a 5"
+    venue: "Campo Sintetico, Via Regina Margherita, Uta"
+    home_away: Trasferta
+    status: Da giocare
+    home_logo: /images/logo-uta-calcio-a5.png
