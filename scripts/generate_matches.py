@@ -323,7 +323,45 @@ def scorers_html(raw, css_class):
     return f'<div class="{css_class}">{rows}</div>'
 
 
+def match_status(match):
+
+    return (
+        str(match.get("status", "Da giocare")).strip()
+        or "Da giocare"
+    )
+
+
+# Le card in evidenza sono solo due: l'ultimo risultato e il prossimo
+# impegno. Tutte le altre partite compaiono nel "Calendario completo".
+featured = set()
+
+finished_matches = [
+    m for m in matches
+    if match_status(m) == "Terminata"
+]
+
+upcoming_matches = [
+    m for m in matches
+    if match_status(m) not in (
+        "Terminata",
+        "Calendario in aggiornamento"
+    )
+]
+
+if finished_matches:
+    featured.add(id(finished_matches[-1]))
+
+if upcoming_matches:
+    featured.add(id(upcoming_matches[0]))
+
+
 for match in matches:
+
+    if (
+        match_status(match) != "Calendario in aggiornamento"
+        and id(match) not in featured
+    ):
+        continue
 
     # =====================================================
     # DATA
@@ -814,6 +852,130 @@ new_html = re.sub(
     html_content,
     flags=re.DOTALL
 )
+
+
+# =========================================================
+# CALENDARIO COMPLETO
+# =========================================================
+
+def goals_value(value):
+
+    try:
+        return int(str(value).strip())
+    except (ValueError, TypeError):
+        return None
+
+
+def calendar_row(match):
+
+    date = format_date(match["date"])
+
+    sard_goals = goals_value(match.get("sard_goals"))
+    opponent_goals = goals_value(match.get("opponent_goals"))
+
+    finished = (
+        match_status(match) == "Terminata"
+        and sard_goals is not None
+        and opponent_goals is not None
+    )
+
+    is_home = match["home_away"] == "Casa"
+
+    opponent = html.escape(str(match["opponent"]))
+
+    if is_home:
+        teams = f'<b>SARD FUTSAL</b> <em>vs</em> {opponent}'
+        home_goals, away_goals = sard_goals, opponent_goals
+    else:
+        teams = f'{opponent} <em>vs</em> <b>SARD FUTSAL</b>'
+        home_goals, away_goals = opponent_goals, sard_goals
+
+    row_class = "calendar-row"
+
+    if finished:
+
+        if sard_goals > opponent_goals:
+            row_class += " is-win"
+        elif sard_goals < opponent_goals:
+            row_class += " is-loss"
+        else:
+            row_class += " is-draw"
+
+        result = f"{home_goals} - {away_goals}"
+
+    else:
+
+        row_class += " is-upcoming"
+        result = "—"
+
+    meta = [
+        html.escape(str(match["competition"])),
+        html.escape(str(match["time"])),
+        html.escape(str(match["venue"]).strip())
+    ]
+
+    meta = " · ".join(item for item in meta if item)
+
+    tag = "CASA" if is_home else "TRASFERTA"
+
+    return f"""
+        <div class="{row_class}">
+            <div class="calendar-date">
+                <strong>{html.escape(date['day'])}</strong>
+                <span>{html.escape(date['month'])}</span>
+            </div>
+            <div class="calendar-info">
+                <div class="calendar-teams">{teams}</div>
+                <div class="calendar-meta">{meta}</div>
+            </div>
+            <div class="calendar-side">
+                <span class="calendar-tag">{tag}</span>
+                <span class="calendar-score">{result}</span>
+            </div>
+        </div>"""
+
+
+calendar_matches = [
+    m for m in matches
+    if match_status(m) != "Calendario in aggiornamento"
+    and m["date"]
+]
+
+if calendar_matches:
+
+    generated_calendar = (
+        '<div class="calendar-block">'
+        '<div class="calendar-title">CALENDARIO COMPLETO</div>'
+        + "".join(calendar_row(m) for m in calendar_matches)
+        + "\n    </div>"
+    )
+
+else:
+
+    generated_calendar = ""
+
+
+calendar_start = "<!-- CALENDAR_AUTO_START -->"
+calendar_end = "<!-- CALENDAR_AUTO_END -->"
+
+if calendar_start in new_html and calendar_end in new_html:
+
+    new_html = re.sub(
+        re.escape(calendar_start) + r".*?" + re.escape(calendar_end),
+        lambda _: (
+            calendar_start + "\n" + generated_calendar
+            + "\n" + calendar_end
+        ),
+        new_html,
+        flags=re.DOTALL
+    )
+
+else:
+
+    print(
+        "ATTENZIONE: marcatori CALENDAR_AUTO_START / "
+        "CALENDAR_AUTO_END non trovati: calendario completo saltato."
+    )
 
 
 # =========================================================
