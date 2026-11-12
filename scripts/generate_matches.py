@@ -243,6 +243,110 @@ if MATCHES_DIR.exists():
 
 
 # =========================================================
+# CALENDARIO STAGIONE (content/calendario.yml, da Pages CMS)
+# =========================================================
+
+CALENDAR_FILE = ROOT / "content" / "calendario.yml"
+
+SARD_LOGO = "/images/logosardfutsal.png"
+
+CALENDAR_FIELDS = (
+    "date", "time", "competition", "opponent", "venue", "home_away",
+    "status", "sard_goals", "opponent_goals", "scorers_home",
+    "scorers_away", "home_logo", "away_logo"
+)
+
+
+def yaml_text(key, value):
+
+    if value is None:
+        return ""
+
+    # YAML 1.1 legge 21:30 come numero sessagesimale (1290 minuti)
+    if (
+        key == "time"
+        and isinstance(value, int)
+        and not isinstance(value, bool)
+    ):
+        return f"{value // 60:02d}:{value % 60:02d}"
+
+    # le date arrivano come oggetti data
+    if hasattr(value, "isoformat"):
+        return value.isoformat()[:10]
+
+    return str(value).strip()
+
+
+def match_key(match):
+
+    return (
+        str(match["date"]).strip(),
+        str(match["opponent"]).strip().casefold()
+    )
+
+
+calendar_entries = []
+
+if CALENDAR_FILE.exists():
+
+    try:
+        import yaml
+    except ImportError:
+        yaml = None
+        print(
+            "ATTENZIONE: PyYAML non installato: "
+            "content/calendario.yml ignorato."
+        )
+
+    if yaml:
+
+        try:
+
+            loaded = yaml.safe_load(
+                CALENDAR_FILE.read_text(encoding="utf-8")
+            ) or {}
+
+        except yaml.YAMLError as error:
+
+            loaded = {}
+            print(f"ATTENZIONE: content/calendario.yml non valido: {error}")
+
+        for item in (loaded.get("partite") or []):
+
+            if not isinstance(item, dict):
+                continue
+
+            row = {
+                key: yaml_text(key, item.get(key))
+                for key in CALENDAR_FIELDS
+            }
+
+            if not row["date"] or not row["opponent"]:
+                continue
+
+            row["home_away"] = row["home_away"] or "Casa"
+            row["status"] = row["status"] or "Da giocare"
+
+            # il logo di Sard Futsal e' sempre lo stesso: non serve inserirlo
+            if row["home_away"] == "Casa":
+                row["home_logo"] = row["home_logo"] or SARD_LOGO
+            else:
+                row["away_logo"] = row["away_logo"] or SARD_LOGO
+
+            calendar_entries.append(row)
+
+
+# La stessa partita (data + avversario) inserita sia nel calendario sia
+# come file singolo: vale quella del calendario.
+calendar_keys = {match_key(m) for m in calendar_entries}
+
+matches = [
+    m for m in matches
+    if match_key(m) not in calendar_keys
+] + calendar_entries
+
+
+# =========================================================
 # ORDINA PER DATA
 # =========================================================
 

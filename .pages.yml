@@ -145,6 +145,93 @@ content:
 
 
   # =====================================================
+  # CALENDARIO STAGIONE (un solo elenco con tutte le partite)
+  # =====================================================
+
+  - name: calendario
+    label: Calendario stagione
+    type: file
+    path: content/calendario.yml
+    format: yaml
+
+    fields:
+
+      - name: partite
+        label: Partite
+        type: object
+        list: true
+        description: "Aggiungi qui tutte le partite della stagione. Quando una partita è finita, apri la riga, cambia lo stato in Terminata e inserisci gol e marcatori."
+
+        fields:
+
+          - name: date
+            label: Data
+            type: date
+            required: true
+
+          - name: time
+            label: Ora (es. 21:30)
+            type: string
+
+          - name: competition
+            label: Competizione
+            type: string
+            required: true
+
+          - name: opponent
+            label: Avversario
+            type: string
+            required: true
+
+          - name: venue
+            label: Campo / Palazzetto
+            type: string
+
+          - name: home_away
+            label: Casa / Trasferta
+            type: select
+            required: true
+            options:
+              values:
+                - Casa
+                - Trasferta
+
+          - name: status
+            label: Stato partita
+            type: select
+            required: true
+            options:
+              values:
+                - Da giocare
+                - Terminata
+
+          - name: sard_goals
+            label: Gol Sard Futsal
+            type: number
+
+          - name: opponent_goals
+            label: Gol avversario
+            type: number
+
+          - name: scorers_home
+            label: Marcatori squadra di casa
+            type: text
+            description: "Uno per riga. Se un giocatore segna più gol scrivi il nome più volte (o 'Rossi x2'): sul sito compare una volta con tanti palloni quanti i gol."
+
+          - name: scorers_away
+            label: Marcatori squadra ospite
+            type: text
+
+          - name: home_logo
+            label: Logo squadra di casa
+            type: image
+
+          - name: away_logo
+            label: Logo squadra ospite
+            type: image
+
+
+  # =====================================================
   # RISULTATI E CALENDARIO
   # =====================================================
 
