@@ -3313,3 +3313,24 @@ border-color: var(--orange);
 
   .calendar-teams { font-size: 19px; }
 }
+
+
+/* loghi nelle righe del calendario */
+
+.calendar-teams {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.calendar-logo {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .calendar-logo { width: 28px; height: 28px; }
+}

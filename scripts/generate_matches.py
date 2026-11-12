@@ -991,11 +991,37 @@ def calendar_row(match):
 
     opponent = html.escape(str(match["opponent"]))
 
+    # loghi: quello di Sard Futsal e' sempre lo stesso se non indicato
     if is_home:
-        teams = f'<b>SARD FUTSAL</b> <em>vs</em> {opponent}'
+        home_logo = match["home_logo"] or SARD_LOGO
+        away_logo = match["away_logo"]
+    else:
+        home_logo = match["home_logo"]
+        away_logo = match["away_logo"] or SARD_LOGO
+
+    def logo(path):
+
+        path = clean_image_path(path)
+
+        if not path:
+            return '<span class="calendar-logo"></span>'
+
+        return (
+            f'<img src="{path}" alt="" '
+            'class="calendar-logo" loading="lazy">'
+        )
+
+    if is_home:
+        teams = (
+            f'{logo(home_logo)}<b>SARD FUTSAL</b> <em>vs</em> '
+            f'<span>{opponent}</span>{logo(away_logo)}'
+        )
         home_goals, away_goals = sard_goals, opponent_goals
     else:
-        teams = f'{opponent} <em>vs</em> <b>SARD FUTSAL</b>'
+        teams = (
+            f'{logo(home_logo)}<span>{opponent}</span> <em>vs</em> '
+            f'<b>SARD FUTSAL</b>{logo(away_logo)}'
+        )
         home_goals, away_goals = opponent_goals, sard_goals
 
     row_class = "calendar-row"
