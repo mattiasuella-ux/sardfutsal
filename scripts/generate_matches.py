@@ -842,6 +842,87 @@ for match in matches:
 
 
 # =========================================================
+# STRISCIA "A SEGUIRE": la partita dopo il prossimo impegno
+# =========================================================
+
+def after_strip(match):
+
+    date = format_date(match["date"])
+
+    is_home = match["home_away"] == "Casa"
+
+    opponent = html.escape(str(match["opponent"]))
+
+    if is_home:
+        home_name, away_name = "SARD FUTSAL", opponent
+        home_path = match["home_logo"] or SARD_LOGO
+        away_path = match["away_logo"]
+    else:
+        home_name, away_name = opponent, "SARD FUTSAL"
+        home_path = match["home_logo"]
+        away_path = match["away_logo"] or SARD_LOGO
+
+    def logo(path):
+
+        path = clean_image_path(path)
+
+        if not path:
+            return '<span class="match-after-logo"></span>'
+
+        return (
+            f'<img src="{path}" alt="" '
+            'class="match-after-logo" loading="lazy">'
+        )
+
+    meta = [
+        html.escape(str(match["competition"])),
+        html.escape(str(match["time"])),
+        html.escape(str(match["venue"]).strip())
+    ]
+
+    meta = " · ".join(item for item in meta if item)
+
+    tag = "CASA" if is_home else "TRASFERTA"
+
+    return f"""
+    <div class="match-card-wrapper match-after-wrapper">
+
+        <div class="match-after-label">
+            A SEGUIRE
+        </div>
+
+        <article class="match-after">
+
+            <div class="match-after-date">
+                <strong>{html.escape(date['day'])}</strong>
+                <span>{html.escape(date['month'])}</span>
+            </div>
+
+            <div class="match-after-teams">
+                {logo(home_path)}
+                <b>{home_name}</b>
+                <em>vs</em>
+                <b>{away_name}</b>
+                {logo(away_path)}
+            </div>
+
+            <div class="match-after-info">
+                <span class="match-after-tag">{tag}</span>
+                <small>{meta}</small>
+            </div>
+
+        </article>
+
+    </div>
+    """
+
+
+if len(upcoming_matches) > 1:
+
+    cards.append(after_strip(upcoming_matches[1]))
+
+
+# =========================================================
 # SE NON CI SONO PARTITE
 # =========================================================
 

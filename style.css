@@ -3313,3 +3313,132 @@ border-color: var(--orange);
 
   .calendar-teams { font-size: 19px; }
 }
+
+
+/* =========================================================
+   STRISCIA "A SEGUIRE" sotto la card del prossimo impegno
+   ========================================================= */
+
+.match-after-wrapper {
+  margin-top: -6px;
+}
+
+.match-after-label {
+  width: 100%;
+  margin: 0 0 8px;
+  text-align: center;
+  color: #9a9a9a;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.match-after {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 14px 22px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #161616, #0c0c0c);
+  border: 1px solid rgba(255,255,255,.08);
+  border-left: 3px solid var(--orange);
+  border-radius: 8px;
+}
+
+.match-after-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.match-after-date strong {
+  color: var(--orange);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.match-after-date span {
+  margin-top: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.match-after-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.match-after-teams b { font-weight: 800; }
+
+.match-after-teams em {
+  color: #8a8a8a;
+  font-size: 14px;
+  font-style: normal;
+}
+
+.match-after-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  flex: none;
+}
+
+.match-after-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  text-align: right;
+}
+
+.match-after-tag {
+  padding: 3px 10px;
+  color: #bbb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+}
+
+.match-after-info small {
+  max-width: 260px;
+  color: #9a9a9a;
+  font-size: 12px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .match-after {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .match-after-info {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .match-after-teams { font-size: 18px; }
+  .match-after-logo { width: 30px; height: 30px; }
+}
