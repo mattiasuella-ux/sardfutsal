@@ -5,6 +5,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    # ogni notte (04:00 UTC): la partita "imminente" avanza anche senza modifiche
+    - cron: "0 4 * * *"
 
 permissions:
   contents: write

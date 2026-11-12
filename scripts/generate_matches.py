@@ -279,10 +279,10 @@ def yaml_text(key, value):
 
 def match_key(match):
 
-    return (
-        str(match["date"]).strip(),
-        str(match["opponent"]).strip().casefold()
-    )
+    # Sard Futsal gioca una sola partita al giorno: basta la data, cosi'
+    # una vecchia partita con il nome dell'avversario scritto diversamente
+    # non compare due volte.
+    return str(match["date"]).strip()
 
 
 calendar_entries = []
@@ -444,12 +444,21 @@ finished_matches = [
     if match_status(m) == "Terminata"
 ]
 
+# "Oggi" secondo l'ora italiana: una partita "Da giocare" con la data
+# gia' passata non e' piu' il prossimo impegno.
+try:
+    from zoneinfo import ZoneInfo
+    today = datetime.now(ZoneInfo("Europe/Rome")).strftime("%Y-%m-%d")
+except Exception:
+    today = datetime.now().strftime("%Y-%m-%d")
+
 upcoming_matches = [
     m for m in matches
     if match_status(m) not in (
         "Terminata",
         "Calendario in aggiornamento"
     )
+    and str(m["date"]).strip() >= today
 ]
 
 if finished_matches:
@@ -654,13 +663,8 @@ for match in matches:
         away_name = "SARD FUTSAL"
 
 
-    home_name = html.escape(
-        home_name
-    )
-
-    away_name = html.escape(
-        away_name
-    )
+    # (opponent e' gia' stato passato da html.escape: non va rifatto,
+    # altrimenti un apostrofo come in Sant'Elena viene codificato due volte)
 
 
     # =====================================================
@@ -839,87 +843,6 @@ for match in matches:
     """
 
     cards.append(card)
-
-
-# =========================================================
-# STRISCIA "A SEGUIRE": la partita dopo il prossimo impegno
-# =========================================================
-
-def after_strip(match):
-
-    date = format_date(match["date"])
-
-    is_home = match["home_away"] == "Casa"
-
-    opponent = html.escape(str(match["opponent"]))
-
-    if is_home:
-        home_name, away_name = "SARD FUTSAL", opponent
-        home_path = match["home_logo"] or SARD_LOGO
-        away_path = match["away_logo"]
-    else:
-        home_name, away_name = opponent, "SARD FUTSAL"
-        home_path = match["home_logo"]
-        away_path = match["away_logo"] or SARD_LOGO
-
-    def logo(path):
-
-        path = clean_image_path(path)
-
-        if not path:
-            return '<span class="match-after-logo"></span>'
-
-        return (
-            f'<img src="{path}" alt="" '
-            'class="match-after-logo" loading="lazy">'
-        )
-
-    meta = [
-        html.escape(str(match["competition"])),
-        html.escape(str(match["time"])),
-        html.escape(str(match["venue"]).strip())
-    ]
-
-    meta = " · ".join(item for item in meta if item)
-
-    tag = "CASA" if is_home else "TRASFERTA"
-
-    return f"""
-    <div class="match-card-wrapper match-after-wrapper">
-
-        <div class="match-after-label">
-            A SEGUIRE
-        </div>
-
-        <article class="match-after">
-
-            <div class="match-after-date">
-                <strong>{html.escape(date['day'])}</strong>
-                <span>{html.escape(date['month'])}</span>
-            </div>
-
-            <div class="match-after-teams">
-                {logo(home_path)}
-                <b>{home_name}</b>
-                <em>vs</em>
-                <b>{away_name}</b>
-                {logo(away_path)}
-            </div>
-
-            <div class="match-after-info">
-                <span class="match-after-tag">{tag}</span>
-                <small>{meta}</small>
-            </div>
-
-        </article>
-
-    </div>
-    """
-
-
-if len(upcoming_matches) > 1:
-
-    cards.append(after_strip(upcoming_matches[1]))
 
 
 # =========================================================
@@ -1126,18 +1049,43 @@ calendar_matches = [
     and m["date"]
 ]
 
-if calendar_matches:
+# La partita imminente e' gia' nella card "prossimo impegno": sotto
+# compaiono tutte le successive, poi i risultati (dal piu' recente).
+next_match = upcoming_matches[0] if upcoming_matches else None
 
-    generated_calendar = (
+following_matches = [
+    m for m in calendar_matches
+    if m in upcoming_matches and m is not next_match
+]
+
+past_matches = [
+    m for m in calendar_matches
+    if m not in upcoming_matches
+]
+
+past_matches.sort(
+    key=lambda match: match["date"],
+    reverse=True
+)
+
+
+def calendar_block(title, items):
+
+    if not items:
+        return ""
+
+    return (
         '<div class="calendar-block">'
-        '<div class="calendar-title">CALENDARIO COMPLETO</div>'
-        + "".join(calendar_row(m) for m in calendar_matches)
+        f'<div class="calendar-title">{title}</div>'
+        + "".join(calendar_row(m) for m in items)
         + "\n    </div>"
     )
 
-else:
 
-    generated_calendar = ""
+generated_calendar = (
+    calendar_block("PROSSIME PARTITE", following_matches)
+    + calendar_block("RISULTATI", past_matches)
+)
 
 
 calendar_start = "<!-- CALENDAR_AUTO_START -->"

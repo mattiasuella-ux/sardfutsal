@@ -11,10 +11,10 @@ partite:
     time: "21:30"
     competition: CAMPIONATO SERIE D
     opponent: "Sant'Elena Quartu"
-    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
-    home_away: Casa
+    venue: "Campo Sintetico, Via delle Serre, Quartucciu"
+    home_away: Trasferta
     status: Da giocare
-    away_logo: /images/logo-sant-elena-quartu.jpg
+    home_logo: /images/logo-sant-elena-quartu.jpg
   - date: 2026-11-20
     time: "21:00"
     competition: CAMPIONATO SERIE D
@@ -91,10 +91,10 @@ partite:
     time: "21:30"
     competition: CAMPIONATO SERIE D
     opponent: "Sant'Elena Quartu"
-    venue: "Campo Sintetico, Via delle Serre, Quartucciu"
-    home_away: Trasferta
+    venue: "Palazzetto dello Sport, Via XXV Aprile, Vallermosa"
+    home_away: Casa
     status: Da giocare
-    home_logo: /images/logo-sant-elena-quartu.jpg
+    away_logo: /images/logo-sant-elena-quartu.jpg
   - date: 2027-03-05
     time: "21:30"
     competition: CAMPIONATO SERIE D
