@@ -1095,15 +1095,50 @@ past_matches.sort(
 )
 
 
+MONTH_NAMES = {
+    1: "GENNAIO", 2: "FEBBRAIO", 3: "MARZO", 4: "APRILE",
+    5: "MAGGIO", 6: "GIUGNO", 7: "LUGLIO", 8: "AGOSTO",
+    9: "SETTEMBRE", 10: "OTTOBRE", 11: "NOVEMBRE", 12: "DICEMBRE"
+}
+
+
+def month_label(date_string):
+
+    try:
+
+        date = datetime.strptime(date_string, "%Y-%m-%d")
+
+        return f"{MONTH_NAMES[date.month]} {date.year}"
+
+    except ValueError:
+
+        return ""
+
+
 def calendar_block(title, items):
 
     if not items:
         return ""
 
+    rows = ""
+    current_month = None
+
+    # una intestazione per ogni mese (gli elementi sono gia' in ordine)
+    for match in items:
+
+        label = month_label(match["date"])
+
+        if label != current_month:
+
+            rows += f'<div class="calendar-month">{label}</div>'
+            current_month = label
+
+        rows += calendar_row(match)
+
     return (
         '<div class="calendar-block">'
         f'<div class="calendar-title">{title}</div>'
-        + "".join(calendar_row(m) for m in items)
+        + rows
         + "\n    </div>"
     )
 

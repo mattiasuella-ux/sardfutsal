@@ -3334,3 +3334,29 @@ border-color: var(--orange);
 @media (max-width: 700px) {
   .calendar-logo { width: 28px; height: 28px; }
 }
+
+
+/* intestazioni dei mesi nel calendario */
+
+.calendar-month {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 12px;
+  color: var(--orange);
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.calendar-month::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,90,0,.55), transparent);
+}
+
+.calendar-title + .calendar-month {
+  margin-top: 4px;
+}
