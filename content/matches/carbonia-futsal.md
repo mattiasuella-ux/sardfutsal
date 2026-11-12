@@ -2,7 +2,7 @@
 date: 2026-11-13
 time: 21:30
 competition: CAMPIONATO SERIE D
-opponent: CARBONIA FUTSAL
+opponent: QUARTU SANT'ELENA C5
 venue: "CAMPO SINTETICO "
 home_away: Trasferta
 status: Da giocare
