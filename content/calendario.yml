@@ -5,7 +5,9 @@ partite:
     opponent: "Carbonia Futsal"
     venue: "Palazzetto Comunale, Via delle Cernitrici, Carbonia"
     home_away: Trasferta
-    status: Da giocare
+    status: Terminata
+    sard_goals: 3
+    opponent_goals: 3
     home_logo: /images/logo-carbonia-futsal.jpg
   - date: 2026-11-13
     time: "21:30"
