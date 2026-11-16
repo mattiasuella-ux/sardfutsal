@@ -1,0 +1,90 @@
+aggiornamento: "Dopo la 1ª giornata"
+squadre:
+  - team: "Atletico Capoterra 2025"
+    logo: /images/logo-atletico-capoterra.jpg
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Azzurra Monserrato"
+    logo: /images/logo-azzurra-monserrato.png
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Carbonia Futsal"
+    logo: /images/logo-carbonia-futsal.jpg
+    won: 0
+    drawn: 1
+    lost: 0
+    goals_for: 3
+    goals_against: 3
+    penalty: 0
+  - team: "Città di Carbonia"
+    logo: /images/logo-citta-di-carbonia.jpg
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Domus Chia Calcio a 5"
+    logo: /images/logo-domus-chia.png
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Futsal 4 Mori"
+    logo: /images/logo-futsal-4-mori.png
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Mostri della Palude"
+    logo: /images/logo-mostri-della-palude.webp
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "PGS Club San Paolo"
+    logo: /images/logo-pgs-club-san-paolo.jpg
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Sant'Elena Quartu"
+    logo: /images/logo-sant-elena-quartu.jpg
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0
+  - team: "Sard Futsal"
+    logo: /images/logosardfutsal.png
+    won: 0
+    drawn: 1
+    lost: 0
+    goals_for: 3
+    goals_against: 3
+    penalty: 0
+  - team: "Uta Calcio a 5"
+    logo: /images/logo-uta-calcio-a5.png
+    won: 0
+    drawn: 0
+    lost: 0
+    goals_for: 0
+    goals_against: 0
+    penalty: 0

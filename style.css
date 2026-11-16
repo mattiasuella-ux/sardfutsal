@@ -3437,3 +3437,130 @@ span.calendar-logo {
 .match-calendar-link:hover span {
   transform: translateX(4px);
 }
+
+
+/* =========================================================
+   CLASSIFICA (generata da scripts/generate_standings.py)
+   ========================================================= */
+
+.standings-section {
+  background: var(--black);
+  scroll-margin-top: 76px;
+}
+
+.standings-wrapper {
+  width: min(1050px, 100%);
+  margin: 0 auto;
+}
+
+.standings-note {
+  margin: 0 0 14px;
+  color: #9a9a9a;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.standings-scroll {
+  overflow-x: auto;
+  background: linear-gradient(135deg, #171717, #0e0e0e);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+}
+
+.standings {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.standings th {
+  padding: 14px 10px;
+  color: #8a8a8a;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.standings td {
+  padding: 10px;
+  color: #ddd;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.standings tbody tr:last-child td { border-bottom: 0; }
+
+.standings .pos {
+  width: 44px;
+  color: #9a9a9a;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.standings th.team,
+.standings td.team {
+  text-align: left;
+}
+
+.standings-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.standings td.team {
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.standings .pts strong {
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+}
+
+.standings .pts small { color: #ff5252; }
+
+.standings-logo {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  padding: 3px;
+  box-sizing: border-box;
+  object-fit: contain;
+  background: #f4f4f4;
+  border-radius: 8px;
+}
+
+.standings-logo.is-sard {
+  background: radial-gradient(circle at 50% 40%, #262626, #0e0e0e);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+span.standings-logo { background: rgba(255,255,255,.05); }
+
+.standings tbody tr.is-sard {
+  background: rgba(255,90,0,.10);
+  box-shadow: inset 3px 0 0 var(--orange);
+}
+
+.standings tbody tr.is-sard td.team,
+.standings tbody tr.is-sard .pos {
+  color: var(--orange);
+}
+
+@media (max-width: 700px) {
+  .standings .opt { display: none; }
+  .standings { font-size: 14px; }
+  .standings td.team { font-size: 17px; }
+  .standings-team { gap: 9px; }
+  .standings-logo { width: 28px; height: 28px; }
+  .standings th, .standings td { padding: 9px 6px; }
+}

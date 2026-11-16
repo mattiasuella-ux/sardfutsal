@@ -47,6 +47,9 @@ jobs:
       - name: Generate matches
         run: python scripts/generate_matches.py
 
+      - name: Generate standings
+        run: python scripts/generate_standings.py
+
       - name: Generate news
         run: python scripts/generate_news.py
 

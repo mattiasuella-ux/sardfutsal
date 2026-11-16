@@ -232,6 +232,64 @@ content:
 
 
   # =====================================================
+  # CLASSIFICA (girone, aggiornata a mano)
+  # =====================================================
+
+  - name: classifica
+    label: Classifica
+    type: file
+    path: content/classifica.yml
+    format: yaml
+
+    fields:
+
+      - name: aggiornamento
+        label: Aggiornata a (es. Dopo la 3ª giornata)
+        type: string
+
+      - name: squadre
+        label: Squadre
+        type: object
+        list: true
+        description: "Per ogni squadra inserisci solo vittorie, pareggi, sconfitte e gol: partite giocate, differenza reti e punti li calcola il sito. La tabella si ordina da sola per punti."
+
+        fields:
+
+          - name: team
+            label: Squadra
+            type: string
+            required: true
+
+          - name: logo
+            label: Logo
+            type: image
+
+          - name: won
+            label: Vittorie
+            type: number
+
+          - name: drawn
+            label: Pareggi
+            type: number
+
+          - name: lost
+            label: Sconfitte
+            type: number
+
+          - name: goals_for
+            label: Gol fatti
+            type: number
+
+          - name: goals_against
+            label: Gol subiti
+            type: number
+
+          - name: penalty
+            label: Punti di penalizzazione (se ci sono)
+            type: number
+
+
+  # =====================================================
   # RISULTATI E CALENDARIO
   # =====================================================
 
