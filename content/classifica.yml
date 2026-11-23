@@ -1,38 +1,38 @@
-aggiornamento: "Dopo la 2ª giornata"
+aggiornamento: Dopo la 2ª giornata
 squadre:
-  - team: "PGS Club San Paolo"
+  - team: PGS Club San Paolo
     logo: /images/logo-pgs-club-san-paolo.jpg
-    won: 2
+    won: 3
     drawn: 0
     lost: 0
-    goals_for: 14
-    goals_against: 3
+    goals_for: 20
+    goals_against: 4
     penalty: 0
-  - team: "Carbonia Futsal"
+  - team: Carbonia Futsal
     logo: /images/logo-carbonia-futsal.jpg
-    won: 1
+    won: 0
     drawn: 1
     lost: 0
-    goals_for: 9
-    goals_against: 4
+    goals_for: 18
+    goals_against: 1
     penalty: 0
-  - team: "Sard Futsal"
+  - team: Sard Futsal
     logo: /images/logosardfutsal.png
-    won: 1
+    won: 2
     drawn: 1
     lost: 0
-    goals_for: 5
-    goals_against: 4
+    goals_for: 7
+    goals_against: 5
     penalty: 0
-  - team: "Atletico Capoterra 2025"
+  - team: Atletico Capoterra 2025
     logo: /images/logo-atletico-capoterra.jpg
     won: 1
     drawn: 0
-    lost: 1
-    goals_for: 11
-    goals_against: 9
+    lost: 2
+    goals_for: 12
+    goals_against: 11
     penalty: 0
-  - team: "Mostri della Palude"
+  - team: Mostri della Palude
     logo: /images/logo-mostri-della-palude.webp
     won: 1
     drawn: 0
@@ -40,7 +40,7 @@ squadre:
     goals_for: 3
     goals_against: 1
     penalty: 0
-  - team: "Città di Carbonia"
+  - team: Città di Carbonia
     logo: /images/logo-citta-di-carbonia.jpg
     won: 1
     drawn: 0
@@ -48,7 +48,7 @@ squadre:
     goals_for: 3
     goals_against: 2
     penalty: 0
-  - team: "Futsal 4 Mori"
+  - team: Futsal 4 Mori
     logo: /images/logo-futsal-4-mori.png
     won: 1
     drawn: 0
@@ -56,7 +56,7 @@ squadre:
     goals_for: 13
     goals_against: 15
     penalty: 0
-  - team: "Azzurra Monserrato"
+  - team: Azzurra Monserrato
     logo: /images/logo-azzurra-monserrato.png
     won: 1
     drawn: 0
@@ -64,7 +64,7 @@ squadre:
     goals_for: 7
     goals_against: 11
     penalty: 0
-  - team: "Domus Chia Calcio a 5"
+  - team: Domus Chia Calcio a 5
     logo: /images/logo-domus-chia.png
     won: 0
     drawn: 0
@@ -72,7 +72,7 @@ squadre:
     goals_for: 7
     goals_against: 9
     penalty: 0
-  - team: "Uta Calcio a 5"
+  - team: Uta Calcio a 5
     logo: /images/logo-uta-calcio-a5.png
     won: 0
     drawn: 0
@@ -80,7 +80,7 @@ squadre:
     goals_for: 6
     goals_against: 9
     penalty: 0
-  - team: "Sant'Elena Quartu"
+  - team: Sant'Elena Quartu
     logo: /images/logo-sant-elena-quartu.jpg
     won: 0
     drawn: 0
