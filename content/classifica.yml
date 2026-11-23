@@ -36,17 +36,17 @@ squadre:
     logo: /images/logo-mostri-della-palude.webp
     won: 1
     drawn: 0
-    lost: 0
-    goals_for: 3
-    goals_against: 1
+    lost: 1
+    goals_for: 2
+    goals_against: 8
     penalty: 0
   - team: Città di Carbonia
     logo: /images/logo-citta-di-carbonia.jpg
-    won: 1
+    won: 2
     drawn: 0
     lost: 0
-    goals_for: 3
-    goals_against: 2
+    goals_for: 10
+    goals_against: 3
     penalty: 0
   - team: Futsal 4 Mori
     logo: /images/logo-futsal-4-mori.png
@@ -68,17 +68,17 @@ squadre:
     logo: /images/logo-domus-chia.png
     won: 0
     drawn: 0
-    lost: 2
-    goals_for: 7
-    goals_against: 9
+    lost: 3
+    goals_for: 8
+    goals_against: 15
     penalty: 0
   - team: Uta Calcio a 5
     logo: /images/logo-uta-calcio-a5.png
     won: 0
     drawn: 0
-    lost: 2
+    lost: 3
     goals_for: 6
-    goals_against: 9
+    goals_against: 18
     penalty: 0
   - team: Sant'Elena Quartu
     logo: /images/logo-sant-elena-quartu.jpg
