@@ -10,11 +10,11 @@ squadre:
     penalty: 0
   - team: Carbonia Futsal
     logo: /images/logo-carbonia-futsal.jpg
-    won: 0
+    won: 2
     drawn: 1
     lost: 0
     goals_for: 18
-    goals_against: 1
+    goals_against: 4
     penalty: 0
   - team: Sard Futsal
     logo: /images/logosardfutsal.png
