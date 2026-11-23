@@ -28,7 +28,12 @@ partite:
     opponent: Atletico Capoterra 2025
     venue: Palazzetto Sergio Dessì, Strada 352, Poggio dei Pini, Capoterra
     home_away: Trasferta
-    status: Da giocare
+    status: Terminata
+    sard_goals: 2
+    opponent_goals: 1
+    scorers_away: |-
+      PITZALIS
+      CUCCU M
     home_logo: /images/logo-atletico-capoterra.jpg
   - date: 2026-11-27
     time: 21:30
@@ -36,12 +41,7 @@ partite:
     opponent: Domus Chia Calcio a 5
     venue: Palazzetto dello Sport, Via XXV Aprile, Vallermosa
     home_away: Casa
-    status: Terminata
-    sard_goals: 2
-    opponent_goals: 1
-    scorers_away: |-
-      PITZALIS
-      CUCCU M
+    status: Da giocare
     away_logo: /images/logo-domus-chia.png
   - date: 2026-12-18
     time: 21:30
