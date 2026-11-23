@@ -36,7 +36,12 @@ partite:
     opponent: Domus Chia Calcio a 5
     venue: Palazzetto dello Sport, Via XXV Aprile, Vallermosa
     home_away: Casa
-    status: Da giocare
+    status: Terminata
+    sard_goals: 2
+    opponent_goals: 1
+    scorers_away: |-
+      PITZALIS
+      CUCCU M
     away_logo: /images/logo-domus-chia.png
   - date: 2026-12-18
     time: 21:30
